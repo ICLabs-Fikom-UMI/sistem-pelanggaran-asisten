@@ -1,0 +1,66 @@
+/* BAGIAN BUTTON */
+body{
+    width: 100%;
+}
+.button-style {
+    background-color: #06253A; 
+    color: #fff; 
+    font-size: 20px;
+    margin-right: 5px;
+}
+.button-style:hover {
+    border: 1px solid lightblue;
+    background-color: #06253A;
+    color: #fff;
+}
+
+.Login-Wrap {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../img/login-bg.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form-login{
+    font-size: smaller;
+}
+
+.login-container{
+    border: 1px solid #000;
+}
+
+.login-barrier{
+    background-image: url('../img/Pembatas-Login.png');
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    backdrop-filter: blur(5px); 
+    font-size: 20px;
+}
+
+
+/* ISI KONTEN */
+.container {
+    overflow-x: auto;
+}
+.table {
+    max-width: 100%;
+    overflow-x: auto;
+}
+.table td,
+.table th {
+    word-wrap: break-word;
+}

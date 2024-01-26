@@ -1,0 +1,127 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    font-size: 20px;
+}
+/* .button-style {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+.button-style:hover{
+    background-color: #06253A;
+} */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #06253A;
+    color: white;
+  }
+  
+.table-header{
+    background-color: rgb(224, 224, 224);
+  }
+.icon-delete{
+    align-items: center;
+}
+
+/* BAGIAN NAVBAR */
+/* .custom-navbar{
+    background-color: #06253A;
+} */
+
+/* BAGIAN SIDEBAR */
+#side_nav{
+    background: #000;
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 88vh;
+}
+.content{
+    min-height: 100vh;
+    width: 100%;
+}
+hr.h-color{
+    background: #eee;
+}
+
+.sidebar li.active{
+    background: #eee;
+    border-radius: 8px;
+}
+
+.sidebar li.active a, .sidebar li.active a:hover {
+    color: #000;
+}
+.sidebar li a{
+    color: #fff;
+}
+
+@media(max-width: 767px){
+#side_nav{
+    margin-left: -250px;
+    position: absolute;
+    min-height: 100vh;
+    z-index: 1;
+
+}
+#side_nav.active{
+    margin-left: 0;
+    }
+}
+.sidebar{
+    font-size: 18px;
+}
+.sidebar ul {
+    flex-grow: 1; 
+    overflow-y: auto; 
+}
+
+/* BAGIAN NAVBAR */
+.main-header{
+    font-size: 20px;
+}
+
+/* BAGIAN FOOTER */
+footer {
+    background-color: #777;
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
+
+/* BAGIAN LOGIN */
+.login-box{
+    width: 100%;
+}
+
+
+/* BAGIAN BUTTON */
+.button-style {
+    background-color: #06253A; 
+    color: #fff; 
+    font-size: 20px;
+    margin-right: 5px;
+}
+.button-style:hover {
+    border: 1px solid lightblue;
+    background-color: #06253A;
+    color: #fff;
+}
+
+/* ISI KONTEN */
+.container {
+    overflow-x: auto;
+}
+.table {
+    max-width: 100%;
+    overflow-x: auto;
+}
+.table td,
+.table th {
+    word-wrap: break-word;
+}
