@@ -23,7 +23,7 @@ class Pelanggaran_model{
     }
     public function prosesUbah($data){
         
-        $query = "UPDATE pelanggaran SET pelanggaran = :pelanggaran, tanggal = :tanggal WHERE ID_Pelanggaran = :ID_Pelanggaran";
+        $query = "UPDATE pelanggaran SET pelanggaran = :pelanggaran, tanggal = :tanggal, ID_Asisten = :ID_Asisten, ID_JenisKelakuan = :ID_JenisKelakuan, ID_TindakLanjut = :ID_TindakLanjut WHERE ID_Pelanggaran = :ID_Pelanggaran";
         
         $this->db->query($query);
         $this->db->bind('pelanggaran', $data['pelanggaran']);
@@ -31,6 +31,7 @@ class Pelanggaran_model{
         $this->db->bind('ID_Asisten', $data['ID_Asisten']);
         $this->db->bind('ID_JenisKelakuan', $data['ID_JenisKelakuan']);
         $this->db->bind('ID_TindakLanjut', $data['ID_TindakLanjut']);
+        $this->db->bind('ID_Pelanggaran', $data['ID_Pelanggaran']);
     
         $this->db->execute();
     

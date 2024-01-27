@@ -83,22 +83,20 @@ class Asisten_model{
 
     public function prosesUbah($data){
         
-        $query = "UPDATE asisten SET stambuk = :stambuk, nama = :nama, kelas = :kelas, angkatan = :angkatan, jurusan = :jurusan, status = :status, jenis_kelamin = :jenis_kelamin, tempat_lahir = :tempat_lahir, tanggal_lahir = :tanggal_lahir, agama = :agama, alamat = :alamat, email = :email, no_telp = :no_telp WHERE ID_Asisten = :ID_Asisten";
+        $query = "UPDATE asisten SET stambuk = :stambuk, nama = :nama, ID_Kelas = :ID_Kelas, ID_Angkatan = :ID_Angkatan, 
+        ID_Jurusan = :ID_Jurusan, ID_Status = :ID_Status, jenis_kelamin = :jenis_kelamin, no_telp = :no_telp, 
+        ID_User = :ID_User WHERE ID_Asisten = :ID_Asisten";
         
         $this->db->query($query);
         $this->db->bind('stambuk', $data['stambuk']);
         $this->db->bind('nama', $data['nama']);
-        $this->db->bind('kelas', $data['kelas']);
-        $this->db->bind('angkatan', $data['angkatan']);
-        $this->db->bind('jurusan', $data['jurusan']);
-        $this->db->bind('status', $data['status']);
+        $this->db->bind('ID_Kelas', $data['ID_Kelas']);
+        $this->db->bind('ID_Angkatan', $data['ID_Angkatan']);
+        $this->db->bind('ID_Jurusan', $data['ID_Jurusan']);
+        $this->db->bind('ID_Status', $data['ID_Status']);
         $this->db->bind('jenis_kelamin', $data['jenis_kelamin']);
-        $this->db->bind('tempat_lahir', $data['tempat_lahir']);
-        $this->db->bind('tanggal_lahir', $data['tanggal_lahir']);
-        $this->db->bind('agama', $data['agama']);
-        $this->db->bind('alamat', $data['alamat']);
-        $this->db->bind('email', $data['email']);
         $this->db->bind('no_telp', $data['no_telp']);
+        $this->db->bind('ID_User', $data['ID_User']);
         $this->db->bind('ID_Asisten', $data['ID_Asisten']);
     
         $this->db->execute();

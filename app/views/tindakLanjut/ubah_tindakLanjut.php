@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label for="tindak_lanjut">Tindak Lanjut</label>
                     <input type="text" name="tindak_lanjut" class="form-control" value="<?= $data['ubahdata']['tindak_lanjut']?>">
-                </div>
+                </div><br>
                 <button type="submit" class="btn btn-primary">Ubah Data</button>
             </div>
         </div>

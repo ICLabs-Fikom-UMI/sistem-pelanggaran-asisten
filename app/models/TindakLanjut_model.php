@@ -21,6 +21,7 @@ class TindakLanjut_model{
         
         $this->db->query($query);
         $this->db->bind('tindak_lanjut', $data['tindak_lanjut']);
+        $this->db->bind('ID_TindakLanjut', $data['ID_TindakLanjut']);
     
         $this->db->execute();
     
