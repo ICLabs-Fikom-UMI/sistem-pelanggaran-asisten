@@ -3,6 +3,7 @@
 class TindakLanjut extends Controller {
     public function index()
     {
+        $this->isAdminOrKorlab();
         $data['title'] = 'Data Tindak Lanjut';
         $data['tindakLanjut'] = $this->model('TindakLanjut_model')->tampil();
 
@@ -14,7 +15,8 @@ class TindakLanjut extends Controller {
     }
     public function modalTambah()
     {
-        $data['title'] = 'Tambah Data Data Tindak Lanjut';
+        $this->isAdminOrKorlab();
+        $data['title'] = 'Tambah Data Tindak Lanjut';
 
         $this->view('templates/header', $data);
         $this->view('templates/topbar');
@@ -24,12 +26,14 @@ class TindakLanjut extends Controller {
     }
     public function ubahModal()
     {
+        $this->isAdminOrKorlab();
         $id = $_POST['id'];
         $data['ubahdata'] = $this->model('TindakLanjut_model')->ubah($id);
 
         $this->view('tindakLanjut/ubah_tindakLanjut', $data);
     }
     public function detailtindakLanjut($id){
+        $this->isAdminOrKorlab();
         $data['title'] = 'Detail Data Jenis Kelakuan';
         $data['detail_tindakLanjut'] = $this->model('TindakLanjut_model')->detailtindakLanjut($id);
     
@@ -41,6 +45,7 @@ class TindakLanjut extends Controller {
     }
     
     public function tambah(){
+        $this->isAdminOrKorlab();
         if($this->model('TindakLanjut_model')->tambah($_POST) > 0){
             Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             header('Location: '.BASEURL. '/tindakLanjut');
@@ -48,6 +53,7 @@ class TindakLanjut extends Controller {
         }
     }
     public function prosesUbah(){
+        $this->isAdminOrKorlab();
         if($this->model('TindakLanjut_model')->prosesUbah($_POST) > 0){
             Flasher::setFlash('berhasil', 'diubah', 'success');
             header('Location: '.BASEURL. '/tindakLanjut');
@@ -55,6 +61,7 @@ class TindakLanjut extends Controller {
         }
     }
     public function hapus($id){
+        $this->isAdminOrKorlab();
         if($this->model('TindakLanjut_model')->prosesHapus($id)){
             Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: '.BASEURL. '/tindakLanjut');

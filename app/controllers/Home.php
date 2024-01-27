@@ -3,6 +3,7 @@
 class Home extends Controller {
     public function index()
     {
+        // $this->isAdminOrKorlab();
         $data['title'] = 'Dasboard';
 
         $this->view('templates/header', $data);

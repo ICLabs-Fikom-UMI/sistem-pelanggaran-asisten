@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label for="tindak_lanjut">Tindak Lanjut</label>
                     <input type="text" name="tindak_lanjut" class="form-control" placeholder="Masukkan Tindak Lanjut">
-                </div>
+                </div><br>
                 <button type="submit" class="btn btn-primary btn-style" onclick="window.location.href='index.php';">Tambah</button>
             </div>
         </div>

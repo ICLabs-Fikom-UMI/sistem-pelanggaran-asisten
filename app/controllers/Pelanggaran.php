@@ -15,7 +15,7 @@ class Pelanggaran extends Controller {
     }
     public function modalTambah()
     {
-        $this->isAdmin();
+        $this->isAdminOrKorlab();
         $data['title'] = 'Tambah Data Pelanggaran';
         $data['asistenOptions'] = $this->model('Pelanggaran_model')->tampilAsisten();
         $data['jkOptions'] = $this->model('Pelanggaran_model')->tampilJK();
@@ -29,7 +29,7 @@ class Pelanggaran extends Controller {
     }
     public function ubahModal()
     {
-        $this->isAdmin();
+        $this->isAdminOrKorlab();
         $id = $_POST['id'];
         $data['ubahdata'] = $this->model('Pelanggaran_model')->ubah($id);
 
@@ -72,7 +72,7 @@ class Pelanggaran extends Controller {
     //     }
     // }
     public function tambah() {
-        $this->isAdmin();
+        $this->isAdminOrKorlab();
         $postData = $_POST;
         $asistenInfo = explode(' - ', $postData['selectAsisten']);
     
@@ -99,7 +99,7 @@ class Pelanggaran extends Controller {
     
     
     public function prosesUbah(){
-        $this->isAdmin();
+        $this->isAdminOrKorlab();
         if($this->model('Pelanggaran_model')->prosesUbah($_POST) > 0){
             Flasher::setFlash('berhasil', 'diubah', 'success');
             header('Location: '.BASEURL. '/Pelanggaran');
@@ -107,7 +107,7 @@ class Pelanggaran extends Controller {
         }
     }
     public function hapus($id){
-        $this->isAdmin();
+        $this->isAdminOrKorlab();
         if($this->model('Pelanggaran_model')->prosesHapus($id)){
             Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: '.BASEURL. '/Pelanggaran');

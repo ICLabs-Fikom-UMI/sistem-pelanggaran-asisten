@@ -37,6 +37,15 @@ class Controller
             exit;
         }
     }
+    public function isAdminOrKorlab() {
+        $allowedRoles = ['admin', 'korlab'];
+    
+        if (!in_array($_SESSION['role'], $allowedRoles)) {  
+            header('Location:' . BASEURL);
+            exit;
+        }
+    }
+    
 }
 class Flasher
 {

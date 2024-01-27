@@ -27,7 +27,7 @@
                 <td><?= $pelanggaran['jenis_kelakuan'];?></td>
                 <td align="center"><?= $pelanggaran['tanggal'];?></td>
                 <td align="center"><?= $pelanggaran['tindak_lanjut'];?></td>
-                <?php  if($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
+                <?php if (!($_SESSION['role'] == 'asisten')) : ?>
                 <td align="center">
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                         <a class="btn btn-dark button-style text-center" onclick="ubahdataPelanggaran('<?= $pelanggaran['ID_Pelanggaran']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>

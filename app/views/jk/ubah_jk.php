@@ -7,7 +7,7 @@
                 <div class="form-group">
                     <label for="text">Jenis Kelakuan</label>
                     <input type="text" name="jenis_kelakuan" class="form-control" value="<?= $data['ubahdataJK']['jenis_kelakuan']?>">
-                </div>
+                </div><br>
                 <button type="submit" class="btn btn-primary">Ubah Data</button>
             </div>
         </div>
