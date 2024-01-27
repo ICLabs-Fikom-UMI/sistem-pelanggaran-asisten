@@ -28,6 +28,7 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
+  // DATA ASISTEN
     function ubahdata(x){
         $('.modal-title').html('Ubah Data');
         let url = '<?= BASEURL?>/Asisten/ubahModal';
@@ -48,6 +49,30 @@
     //     });
     //     $('.tombol').html('<a href="<?= BASEURL?>/jk/prosesUbah/'+ jk +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Ubah Data</a>');
     // }
+    function hapus(a){
+      $('.modal-title').html('Hapus Data');
+      $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+      $('.tombol').html('<a href="<?= BASEURL?>/Asisten/hapus/'+ a +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+      $('#close').html('Batal');
+    }
+    // BAGIAN PELANGGARAN
+    function ubahdataPelanggaran(dp){
+        $('.modal-title').html('Ubah Data');
+        let url = '<?= BASEURL?>/Pelanggaran/ubahModal';
+        $.post(url, {
+          id : dp
+        }, function(data, success){
+          $('.modal-body').html(data);
+        });
+        $('.tombol').html('<a href="<?= BASEURL?>/Pelanggaran/prosesUbah/'+ dp +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Ubah Data</a>');
+    }
+    function hapusdataPelanggaran(hdp){
+      $('.modal-title').html('Hapus Data');
+      $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+      $('.tombol').html('<a href="<?= BASEURL?>/Pelanggaran/hapus/'+ hdp +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+      $('#close').html('Batal');
+    }    
+    // BAGIAN JENIS KELAKUAN
     function ubahdataJK(jk){
         $('.modal-title').html('Ubah Data');
         let url = '<?= BASEURL?>/jk/ubahModal';
@@ -58,18 +83,30 @@
         });
         $('.tombol').html('<a href="<?= BASEURL?>/jk/prosesUbah/'+ jk +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Ubah Data</a>');
     }
-    function hapus(a){
-      $('.modal-title').html('Hapus Data');
-      $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-      $('.tombol').html('<a href="<?= BASEURL?>/Asisten/hapus/'+ a +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-      $('#close').html('Batal');
-    }
-    function hapusjk(hjk){
+    function hapusJK(hjk){
       $('.modal-title').html('Hapus Data');
       $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
       $('.tombol').html('<a href="<?= BASEURL?>/jk/hapus/'+ hjk +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
       $('#close').html('Batal');
     }
+    // BAGIAN TINDAK LANJUT
+    function ubahdataTL(tl){
+        $('.modal-title').html('Ubah Data');
+        let url = '<?= BASEURL?>/TindakLanjut/ubahModal';
+        $.post(url, {
+          id : tl
+        }, function(data, success){
+          $('.modal-body').html(data);
+        });
+        $('.tombol').html('<a href="<?= BASEURL?>/TindakLanjut/prosesUbah/'+ tl +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Ubah Data</a>');
+    }
+    function hapusTL(htl){
+      $('.modal-title').html('Hapus Data');
+      $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+      $('.tombol').html('<a href="<?= BASEURL?>/TindakLanjut/hapus/'+ htl +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+      $('#close').html('Batal');
+    }
+    // BAGIAN LOGOUT
     $('#logout').on('click', function() {
       let keluar = '<a href="<?= BASEURL?>/LogIn/logout">Keluar</a>';
       var confirmation = window.confirm('Anda Yakin Akan Keluar');
@@ -100,6 +137,7 @@
         window.alert('Batal');
     }
   });
+
 </script>
 </body>
 </html>

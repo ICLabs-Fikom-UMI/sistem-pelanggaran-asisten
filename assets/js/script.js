@@ -20,7 +20,6 @@
       var confirmation = window.confirm('Anda Yakin Akan Keluar');
       if (confirmation) {
           window.alert('Keluar');
-          // Tambahkan logika untuk proses logout atau aksi lainnya di sini
           keluar;
       } else {
           window.alert('Batal');

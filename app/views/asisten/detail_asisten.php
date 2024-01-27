@@ -13,43 +13,43 @@
             </tr>
             <tr>
                 <td>Kelas</td>
-                <td>: <?= $data['detail_asisten']['kelas']; ?></td>
+                <td>: <?= isset($data['detail_asisten']['ID_Kelas']) ? $this->model('Asisten_model')->getKelasById($data['detail_asisten']['ID_Kelas'])['kelas'] : 'N/A'; ?></td>
             </tr>
             <tr>
                 <td>Angkatan</td>
-                <td>: <?= $data['detail_asisten']['angkatan']; ?></td>
+                <td>: <?= isset($data['detail_asisten']['ID_Angkatan']) ? $this->model('Asisten_model')->getAngkatanById($data['detail_asisten']['ID_Angkatan'])['angkatan'] : 'N/A'; ?></td>
+            </tr>
+            <tr>
+                <td>Jurusan</td>
+                <td>: <?= isset($data['detail_asisten']['ID_Jurusan']) ? $this->model('Asisten_model')->getJurusanById($data['detail_asisten']['ID_Jurusan'])['jurusan'] : 'N/A'; ?></td>
             </tr>
             <tr>
                 <td>Status</td>
-                <td>: <?= $data['detail_asisten']['status']; ?></td>
+                <td>: <?= isset($data['detail_asisten']['ID_Status']) ? $this->model('Asisten_model')->getStatusById($data['detail_asisten']['ID_Status'])['status'] : 'N/A'; ?></td>
             </tr>
             <tr>
                 <td>Jenis Kelamin</td>
                 <td>: <?= $data['detail_asisten']['jenis_kelamin']; ?></td>
             </tr>
             <tr>
-                <td>Tempat Lahir</td>
-                <td>: <?= $data['detail_asisten']['tempat_lahir']; ?></td>
-            </tr>
-            <tr>
-                <td>Tanggal Lahir</td>
-                <td>: <?= $data['detail_asisten']['tanggal_lahir']; ?></td>
-            </tr>
-            <tr>
-                <td>Agama</td>
-                <td>: <?= $data['detail_asisten']['agama']; ?></td>
-            </tr>
-            <tr>
-                <td>Alamat</td>
-                <td>: <?= $data['detail_asisten']['alamat']; ?></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td>: <?= $data['detail_asisten']['email']; ?></td>
-            </tr>
-            <tr>
                 <td>No Telphone</td>
                 <td>: <?= $data['detail_asisten']['no_telp']; ?></td>
+            </tr>
+            <tr>
+                <td>ID User</td>
+                <td>: <?= $data['detail_asisten']['ID_User']; ?> - 
+                    <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['nama'] : 'N/A'; ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td>: <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['username'] : 'N/A'; ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>: <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['password'] : 'N/A'; ?>
+                </td>
             </tr>
         </table>
     </div>

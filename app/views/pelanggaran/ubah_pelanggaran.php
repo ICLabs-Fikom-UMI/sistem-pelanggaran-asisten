@@ -1,7 +1,7 @@
 <!-- BAGIAN UBAH DATA ASISTEN -->
 <div class="container">
     <form action="<?= BASEURL?>/pelanggaran/prosesUbah" method="post">
-    <input type="hidden" value="<?= $data['ubahdata']['ID_Pelanggaran']?>" name="ID_Pelanggaran">
+    <input type="number" value="<?= $data['ubahdata']['ID_Pelanggaran']?>" name="ID_Pelanggaran">
         <div class="row">
             <div class="col-12">
                 <div class="form-group">

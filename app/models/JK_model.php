@@ -17,11 +17,11 @@ class JK_model{
     }
     public function prosesUbah($data){
         
-        $query = "UPDATE jenis_kelakuan SET jenis_kelakuan = :jenis_kelakuan WHERE ID_jenisKelakuan = :ID_jenisKelakuan";
+        $query = "UPDATE jenis_kelakuan SET jenis_kelakuan = :jenis_kelakuan WHERE ID_JenisKelakuan = :ID_JenisKelakuan";
         
         $this->db->query($query);
         $this->db->bind('jenis_kelakuan', $data['jenis_kelakuan']);
-        $this->db->bind('ID_jenisKelakuan', $data['ID_jenisKelakuan']);
+        $this->db->bind('ID_JenisKelakuan', $data['ID_JenisKelakuan']);
     
         $this->db->execute();
     

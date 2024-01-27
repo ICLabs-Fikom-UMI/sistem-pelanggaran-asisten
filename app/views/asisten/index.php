@@ -1,29 +1,29 @@
 <link rel="stylesheet" href="<?=BASEURL;?>/assets/css/style2.css">
 <!-- BAGIAN DATA ASISTEN -->
 <div class="container"><br>
-<a href="<?= BASEURL?>/Asisten/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a>
+<a href="<?= BASEURL?>/asisten/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a>
     <h4><?= $data['title'];?></h4>
-    <table class="table table-striped">
-    <thead>
+    <table class="table table-hover">
+    <thead class="table-light">
         <tr class="table-header" style="background: #EFEDED">
-        <th scope="col">No</th>
+        <th scope="col" class="text-center" style="width:5%;">No</th>
         <th scope="col">Stambuk</th>
         <th scope="col">Nama</th>
-        <th scope="col">Kelas</th>
-        <th scope="col">Angkatan</th>
-        <th scope="col">Status</th>
-        <th scope="col" colspan="3" class="text-center">Menu</th>
+        <th scope="col" class="text-center">Kelas</th>
+        <th scope="col" class="text-center">Angkatan</th>
+        <th scope="col" class="text-center">Status</th>
+        <th  colspan="3" class="text-center">Menu</th>
         </tr>
     </thead>
     <tbody>
         <?php $no=0; foreach  ($data['asisten'] as $asisten) : $no++;?>
         <tr>
-            <td><?= $no;?></td>
+            <td align="center"><?= $no;?></td>
             <td><?= $asisten['stambuk'];?></td>
             <td><?= $asisten['nama'];?></td>
-            <td><?= $asisten['kelas'];?></td>
-            <td><?= $asisten['angkatan'];?></td>
-            <td><?= $asisten['status'];?></td>            
+            <td align="center"><?= $asisten['kelas'];?></td>
+            <td align="center"><?= $asisten['angkatan'];?></td>
+            <td align="center"><?= $asisten['status'];?></td>            
             <td align="center">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                     <a class="btn btn-dark button-style text-center" onclick="ubahdata('<?= $asisten['ID_Asisten']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>

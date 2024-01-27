@@ -5,11 +5,29 @@ class Asisten_model{
     public function __construct(){
         $this->db = new Database;
     }
-    public function tambah($data){
-        $query = "INSERT INTO asisten VALUES ('', :stambuk, :nama, :jenis_kelamin, :no_telp, :ID_Kelas, :ID_Angkatan, :ID_Jurusan, :ID_Status, :ID_User)";
-        // $query = "INSERT INTO asisten (stambuk, nama, kelas, angkatan, jurusan, status, jenis_kelamin, tempat_lahir, tanggal_lahir, agama, alamat, email, no_telp, ID_Login)
-        //       VALUES (:stambuk, :nama, :kelas, :angkatan, :jurusan, :status, :jenis_kelamin, :tempat_lahir, :tanggal_lahir, :agama, :alamat, :email, :no_telp, :ID_Login)";
+    // public function tambah($data){
+    //     $query = "INSERT INTO asisten VALUES ('', :stambuk, :nama, :jenis_kelamin, :no_telp, :ID_Kelas, :ID_Angkatan, :ID_Jurusan, :ID_Status, :ID_User)";
+       
+    //     $this->db->query($query);
+    //     $this->db->bind('stambuk', $data['stambuk']);
+    //     $this->db->bind('nama', $data['nama']);
+    //     $this->db->bind('jenis_kelamin', $data['jenis_kelamin']);
+    //     $this->db->bind('no_telp', $data['no_telp']);
+    //     $this->db->bind('ID_Kelas', $data['ID_Kelas']);
+    //     $this->db->bind('ID_Angkatan', $data['ID_Angkatan']);
+    //     $this->db->bind('ID_Jurusan', $data['ID_Jurusan']);
+    //     $this->db->bind('ID_Status', $data['ID_Status']);
+    //     $this->db->bind('ID_User', $data['ID_User']);
 
+    //     $this->db->execute();
+
+    //     return $this->db->rowCount();
+    // }
+    public function tambah($data){
+        // $query = "INSERT INTO asisten VALUES ('', :stambuk, :nama, :jenis_kelamin, :no_telp, :ID_Kelas, :ID_Angkatan, :ID_Jurusan, :ID_Status, :ID_User)";
+        $query = "INSERT INTO asisten (stambuk, nama, jenis_kelamin, no_telp, ID_Kelas, ID_Angkatan, ID_Jurusan, ID_Status, ID_User) 
+          VALUES (:stambuk, :nama, :jenis_kelamin, :no_telp, :ID_Kelas, :ID_Angkatan, :ID_Jurusan, :ID_Status, :ID_User)";
+        
         $this->db->query($query);
         $this->db->bind('stambuk', $data['stambuk']);
         $this->db->bind('nama', $data['nama']);
@@ -20,16 +38,48 @@ class Asisten_model{
         $this->db->bind('ID_Jurusan', $data['ID_Jurusan']);
         $this->db->bind('ID_Status', $data['ID_Status']);
         $this->db->bind('ID_User', $data['ID_User']);
-
+    
         $this->db->execute();
-
+    
         return $this->db->rowCount();
     }
+    
     public function getAvailableUserIDs() {
-        $query = "SELECT ID_Login FROM user";
+        $query = "SELECT ID_User FROM user";
         $this->db->query($query);
         return $this->db->resultSet();
     }
+    public function getKelasById($id) {
+        $query = "SELECT * FROM kelas WHERE ID_Kelas = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+    public function getAngkatanById($id) {
+        $query = "SELECT * FROM angkatan WHERE ID_Angkatan = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+    public function getJurusanById($id) {
+        $query = "SELECT * FROM jurusan WHERE ID_Jurusan = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+    public function getStatusById($id) {
+        $query = "SELECT * FROM status WHERE ID_Status = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+    public function getUserById($id) {
+        $query = "SELECT * FROM user WHERE ID_User = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+    
 
     public function prosesUbah($data){
         
@@ -56,7 +106,12 @@ class Asisten_model{
         return $this->db->rowCount();
     }
     public function tampil(){
-        $this->db->query("SELECT * FROM asisten ORDER BY ID_Asisten ASC");
+        $query = "SELECT asisten.ID_Asisten, asisten.stambuk, asisten.nama, kelas.kelas, angkatan.angkatan, status.status 
+                    FROM asisten
+                    JOIN kelas ON asisten.ID_Kelas = kelas.ID_Kelas
+                    JOIN angkatan ON asisten.ID_Angkatan = angkatan.ID_Angkatan
+                    JOIN status ON asisten.ID_Status = status.ID_Status;";
+        $this->db->query($query);
         return $this->db->resultSet();
     }
     public function getAsistenIdByStambuk($stambuk) {
@@ -86,5 +141,27 @@ class Asisten_model{
         $this->db->bind("id", $id);
         
         return $this->db->single(); 
-    }        
+    }   
+    
+    // PERCOBAAN
+    public function tampilKelas(){
+        $this->db->query("SELECT ID_Kelas, kelas FROM kelas");
+        return $this->db->resultSet();
+    }
+    public function tampilAngkatan(){
+        $this->db->query("SELECT ID_Angkatan, angkatan FROM angkatan");
+        return $this->db->resultSet();
+    }
+    public function tampilJurusan(){
+        $this->db->query("SELECT ID_Jurusan, jurusan FROM jurusan");
+        return $this->db->resultSet();
+    }
+    public function tampilStatus(){
+        $this->db->query("SELECT ID_Status, status FROM status");
+        return $this->db->resultSet();
+    }
+    public function tampilUser(){
+        $this->db->query("SELECT ID_User, nama FROM user");
+        return $this->db->resultSet();
+    }
 }

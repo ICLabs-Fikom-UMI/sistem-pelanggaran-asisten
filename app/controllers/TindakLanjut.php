@@ -41,21 +41,21 @@ class TindakLanjut extends Controller {
     }
     
     public function tambah(){
-        if($this->model('tindakLanjut_model')->tambah($_POST) > 0){
+        if($this->model('TindakLanjut_model')->tambah($_POST) > 0){
             Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             header('Location: '.BASEURL. '/tindakLanjut');
             exit;
         }
     }
     public function prosesUbah(){
-        if($this->model('tindakLanjut_model')->prosesUbah($_POST) > 0){
+        if($this->model('TindakLanjut_model')->prosesUbah($_POST) > 0){
             Flasher::setFlash('berhasil', 'diubah', 'success');
             header('Location: '.BASEURL. '/tindakLanjut');
             exit;
         }
     }
     public function hapus($id){
-        if($this->model('tindakLanjut_model')->prosesHapus($id)){
+        if($this->model('TindakLanjut_model')->prosesHapus($id)){
             Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: '.BASEURL. '/tindakLanjut');
             exit;
