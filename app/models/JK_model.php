@@ -53,4 +53,9 @@ class JK_model{
         
         return $this->db->single(); 
     }        
+    public function jumlahDataJenisKelakuan() {
+        $this->db->query("SELECT COUNT(*) as jumlah FROM jenis_kelakuan");
+        $result = $this->db->single();
+        return $result['jumlah'];
+    }
 }

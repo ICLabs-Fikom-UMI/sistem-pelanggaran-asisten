@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="<?=BASEURL;?>/assets/css/style2.css">
 <!-- BAGIAN DATA PELANGGARAN -->
 <div class="container"><br>
+    <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
     <a href="<?= BASEURL?>/Pelanggaran/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a>
+    <?php endif;?>
     <h4><?= $data['title'];?></h4>
     <div class="col-12">
         <table class="table table-hover">

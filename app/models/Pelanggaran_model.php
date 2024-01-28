@@ -109,5 +109,11 @@ class Pelanggaran_model{
     }
     
     
+    // UNTUK BAGIAN DASBOARD
+    public function jumlahDataPelanggaran() {
+        $this->db->query("SELECT COUNT(*) as jumlah FROM pelanggaran");
+        $result = $this->db->single();
+        return $result['jumlah'];
+    }
        
 }

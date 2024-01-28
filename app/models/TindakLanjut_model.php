@@ -52,5 +52,10 @@ class TindakLanjut_model{
         $this->db->bind("id", $id);
         
         return $this->db->single(); 
-    }        
+    }   
+    public function jumlahDataTindakLanjut() {
+        $this->db->query("SELECT COUNT(*) as jumlah FROM tindak_lanjut");
+        $result = $this->db->single();
+        return $result['jumlah'];
+    }     
 }

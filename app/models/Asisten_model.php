@@ -162,4 +162,9 @@ class Asisten_model{
         $this->db->query("SELECT ID_User, nama FROM user");
         return $this->db->resultSet();
     }
+    public function jumlahDataAsisten() {
+        $this->db->query("SELECT COUNT(*) as jumlah FROM asisten");
+        $result = $this->db->single();
+        return $result['jumlah'];
+    }
 }
