@@ -16,7 +16,20 @@ class Login_model {
         
         return $this->db->single();
     }
-
+    public function getNamaUser($username) {
+        $query = 'SELECT nama FROM ' . $this->table . ' WHERE username = :username';
+    
+        $this->db->query($query);
+        $this->db->bind('username', $username);
+    
+        $result = $this->db->single();
+    
+        if ($result) {
+            return $result['nama'];
+        } else {
+            return false;
+        }
+    }
     public function isDefaultPassword($password) {
         $defaultPasswords = ['admin', 'korlab', 'asisten'];
         

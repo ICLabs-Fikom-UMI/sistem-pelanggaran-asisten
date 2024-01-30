@@ -16,16 +16,11 @@ class Pelanggaran extends Controller {
     public function modalTambah()
     {
         $this->isAdminOrKorlab();
-        $data['title'] = 'Tambah Data Pelanggaran';
         $data['asistenOptions'] = $this->model('Pelanggaran_model')->tampilAsisten();
         $data['jkOptions'] = $this->model('Pelanggaran_model')->tampilJK();
         $data['TindakLanjutOptions'] = $this->model('Pelanggaran_model')->tampilTindakLanjut();
 
-        $this->view('templates/header', $data);
-        $this->view('templates/topbar');
-        $this->view('templates/sidebar', $data);
         $this->view('pelanggaran/tambah_data', $data);
-        $this->view('templates/footer');
     }
     public function ubahModal()
     {

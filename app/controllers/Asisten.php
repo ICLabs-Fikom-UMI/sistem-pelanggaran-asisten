@@ -16,7 +16,6 @@ class Asisten extends Controller {
     public function modalTambah()
     {
         $this->isAdmin();
-        $data['title'] = 'Tambah Data Asisten';
 
         $data['kelasOptions'] = $this->model('Asisten_model')->tampilKelas();
         $data['angkatanOptions'] = $this->model('Asisten_model')->tampilAngkatan();
@@ -24,11 +23,7 @@ class Asisten extends Controller {
         $data['statusOptions'] = $this->model('Asisten_model')->tampilStatus();
         $data['userOptions'] = $this->model('Asisten_model')->tampilUser();
 
-        $this->view('templates/header', $data);
-        $this->view('templates/topbar');
-        $this->view('templates/sidebar', $data);
         $this->view('asisten/tambah_data', $data);
-        $this->view('templates/footer');
     }
     public function ubahModal()
     {

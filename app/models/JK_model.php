@@ -6,7 +6,8 @@ class JK_model{
         $this->db = new Database;
     }
     public function tambah($data){
-        $query = "INSERT INTO jenis_kelakuan VALUES ('', :jenis_kelakuan)";
+        $query = "INSERT INTO jenis_kelakuan (jenis_kelakuan) VALUES (:jenis_kelakuan)";
+        // $query = "INSERT INTO jenis_kelakuan VALUES ('', :jenis_kelakuan)";
  
         $this->db->query($query);
         $this->db->bind('jenis_kelakuan', $data['jenis_kelakuan']);

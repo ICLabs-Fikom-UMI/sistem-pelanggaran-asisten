@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="<?=BASEURL;?>/assets/css/style2.css">
 <!-- BAGIAN DATA JENIS KELAKUAN -->
 <div class="container"><br>
-    <a href="<?= BASEURL?>/JK/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a>
+    <!-- <a href="<?= BASEURL?>/JK/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
+    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataJK()">Tambah Data</a>
     <h4><?= $data['title'];?></h4>
     <table class="table table-hover">
     <thead class="table-light">

@@ -131,12 +131,44 @@
             },
             error: function() {
                 window.alert('Gagal Keluar');
-            }
+              }
+          });
+      } else {
+          window.alert('Batal');
+      }
+    });
+    function tambahDataTL() {
+        $('.modal-title').html('Tambah Data');
+        let url = '<?= BASEURL ?>/TindakLanjut/modalTambah';
+        $.get(url, function (data, success) {
+            $('.modal-body').html(data);
         });
-    } else {
-        window.alert('Batal');
+        $('.tombol').html('<button type="submit" class="btn btn-primary">Tambah Data</button>');
     }
-  });
+    function tambahDataPelanggaran() {
+        $('.modal-title').html('Tambah Data');
+        let url = '<?= BASEURL ?>/Pelanggaran/modalTambah';
+        $.get(url, function (data, success) {
+            $('.modal-body').html(data);
+        });
+        $('.tombol').html('<button type="submit" class="btn btn-primary">Tambah Data</button>');
+    }
+    function tambahDataJK() {
+        $('.modal-title').html('Tambah Data');
+        let url = '<?= BASEURL ?>/JK/modalTambah';
+        $.get(url, function (data, success) {
+            $('.modal-body').html(data);
+        });
+        $('.tombol').html('<button type="submit" class="btn btn-primary">Tambah Data</button>');
+    }
+    function tambahDataAsisten() {
+        $('.modal-title').html('Tambah Data');
+        let url = '<?= BASEURL ?>/Asisten/modalTambah';
+        $.get(url, function (data, success) {
+            $('.modal-body').html(data);
+        });
+        $('.tombol').html('<button type="submit" class="btn btn-primary">Tambah Data</button>');
+    }
 
 </script>
 </body>

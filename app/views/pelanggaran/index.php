@@ -2,7 +2,8 @@
 <!-- BAGIAN DATA PELANGGARAN -->
 <div class="container"><br>
     <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
-    <a href="<?= BASEURL?>/Pelanggaran/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a>
+    <!-- <a href="<?= BASEURL?>/Pelanggaran/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
+    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataPelanggaran()">Tambah Data</a>
     <?php endif;?>
     <h4><?= $data['title'];?></h4>
     <div class="col-12">

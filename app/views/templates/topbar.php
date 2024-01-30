@@ -1,6 +1,10 @@
+<!-- <?php
+  session_start();
+  $id = $_SESSION['ID_User'];
+?> -->
 <?php
   session_start();
-  $nama = $_SESSION['ID_User'];
+  $nama_user = isset($_SESSION['ID_User']) ? $_SESSION['nama'] : '';
 ?>
 <!-- BAGIAN TOPBAR -->
 <body>
@@ -18,7 +22,8 @@
               <i class="far fa-user"></i> 
           </div>
           <div class="info" style="margin-right: 30px;"  data-bs-toggle="modal" data-bs-target="myModal">
-              <a href="<?= BASEURL ?>" class="d-block" style="color: #ffffff; text-decoration:none;"><?= $nama ?></a>
+              <!-- <a href="<?= BASEURL ?>" class="d-block" style="color: #ffffff; text-decoration:none;"><?= $id ?></a> -->
+              <a href="<?= BASEURL ?>" class="d-block" style="color: #ffffff; text-decoration:none;"><?= $nama_user ?></a>
           </div>
           <div>
               <li class="nav-item mr-2">

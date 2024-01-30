@@ -16,13 +16,13 @@ class JK extends Controller {
     public function modalTambah()
     {
         $this->isAdminOrKorlab();
-        $data['title'] = 'Tambah Data Jenis Kelakuan';
+        // $data['title'] = 'Tambah Data Jenis Kelakuan';
 
-        $this->view('templates/header', $data);
-        $this->view('templates/topbar');
-        $this->view('templates/sidebar', $data);
-        $this->view('jk/tambah_data', $data);
-        $this->view('templates/footer');
+        // $this->view('templates/header', $data);
+        // $this->view('templates/topbar');
+        // $this->view('templates/sidebar', $data);
+        $this->view('jk/tambah_data');
+        // $this->view('templates/footer');
     }
     public function ubahModal()
     {

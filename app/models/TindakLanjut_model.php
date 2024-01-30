@@ -6,7 +6,7 @@ class TindakLanjut_model{
         $this->db = new Database;
     }
     public function tambah($data){
-        $query = "INSERT INTO tindak_lanjut VALUES ('', :tindak_lanjut)";
+        $query = "INSERT INTO tindak_lanjut (tindak_lanjut) VALUES (:tindak_lanjut)";
  
         $this->db->query($query);
         $this->db->bind('tindak_lanjut', $data['tindak_lanjut']);
