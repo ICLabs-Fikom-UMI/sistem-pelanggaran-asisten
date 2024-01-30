@@ -79,6 +79,12 @@ class Asisten_model{
         $this->db->bind('id', $id);
         return $this->db->single();
     }
+    public function getAsistenById($id) {
+        $query = "SELECT * FROM asisten WHERE ID_Asisten = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
     
 
     public function prosesUbah($data){

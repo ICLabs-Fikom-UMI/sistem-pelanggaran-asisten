@@ -17,14 +17,29 @@
                     <input type="number" name="ID_Asisten" class="form-control" value="<?= $data['ubahdata']['ID_Asisten']?>">
                 </div>
                 <div class="form-group">
-                    <label for="ID_JenisKelakuan">ID Jenis Kelakuan</label>
-                    <input type="number" name="ID_JenisKelakuan" class="form-control" value="<?= $data['ubahdata']['ID_JenisKelakuan']?>">
+                    <label for="ID_JenisKelakuan">Jenis Kelakuan</label>
+                    <select name="ID_JenisKelakuan" class="form-control">
+                        <option value="">Pilih Jenis Kelakuan</option>
+                        <?php
+                        foreach ($data['jkOptions'] as $jeniskelakuan) {
+                            $selected = ($jeniskelakuan['ID_JenisKelakuan'] == $data['ubahdata']['ID_JenisKelakuan']) ? 'selected' : '';
+                            echo "<option value='{$jeniskelakuan['ID_JenisKelakuan']}' {$selected}>ID {$jeniskelakuan['ID_JenisKelakuan']} - {$jeniskelakuan['jenis_kelakuan']}</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="ID_TindakLanjut">ID Tindak Lanjut</label>
-                    <input type="number" name="ID_TindakLanjut" class="form-control" value="<?= $data['ubahdata']['ID_TindakLanjut']?>">
-                </div><br>
-                
+                    <label for="ID_TindakLanjut">Tindak Lanjut</label>
+                    <select name="ID_TindakLanjut" class="form-control">
+                        <option value="">Pilih Tindak Lanjut</option>
+                        <?php
+                        foreach ($data['TindakLanjutOptions'] as $tindaklanjut) {
+                            $selected = ($tindaklanjut['ID_TindakLanjut'] == $data['ubahdata']['ID_TindakLanjut']) ? 'selected' : '';
+                            echo "<option value='{$tindaklanjut['ID_TindakLanjut']}' {$selected}>ID {$tindaklanjut['ID_TindakLanjut']} - {$tindaklanjut['tindak_lanjut']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Ubah Data</button>
             </div>
         </div>

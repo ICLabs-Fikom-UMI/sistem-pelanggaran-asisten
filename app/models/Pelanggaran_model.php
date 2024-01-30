@@ -115,5 +115,21 @@ class Pelanggaran_model{
         $result = $this->db->single();
         return $result['jumlah'];
     }
+
+    // UNTUK DETAIL ID
+    public function getJenisKelakuanDetailById($id) {
+        $query = "SELECT * FROM jenis_kelakuan WHERE ID_JenisKelakuan = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+    
+    public function getTindakLanjutDetailById($id) {
+        $query = "SELECT * FROM tindak_lanjut WHERE ID_TindakLanjut = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
+    
        
 }

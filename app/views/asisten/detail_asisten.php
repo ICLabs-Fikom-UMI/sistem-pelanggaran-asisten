@@ -49,7 +49,11 @@
             <tr>
                 <td>Password</td>
                 <td>: <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['password'] : 'N/A'; ?>
-                </td>
+            </td>
+            </tr>
+            <tr>
+                <td>ID Asisten</td>
+                <td>: <?= $data['detail_asisten']['ID_Asisten']; ?></td>
             </tr>
         </table>
     </div>
