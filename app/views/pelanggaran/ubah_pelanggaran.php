@@ -39,7 +39,7 @@
                         }
                         ?>
                     </select>
-                </div>
+                </div>                
                 <button type="submit" class="btn btn-primary">Ubah Data</button>
             </div>
         </div>

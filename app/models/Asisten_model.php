@@ -85,8 +85,6 @@ class Asisten_model{
         $this->db->bind('id', $id);
         return $this->db->single();
     }
-    
-
     public function prosesUbah($data){
         
         $query = "UPDATE asisten SET stambuk = :stambuk, nama = :nama, ID_Kelas = :ID_Kelas, ID_Angkatan = :ID_Angkatan, 

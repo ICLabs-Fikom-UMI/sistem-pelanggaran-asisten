@@ -70,6 +70,10 @@ class Pelanggaran_model{
         $this->db->query("SELECT ID_TindakLanjut, tindak_lanjut FROM tindak_lanjut");
         return $this->db->resultSet();
     }
+    public function tampilKelas(){
+        $this->db->query("SELECT ID_Kelas, kelas FROM kelas");
+        return $this->db->resultSet();
+    }
     
     public function ubah($id){
         $this->db->query("SELECT * FROM pelanggaran WHERE ID_Pelanggaran = :id");

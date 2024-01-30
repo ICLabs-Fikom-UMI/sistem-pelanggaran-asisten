@@ -35,6 +35,17 @@ class Asisten extends Controller {
         $this->isAdmin();
         $id = $_POST['id'];
         $data['ubahdata'] = $this->model('Asisten_model')->ubah($id);
+        $data['kelasOptions'] = $this->model('Asisten_model')->tampilKelas();
+        $data['angkatanOptions'] = $this->model('Asisten_model')->tampilAngkatan();
+        $data['jurusanOptions'] = $this->model('Asisten_model')->tampilJurusan();
+        $data['statusOptions'] = $this->model('Asisten_model')->tampilStatus();
+        $data['userOptions'] = $this->model('Asisten_model')->tampilUser();
+
+        $data['kelasDetail'] = $this->model('Asisten_model')->getKelasById($data['ubahdata']['ID_Kelas']);
+        $data['angkatanDetail'] = $this->model('Asisten_model')->getAngkatanById($data['ubahdata']['ID_Angkatan']);
+        $data['jurusanDetail'] = $this->model('Asisten_model')->getJurusanById($data['ubahdata']['ID_Jurusan']);
+        $data['statusDetail'] = $this->model('Asisten_model')->getStatusById($data['ubahdata']['ID_Status']);
+        $data['userDetail'] = $this->model('Asisten_model')->getUserById($data['ubahdata']['ID_User']);
 
         $this->view('asisten/ubah_asisten', $data);
     }

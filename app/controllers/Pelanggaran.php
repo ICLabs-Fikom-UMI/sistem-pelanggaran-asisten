@@ -36,7 +36,6 @@ class Pelanggaran extends Controller {
         $data['jkOptions'] = $this->model('Pelanggaran_model')->tampilJK();
         $data['TindakLanjutOptions'] = $this->model('Pelanggaran_model')->tampilTindakLanjut();
 
-        // Selain itu, dapatkan informasi detail untuk ID yang dipilih
         $data['asistenDetail'] = $this->model('Asisten_model')->getAsistenById($data['ubahdata']['ID_Asisten']);
         $data['jkDetail'] = $this->model('Pelanggaran_model')->getJenisKelakuanDetailById($data['ubahdata']['ID_JenisKelakuan']);
         $data['tindaklanjutDetail'] = $this->model('Pelanggaran_model')->getTindakLanjutDetailById($data['ubahdata']['ID_TindakLanjut']);
