@@ -74,7 +74,6 @@ class Pelanggaran_model{
         $this->db->query("SELECT ID_Kelas, kelas FROM kelas");
         return $this->db->resultSet();
     }
-    
     public function ubah($id){
         $this->db->query("SELECT * FROM pelanggaran WHERE ID_Pelanggaran = :id");
         $this->db->bind("id", $id);
@@ -82,7 +81,6 @@ class Pelanggaran_model{
         return $this->db->single(); 
     }
     public function prosesHapus($id){
-
         $query = "DELETE FROM pelanggaran WHERE ID_Pelanggaran = :id";
 
         $this->db->query($query);
@@ -96,30 +94,62 @@ class Pelanggaran_model{
         $this->db->bind("id", $id);
         
         return $this->db->single(); 
-    }     
-    // public function tampilDataPelanggaran() {
-    //     $this->db->query("SELECT pelanggaran.*, asisten.stambuk, asisten.nama FROM pelanggaran
-    //                      INNER JOIN asisten ON pelanggaran.ID_Asisten = asisten.ID_Asisten
-    //                      ORDER BY pelanggaran.ID_Pelanggaran ASC");
-    //     return $this->db->resultSet();
-    // }
-    public function tampilDataPelanggaran() {
-        $this->db->query("SELECT pelanggaran.*, asisten.stambuk AS stambuk, asisten.nama  AS nama
-                         FROM pelanggaran
-                         INNER JOIN asisten ON pelanggaran.ID_Asisten = asisten.ID_Asisten
-                         ORDER BY pelanggaran.ID_Pelanggaran ASC");
+    } 
+    // SYNTAX 1 UNTUK ADMIN DAN KORLAB    
+    public function tampilDataPelanggaranAdminKorlab() {
+        $this->db->query("SELECT 
+                            pelanggaran.ID_Pelanggaran, 
+                            pelanggaran.pelanggaran, 
+                            asisten.stambuk AS stambuk, 
+                            asisten.nama AS nama, 
+                            jenis_kelakuan.jenis_kelakuan AS jenis_kelakuan, 
+                            tindak_lanjut.tindak_lanjut AS tindak_lanjut,
+                            pelanggaran.tanggal
+                        FROM pelanggaran
+                        JOIN asisten ON pelanggaran.ID_Asisten = asisten.ID_Asisten
+                        LEFT JOIN jenis_kelakuan ON pelanggaran.ID_JenisKelakuan = jenis_kelakuan.ID_JenisKelakuan
+                        LEFT JOIN tindak_lanjut ON pelanggaran.ID_TindakLanjut = tindak_lanjut.ID_TindakLanjut
+                        ORDER BY pelanggaran.tanggal ASC;
+                        ");
     
         return $this->db->resultSet();
     }
-    
-    
+    // SYNTAX 2 UNTUK ASISTEN
+    public function tampilDataPelanggaranAsisten()
+    {
+        $idAsisten = $_SESSION['ID_Asisten'];
+        $query = "SELECT 
+                    pelanggaran.ID_Pelanggaran, 
+                    pelanggaran.pelanggaran, 
+                    -- asisten.nama, 
+                    -- asisten.stambuk, 
+                    jenis_kelakuan.jenis_kelakuan, 
+                    pelanggaran.tanggal, 
+                    tindak_lanjut.tindak_lanjut
+                FROM 
+                    pelanggaran
+                -- JOIN 
+                --     asisten ON pelanggaran.ID_Asisten = asisten.ID_Asisten
+                JOIN 
+                    jenis_kelakuan ON pelanggaran.ID_JenisKelakuan = jenis_kelakuan.ID_JenisKelakuan
+                JOIN 
+                    tindak_lanjut ON pelanggaran.ID_TindakLanjut = tindak_lanjut.ID_TindakLanjut
+                WHERE 
+                    pelanggaran.ID_Asisten = :idAsisten
+                ";
+
+        $this->db->query($query);
+        $this->db->bind('idAsisten', $idAsisten);
+
+        return $this->db->resultSet();
+    }
+
     // UNTUK BAGIAN DASBOARD
     public function jumlahDataPelanggaran() {
         $this->db->query("SELECT COUNT(*) as jumlah FROM pelanggaran");
         $result = $this->db->single();
         return $result['jumlah'];
     }
-
     // UNTUK DETAIL ID
     public function getJenisKelakuanDetailById($id) {
         $query = "SELECT * FROM jenis_kelakuan WHERE ID_JenisKelakuan = :id";
@@ -127,13 +157,36 @@ class Pelanggaran_model{
         $this->db->bind('id', $id);
         return $this->db->single();
     }
-    
     public function getTindakLanjutDetailById($id) {
         $query = "SELECT * FROM tindak_lanjut WHERE ID_TindakLanjut = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
         return $this->db->single();
     }
-    
-       
+    public function tampilByAsisten($idAsisten)
+    {
+        $query = "SELECT
+                    pelanggaran.ID_Pelanggaran,
+                    asisten.stambuk,
+                    asisten.nama,
+                    pelanggaran.pelanggaran,
+                    pelanggaran.tanggal,
+                    tindak_lanjut.tindak_lanjut,
+                    jenis_kelakuan.jenis_kelakuan
+                FROM
+                    pelanggaran
+                JOIN
+                    asisten ON pelanggaran.ID_Asisten = asisten.ID_Asisten
+                JOIN
+                    tindak_lanjut ON pelanggaran.ID_TindakLanjut = tindak_lanjut.ID_TindakLanjut
+                JOIN
+                    jenis_kelakuan ON pelanggaran.ID_JenisKelakuan = jenis_kelakuan.ID_JenisKelakuan
+                WHERE
+                    asisten.ID_Asisten = :idAsisten";
+
+        $this->db->query($query);
+        $this->db->bind('idAsisten', $idAsisten);
+
+        return $this->db->resultSet();
+    }
 }

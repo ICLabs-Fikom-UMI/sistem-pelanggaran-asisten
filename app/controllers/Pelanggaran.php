@@ -3,8 +3,16 @@
 class Pelanggaran extends Controller {
     public function index()
     {
+        $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
+
         $data['title'] = 'Data Pelanggaran';
-        $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampil();
+        
+        if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') {
+            $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAdminKorlab();
+        } else {
+            $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAsisten();
+        }
+
         $data['TindakLanjutOptions'] = $this->model('Pelanggaran_model')->tampilTindakLanjut();
 
         $this->view('templates/header', $data);
@@ -47,38 +55,11 @@ class Pelanggaran extends Controller {
         $this->view('pelanggaran/index', $data);
         $this->view('templates/footer');
     }
-    
-    
-    // public function tambah(){
-    //     if($this->model('Pelanggaran_model')->tambah($_POST) > 0){
-    //         Flasher::setFlash('berhasil', 'ditambahkan', 'success');
-    //         header('Location: '.BASEURL. '/Pelanggaran');
-    //         exit;
-    //     }
-    // }
-    // public function tambah(){
-    //     $postData = $_POST;
-    //     $asistenInfo = explode(' - ', $postData['selectAsisten']);
-    
-    //     $data = [
-    //         'detail_pelanggaran' => $postData['detail_pelanggaran'],
-    //         'tanggal' => $postData['tanggal'],
-    //         'stambuk' => $asistenInfo[0], 
-    //         'ID_jenisKelakuan' => $postData['ID_jenisKelakuan']
-    //     ];
-    
-    //     if ($this->model('Pelanggaran_model')->tambah($data) > 0){
-    //         Flasher::setFlash('berhasil', 'ditambahkan', 'success');
-    //         header('Location: '.BASEURL. '/Pelanggaran');
-    //         exit;
-    //     }
-    // }
     public function tambah() {
         $this->isAdminOrKorlab();
         $postData = $_POST;
         $asistenInfo = explode(' - ', $postData['selectAsisten']);
     
-        // Dapatkan ID_Asisten berdasarkan Stambuk
         $asistenId = $this->model('Asisten_model')->getAsistenIdByStambuk($asistenInfo[0]);
         $data['asistenOptions'] = $this->model('Pelanggaran_model')->tampilAsisten();
         $data['jkOptions'] = $this->model('Pelanggaran_model')->tampilJK();

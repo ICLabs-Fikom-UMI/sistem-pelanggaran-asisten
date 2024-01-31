@@ -5,24 +5,6 @@ class Asisten_model{
     public function __construct(){
         $this->db = new Database;
     }
-    // public function tambah($data){
-    //     $query = "INSERT INTO asisten VALUES ('', :stambuk, :nama, :jenis_kelamin, :no_telp, :ID_Kelas, :ID_Angkatan, :ID_Jurusan, :ID_Status, :ID_User)";
-       
-    //     $this->db->query($query);
-    //     $this->db->bind('stambuk', $data['stambuk']);
-    //     $this->db->bind('nama', $data['nama']);
-    //     $this->db->bind('jenis_kelamin', $data['jenis_kelamin']);
-    //     $this->db->bind('no_telp', $data['no_telp']);
-    //     $this->db->bind('ID_Kelas', $data['ID_Kelas']);
-    //     $this->db->bind('ID_Angkatan', $data['ID_Angkatan']);
-    //     $this->db->bind('ID_Jurusan', $data['ID_Jurusan']);
-    //     $this->db->bind('ID_Status', $data['ID_Status']);
-    //     $this->db->bind('ID_User', $data['ID_User']);
-
-    //     $this->db->execute();
-
-    //     return $this->db->rowCount();
-    // }
     public function tambah($data){
         // $query = "INSERT INTO asisten VALUES ('', :stambuk, :nama, :jenis_kelamin, :no_telp, :ID_Kelas, :ID_Angkatan, :ID_Jurusan, :ID_Status, :ID_User)";
         $query = "INSERT INTO asisten (stambuk, nama, jenis_kelamin, no_telp, ID_Kelas, ID_Angkatan, ID_Jurusan, ID_Status, ID_User) 
@@ -43,7 +25,6 @@ class Asisten_model{
     
         return $this->db->rowCount();
     }
-    
     public function getAvailableUserIDs() {
         $query = "SELECT ID_User FROM user";
         $this->db->query($query);
@@ -121,7 +102,6 @@ class Asisten_model{
         $this->db->bind('stambuk', $stambuk);
         return $this->db->single();
     }
-    
     public function ubah($id){
         $this->db->query("SELECT * FROM asisten WHERE ID_Asisten = :id");
         $this->db->bind("id", $id);
@@ -143,9 +123,7 @@ class Asisten_model{
         $this->db->bind("id", $id);
         
         return $this->db->single(); 
-    }   
-    
-    // PERCOBAAN
+    }
     public function tampilKelas(){
         $this->db->query("SELECT ID_Kelas, kelas FROM kelas");
         return $this->db->resultSet();
@@ -171,4 +149,25 @@ class Asisten_model{
         $result = $this->db->single();
         return $result['jumlah'];
     }
+    public function cariDataAsisten($keyword)
+    {
+        $query = "SELECT * FROM asisten WHERE stambuk LIKE :keyword OR nama LIKE :keyword";
+        $this->db->query($query);
+        $this->db->bind('keyword', "%$keyword%");
+        return $this->db->resultSet();
+    }
+    public function getIDAsistenByUserID($id)
+    {
+        $this->db->query("SELECT ID_Asisten FROM asisten WHERE ID_User = :id");
+        $this->db->bind('id', $id);
+
+        $result = $this->db->single();
+
+        if ($result) {
+            return $result['ID_Asisten'];
+        } else {
+            return null;
+        }
+    }
+
 }

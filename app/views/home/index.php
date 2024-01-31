@@ -50,7 +50,7 @@
             <span class="visually-hidden">Next</span>
             </button>
       </div>
-      </div>
+      </div><br>
       <?php endif;?>
       <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
       <!-- BAGIAN ADMIN DAN KORLAB -->

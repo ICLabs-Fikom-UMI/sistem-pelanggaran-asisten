@@ -33,6 +33,14 @@
                 </a>
             </li>
             <?php endif?>
+            <?php if ($_SESSION['role'] == 'asisten') : ?>
+                <li class="">
+                    <a href="<?= BASEURL?>/Asisten/detail_asisten" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
+                        <!-- <i class="fa fa-data"></i> Data Pelanggaran -->
+                        <span><i class="fa fa-list"></i> Data Asisten</span>
+                    </a>
+                </li>            
+                    <?php endif; ?>
         </ul>
     </div>
 

@@ -11,8 +11,10 @@
         <thead class="table-light">
             <tr class="table-header" style="background: #EFEDED">
             <th scope="col" style="width:5%;" class="text-center">No</th>
+            <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
             <th scope="col">Stambuk</th>
             <th scope="col">Nama</th>
+            <?php endif;?>
             <th scope="col">Detail Pelanggaran</th>
             <th scope="col" class="text-center">Tanggal</th>
             <th scope="col" class="text-center">Tindak Lanjut</th>
@@ -25,8 +27,10 @@
             <?php $no=0; foreach  ($data['pelanggaran'] as $pelanggaran) : $no++;?>
             <tr>
                 <td align="center"><?= $no;?></td>
+                <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
                 <td><?= $pelanggaran['stambuk'];?></td>
                 <td><?= $pelanggaran['nama'];?></td>
+                <?php endif;?>
                 <td><?= $pelanggaran['jenis_kelakuan'];?></td>
                 <td align="center"><?= $pelanggaran['tanggal'];?></td>
                 <td align="center"><?= $pelanggaran['tindak_lanjut'];?></td>
