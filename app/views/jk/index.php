@@ -4,6 +4,12 @@
     <!-- <a href="<?= BASEURL?>/JK/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataJK()">Tambah Data</a>
     <h4><?= $data['title'];?></h4>
+
+    <!-- BAGIAN CARI DATA -->
+    <div class="my-3">
+        <input type="text" class="form-control" id="searchInput" oninput="cari()" placeholder="Cari Data">
+    </div>
+
     <table class="table table-hover">
     <thead class="table-light">
         <tr class="table-header" style="background: #EFEDED">

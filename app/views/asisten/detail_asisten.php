@@ -46,6 +46,7 @@
                 <td>: <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['username'] : 'N/A'; ?>
                 </td>
             </tr>
+            <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
             <tr>
                 <td>Password</td>
                 <td>: <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['password'] : 'N/A'; ?>
@@ -55,6 +56,7 @@
                 <td>ID Asisten</td>
                 <td>: <?= $data['detail_asisten']['ID_Asisten']; ?></td>
             </tr>
+            <?php endif;?>
         </table>
     </div>
 </div>

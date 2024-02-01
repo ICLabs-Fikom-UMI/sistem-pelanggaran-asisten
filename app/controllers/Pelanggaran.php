@@ -98,5 +98,6 @@ class Pelanggaran extends Controller {
             header('Location: '.BASEURL. '/Pelanggaran');
             exit;
         }
-    }    
+    }   
+     
 }

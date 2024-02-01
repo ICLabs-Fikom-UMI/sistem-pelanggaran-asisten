@@ -18,7 +18,7 @@ class LogIn extends Controller {
         $password = $_POST['password'];    
         
         $role = $this->model("Login_model")->getRole($username);
-        $nama_user = $this->model("Login_model")->getNamaUser($username); // Menambahkan fungsi untuk mendapatkan nama user
+        $nama_user = $this->model("Login_model")->getNamaUser($username); 
     
         echo var_dump($_POST);
         echo "<br></br>";

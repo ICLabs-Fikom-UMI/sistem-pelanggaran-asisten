@@ -14,11 +14,10 @@
     <div class="container-fluid">    
       <a class="navbar-brand ml-5" href="<?= BASEURL?>">
         <img src="<?= BASEURL ?>/assets/img/logo-dark.png" alt="Logo LGuard" width="50px"> 
-        Navbar
       </a>
-      <ul class="navbar-nav ml-auto">
-        <div style="display: flex; align-items: center;">
-          <div class="image mr-2" style="margin-right: 10px;">
+      <ul class="navbar-nav ml-auto"> 
+        <div style="display: flex; align-items: center;"> 
+          <div class="image mr-2" style="margin-right: 10px;"> 
               <i class="far fa-user"></i> 
           </div>
           <div class="info" style="margin-right: 30px;"  data-bs-toggle="modal" data-bs-target="myModal">

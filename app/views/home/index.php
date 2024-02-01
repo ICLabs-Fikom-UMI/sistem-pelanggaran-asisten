@@ -57,56 +57,64 @@
       <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
                   <div class="card h-100">
-                        <img src="<?= BASEURL ?>/assets/img/pelanggaran.jpg" class="card-img-top" alt="Pelanggaran">
-                        <div class="card-body">
-                        <h6 class="card-title">Data Pelanggaran</h6>
-                        <p class="card-text">
-                              <?php
-                                    echo "Jumlah Data: " . $data['jumlahDataPelanggaran'];
-                              ?>
-                        </p>
-                        </div>
+                        <a href="<?= BASEURL ?>/Pelanggaran" style="text-decoration: none; color: inherit;">
+                              <img src="<?= BASEURL ?>/assets/img/pelanggaran.jpg" class="card-img-top" alt="Pelanggaran">
+                              <div class="card-body">
+                              <h6 class="card-title">Data Pelanggaran</h6>
+                              <p class="card-text">
+                                    <?php
+                                          echo "Jumlah Data: " . $data['jumlahDataPelanggaran'];
+                                    ?>
+                              </p>
+                              </div>
+                        </a>
                   </div>
             </div>
             <?php if ($_SESSION['role'] == 'admin') : ?>
             <div class="col">
                   <div class="card h-100">
-                        <img src="<?= BASEURL ?>/assets/img/asisten.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h6 class="card-title">Data Asisten</h6>
-                        <p class="card-text">
-                              <?php
-                                    echo "Jumlah Data: " . $data['jumlahDataAsisten'];
-                              ?>
-                        </p>
-                        </div>
+                        <a href="<?= BASEURL ?>/Asisten" style="text-decoration: none; color: inherit;">
+                              <img src="<?= BASEURL ?>/assets/img/asisten.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                              <h6 class="card-title">Data Asisten</h6>
+                              <p class="card-text">
+                                    <?php
+                                          echo "Jumlah Data: " . $data['jumlahDataAsisten'];
+                                    ?>
+                              </p>
+                              </div>
+                        </a>
                   </div>
             </div>
             <?php endif;?>
             <div class="col">
                   <div class="card h-100">
-                        <img src="<?= BASEURL ?>/assets/img/jenis kelakuan.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h6 class="card-title">Data Jenis Kelakuan</h6>
-                        <p class="card-text">
-                              <?php
-                                    echo "Jumlah Data: " . $data['jumlahDataJenisKelakuan'];
-                              ?>
-                        </p>
-                        </div>
+                        <a href="<?= BASEURL ?>/JK" style="text-decoration: none; color: inherit;">
+                              <img src="<?= BASEURL ?>/assets/img/jenis kelakuan.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                              <h6 class="card-title">Data Jenis Kelakuan</h6>
+                              <p class="card-text">
+                                    <?php
+                                          echo "Jumlah Data: " . $data['jumlahDataJenisKelakuan'];
+                                    ?>
+                              </p>
+                              </div>
+                        </a>
                   </div>
             </div>
             <div class="col">
                   <div class="card h-100">
-                        <img src="<?= BASEURL ?>/assets/img/tindak lanjut.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h6 class="card-title">Data Tindak Lanjut</h6>
-                        <p class="card-text">
-                              <?php
-                                    echo "Jumlah Data: " . $data['jumlahDataTindakLanjut'];
-                              ?>
-                        </p>
-                        </div>
+                        <a href="<?= BASEURL ?>/TindakLanjut" style="text-decoration: none; color: inherit;">
+                              <img src="<?= BASEURL ?>/assets/img/tindak lanjut.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                              <h6 class="card-title">Data Tindak Lanjut</h6>
+                              <p class="card-text">
+                                    <?php
+                                          echo "Jumlah Data: " . $data['jumlahDataTindakLanjut'];
+                                    ?>
+                              </p>
+                              </div>
+                        </a>
                   </div>
             </div>
       </div>

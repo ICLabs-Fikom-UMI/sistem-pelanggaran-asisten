@@ -1,6 +1,7 @@
 <?php
 
-$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+// $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url = "http://localhost";
 $url = explode("/", $url);
 
 $baseurl = 'http://' . $url[2] . '/lguard';

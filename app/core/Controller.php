@@ -43,6 +43,14 @@ class Controller
             exit;
         }
     }
+    public function isAsistenOrKorlab() {
+        $allowedRoles = ['asisten', 'korlab'];
+    
+        if (!in_array($_SESSION['role'], $allowedRoles)) {  
+            header('Location:' . BASEURL);
+            exit;
+        }
+    }
     public function isAdminOrKorlab() {
         $allowedRoles = ['admin', 'korlab'];
     

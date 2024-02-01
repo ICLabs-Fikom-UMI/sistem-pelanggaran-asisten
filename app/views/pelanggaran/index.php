@@ -6,6 +6,12 @@
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataPelanggaran()">Tambah Data</a>
     <?php endif;?>
     <h4><?= $data['title'];?></h4>
+
+    <!-- BAGIAN CARI DATA -->
+    <div class="my-3">
+        <input type="text" class="form-control" id="searchInput" oninput="cari()" placeholder="Cari Data">
+    </div>
+
     <div class="col-12">
         <table class="table table-hover">
         <thead class="table-light">

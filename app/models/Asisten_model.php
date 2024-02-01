@@ -6,7 +6,6 @@ class Asisten_model{
         $this->db = new Database;
     }
     public function tambah($data){
-        // $query = "INSERT INTO asisten VALUES ('', :stambuk, :nama, :jenis_kelamin, :no_telp, :ID_Kelas, :ID_Angkatan, :ID_Jurusan, :ID_Status, :ID_User)";
         $query = "INSERT INTO asisten (stambuk, nama, jenis_kelamin, no_telp, ID_Kelas, ID_Angkatan, ID_Jurusan, ID_Status, ID_User) 
           VALUES (:stambuk, :nama, :jenis_kelamin, :no_telp, :ID_Kelas, :ID_Angkatan, :ID_Jurusan, :ID_Status, :ID_User)";
         
@@ -97,6 +96,10 @@ class Asisten_model{
         $this->db->query($query);
         return $this->db->resultSet();
     }
+    public function tampilProfile(){
+        $this->db->query("SELECT * FROM asisten ORDER BY ID_Asisten ASC");
+        return $this->db->resultSet();
+    }
     public function getAsistenIdByStambuk($stambuk) {
         $this->db->query("SELECT ID_Asisten FROM asisten WHERE stambuk = :stambuk");
         $this->db->bind('stambuk', $stambuk);
@@ -124,6 +127,13 @@ class Asisten_model{
         
         return $this->db->single(); 
     }
+    // public function detailAsistenForAsisten($idAsisten){                
+    //     $idAsisten = $_SESSION['ID_Asisten'];
+    //     $this->db->query("SELECT * FROM asisten WHERE ID_Asisten = :idAsisten");
+    //     $this->db->bind('idAsisten', $idAsisten);
+
+    //     return $this->db->single(); 
+    // }
     public function tampilKelas(){
         $this->db->query("SELECT ID_Kelas, kelas FROM kelas");
         return $this->db->resultSet();

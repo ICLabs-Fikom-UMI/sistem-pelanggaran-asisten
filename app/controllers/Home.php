@@ -1,10 +1,9 @@
 <?php
 
 class Home extends Controller {
-    public function index()
-    {
-        // $this->isAdminOrKorlab();
+    public function index(){
         $data['title'] = 'Dasboard';
+
         $data['jumlahDataPelanggaran'] = $this->model('Pelanggaran_model')->jumlahDataPelanggaran();
         $data['jumlahDataAsisten'] = $this->model('Asisten_model')->jumlahDataAsisten();
         $data['jumlahDataJenisKelakuan'] = $this->model('JK_model')->jumlahDataJenisKelakuan();
@@ -16,4 +15,4 @@ class Home extends Controller {
         $this->view('home/index', $data);
         $this->view('templates/footer');
     }
-}   
+}

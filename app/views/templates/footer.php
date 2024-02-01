@@ -4,7 +4,9 @@
     <div class="modal-content">
       <div class="modal-header" style="background: #06253A; color: #fff;"> 
         <h5 class="modal-title fs-5"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div data-bs-theme="dark">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
       </div>
       <div class="modal-body">
         ...
@@ -25,7 +27,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
 
 <script>
   // DATA ASISTEN
@@ -39,16 +41,6 @@
         });
         $('.tombol').html('<a href="<?= BASEURL?>/Asisten/prosesUbah/'+ x +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Ubah Data</a>');
     }
-    // function ubahdataPelanggaran(jk){
-    //     $('.modal-title').html('Ubah Data');
-    //     let url = '<?= BASEURL?>/jk/ubahModal';
-    //     $.post(url, {
-    //       id : jk
-    //     }, function(data, success){
-    //       $('.modal-body').html(data);
-    //     });
-    //     $('.tombol').html('<a href="<?= BASEURL?>/jk/prosesUbah/'+ jk +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Ubah Data</a>');
-    // }
     function hapus(a){
       $('.modal-title').html('Hapus Data');
       $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
@@ -169,7 +161,49 @@
         });
         $('.tombol').html('<button type="submit" class="btn btn-primary">Tambah Data</button>');
     }
+    // function cari() {
+    //     var input, filter, table, tr, td, i, txtValue;
+    //     input = document.getElementById("searchInput");
+    //     filter = input.value.toUpperCase();
+    //     table = document.querySelector("table");
+    //     tr = table.getElementsByTagName("tr");
 
+    //     for (i = 0; i < tr.length; i++) {
+    //         td = tr[i].getElementsByTagName("td")[2];
+            
+    //         if (td) {
+    //             txtValue = td.textContent || td.innerText;
+    //             if (txtValue.toUpperCase().indexOf(filter) > -1) {
+    //                 tr[i].style.display = "";
+    //             } else {
+    //                 tr[i].style.display = "none";
+    //             }
+    //         }
+    //     }
+    // }
+    function cari() {
+      var input, filter, table, tr, td1, td2, i, txtValue;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      table = document.querySelector("table");
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 0; i < tr.length; i++) {
+          td1 = tr[i].getElementsByTagName("td")[1];
+          td2 = tr[i].getElementsByTagName("td")[2];
+          
+          if (td1 && td2) {
+              txtValue = td1.textContent || td1.innerText;
+              txtValue += " " + (td2.textContent || td2.innerText); 
+              
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+              } else {
+                  tr[i].style.display = "none";
+              }
+          }
+      }
+  }
 </script>
 </body>
 </html>

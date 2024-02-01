@@ -163,8 +163,7 @@ class Pelanggaran_model{
         $this->db->bind('id', $id);
         return $this->db->single();
     }
-    public function tampilByAsisten($idAsisten)
-    {
+    public function tampilByAsisten($idAsisten){
         $query = "SELECT
                     pelanggaran.ID_Pelanggaran,
                     asisten.stambuk,
@@ -188,5 +187,5 @@ class Pelanggaran_model{
         $this->db->bind('idAsisten', $idAsisten);
 
         return $this->db->resultSet();
-    }
+    }    
 }

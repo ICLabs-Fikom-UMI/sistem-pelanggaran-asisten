@@ -1,13 +1,10 @@
 <?php
 
 class Asisten extends Controller {
-    public function index()
-    {
+    public function index(){
         $this->isAdmin();
         $data['title'] = 'Data Asisten';
         $data['asisten'] = $this->model('Asisten_model')->tampil();
-        // $this->isAsisten();
-        // $data['asisten'] = $this->model('Asisten_model')->detailAsisten();
 
         $this->view('templates/header', $data);
         $this->view('templates/topbar');
@@ -15,8 +12,19 @@ class Asisten extends Controller {
         $this->view('asisten/index', $data);
         $this->view('templates/footer');
     }
-    public function cari()
-    {
+    public function profile(){
+        $this->isAsistenOrKorlab();
+        $data['asisten'] = $this->model('Asisten_model')->tampilProfile();
+
+        $data['kelasOptions'] = $this->model('Asisten_model')->tampilKelas();
+        $data['angkatanOptions'] = $this->model('Asisten_model')->tampilAngkatan();
+        $data['jurusanOptions'] = $this->model('Asisten_model')->tampilJurusan();
+        $data['statusOptions'] = $this->model('Asisten_model')->tampilStatus();
+        $data['userOptions'] = $this->model('Asisten_model')->tampilUser();
+
+        $this->view('asisten/profile', $data);
+    }
+    public function cari(){
         $this->isAdmin();
 
         if (isset($_POST['keyword'])) {
@@ -33,8 +41,7 @@ class Asisten extends Controller {
             // Redirect atau tampilkan pesan kesalahan
         }
     }
-    public function modalTambah()
-    {
+    public function modalTambah(){
         $this->isAdmin();
 
         $data['kelasOptions'] = $this->model('Asisten_model')->tampilKelas();
@@ -45,8 +52,7 @@ class Asisten extends Controller {
 
         $this->view('asisten/tambah_data', $data);
     }
-    public function ubahModal()
-    {
+    public function ubahModal(){
         $this->isAdmin();
         $id = $_POST['id'];
         $data['ubahdata'] = $this->model('Asisten_model')->ubah($id);
@@ -66,7 +72,7 @@ class Asisten extends Controller {
     }
     public function detailAsisten($id){
         $this->isAdmin();
-        // $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
+        $data['detail_asisten'] = $this->model('Asisten_model')->detailAsisten($id);
         $data['title'] = 'Detail Data Asisten';
         
         $data['kelasOptions'] = $this->model('Asisten_model')->tampilKelas();
@@ -115,6 +121,5 @@ class Asisten extends Controller {
             header('Location: '.BASEURL. '/Asisten');
             exit;
         }
-    }
-        
+    }   
 }
