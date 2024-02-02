@@ -109,7 +109,6 @@ class Asisten extends Controller {
     public function prosesUbah(){
         $this->isAdmin();
         if($this->model('Asisten_model')->prosesUbah($_POST) > 0){
-            Flasher::setFlash('berhasil', 'diubah', 'success');
             header('Location: '.BASEURL. '/Asisten');
             exit;
         }
@@ -117,7 +116,6 @@ class Asisten extends Controller {
     public function hapus($id){
         $this->isAdmin();
         if($this->model('Asisten_model')->prosesHapus($id)){
-            Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: '.BASEURL. '/Asisten');
             exit;
         }

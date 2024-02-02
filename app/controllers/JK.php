@@ -47,7 +47,6 @@ class JK extends Controller {
     public function tambah(){
         $this->isAdminOrKorlab();
         if($this->model('JK_model')->tambah($_POST) > 0){
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             header('Location: '.BASEURL. '/jk');
             exit;
         }
@@ -55,7 +54,6 @@ class JK extends Controller {
     public function prosesUbah(){
         $this->isAdminOrKorlab();
         if($this->model('JK_model')->prosesUbah($_POST) > 0){
-            Flasher::setFlash('berhasil', 'diubah', 'success');
             header('Location: '.BASEURL. '/jk');
             exit;
         }
@@ -63,7 +61,6 @@ class JK extends Controller {
     public function hapus($id){
         $this->isAdminOrKorlab();
         if($this->model('JK_model')->prosesHapus($id)){
-            Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: '.BASEURL. '/jk');
             exit;
         }

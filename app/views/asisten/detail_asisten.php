@@ -1,7 +1,8 @@
 <!-- BAGIAN DETAIL DATA ASISTEN -->
 <div class="container"><br>
-    <div class="col-12">
-        <h4><?= $data['title'];?></h4>
+<div class="col-12">
+    <h4><?= $data['title'];?></h4>
+    <div class="overflow-auto" style="max-height: 75vh;">
         <table class="table">
             <tr>
                 <td width="20%">Stambuk</td>
@@ -58,5 +59,6 @@
             </tr>
             <?php endif;?>
         </table>
+    </div>
     </div>
 </div>

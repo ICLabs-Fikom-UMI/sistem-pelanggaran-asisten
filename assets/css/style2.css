@@ -2,6 +2,9 @@
 body{
     width: 100%;
 }
+.container{
+    font-size: 12px;
+}
 .button-style {
     background-color: #06253A; 
     color: #fff; 

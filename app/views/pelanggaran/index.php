@@ -11,7 +11,7 @@
     <div class="my-3">
         <input type="text" class="form-control" id="searchInput" oninput="cari()" placeholder="Cari Data">
     </div>
-
+    <div class="overflow-auto" style="max-height: 50vh;">
     <div class="col-12">
         <table class="table table-hover">
         <thead class="table-light">
@@ -53,4 +53,5 @@
         </tbody>
         </table>
     </div>
+</div>
 </div>

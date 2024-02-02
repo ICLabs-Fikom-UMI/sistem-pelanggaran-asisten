@@ -10,6 +10,7 @@
         <input type="text" class="form-control" id="searchInput" oninput="cari()" placeholder="Cari Data">
     </div>
 
+    <div class="overflow-auto" style="max-height: 50vh;">
     <table class="table table-hover">
     <thead class="table-light">
         <tr>
@@ -33,5 +34,6 @@
         <?php endforeach; ?>
     </tbody>
     </table>
+</div>
 </div>
 

@@ -3,6 +3,7 @@
       <h4><?= $data['title'];?></h4> 
       <!-- BAGIAN ASISTEN -->
       <?php if ($_SESSION['role'] == 'asisten') : ?>
+      <div class="overflow-auto" style="max-height: 75vh;">
       <div class="text-dasboard">
             <p align="center">
             Laboratorium Terpadu Fakultas Ilmu Komputer adalah fasilitas yang disediakan oleh Fakultas Ilmu Komputer yang digunakan untuk melakukan kegiatan praktikum dan penelitian dalam bidang ilmu komputer. Fasilitas ini dilengkapi dengan perangkat keras dan perangkat lunak yang dibutuhkan untuk melakukan eksperimen dan simulasi dalam berbagai bidang ilmu komputer, seperti jaringan komputer, keamanan informasi, kecerdasan buatan, pemrograman, dan lain-lain. Laboratorium Terpadu Fakultas Ilmu Komputer menjadi pusat kegiatan untuk mahasiswa dan dosen untuk melakukan eksperimen, riset, pengembangan, serta inovasi dalam bidang teknologi informasi.
@@ -17,25 +18,25 @@
             </div>
             <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                  <img src="<?= BASEURL ?>/assets/img/pelanggaran.jpg" class="d-block w-100" alt="...">
+                  <img src="<?= BASEURL ?>/assets/img/pelanggaran.png" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
                   <h5>Laboratorium Computer Vision</h5>
                   </div>
             </div>
             <div class="carousel-item">
-                  <img src="<?= BASEURL ?>/assets/img/jenis kelakuan.jpg" class="d-block w-100" alt="...">
+                  <img src="<?= BASEURL ?>/assets/img/jenis kelakuan.png" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
                   <h5>Laboratorium Data Science</h5>
                   </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-                  <img src="<?= BASEURL ?>/assets/img/asisten.jpg" class="d-block w-100" alt="...">
+                  <img src="<?= BASEURL ?>/assets/img/asisten.png" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
                   <h5>Laboratorium Computer Vision</h5>
                   </div>
             </div>
             <div class="carousel-item">
-                  <img src="<?= BASEURL ?>/assets/img/tindak lanjut.jpg" class="d-block w-100" alt="...">
+                  <img src="<?= BASEURL ?>/assets/img/tindak lanjut.png" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
                   <h5>Laboratorium Data Science</h5>
                   </div>
@@ -50,6 +51,7 @@
             <span class="visually-hidden">Next</span>
             </button>
       </div>
+      </div>
       </div><br>
       <?php endif;?>
       <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
@@ -58,7 +60,7 @@
             <div class="col">
                   <div class="card h-100">
                         <a href="<?= BASEURL ?>/Pelanggaran" style="text-decoration: none; color: inherit;">
-                              <img src="<?= BASEURL ?>/assets/img/pelanggaran.jpg" class="card-img-top" alt="Pelanggaran">
+                              <img src="<?= BASEURL ?>/assets/img/pelanggaran.png" class="card-img-top" alt="Pelanggaran">
                               <div class="card-body">
                               <h6 class="card-title">Data Pelanggaran</h6>
                               <p class="card-text">
@@ -74,7 +76,7 @@
             <div class="col">
                   <div class="card h-100">
                         <a href="<?= BASEURL ?>/Asisten" style="text-decoration: none; color: inherit;">
-                              <img src="<?= BASEURL ?>/assets/img/asisten.jpg" class="card-img-top" alt="...">
+                              <img src="<?= BASEURL ?>/assets/img/asisten.png" class="card-img-top" alt="...">
                               <div class="card-body">
                               <h6 class="card-title">Data Asisten</h6>
                               <p class="card-text">
@@ -90,7 +92,7 @@
             <div class="col">
                   <div class="card h-100">
                         <a href="<?= BASEURL ?>/JK" style="text-decoration: none; color: inherit;">
-                              <img src="<?= BASEURL ?>/assets/img/jenis kelakuan.jpg" class="card-img-top" alt="...">
+                              <img src="<?= BASEURL ?>/assets/img/jenis kelakuan.png" class="card-img-top" alt="...">
                               <div class="card-body">
                               <h6 class="card-title">Data Jenis Kelakuan</h6>
                               <p class="card-text">
@@ -105,7 +107,7 @@
             <div class="col">
                   <div class="card h-100">
                         <a href="<?= BASEURL ?>/TindakLanjut" style="text-decoration: none; color: inherit;">
-                              <img src="<?= BASEURL ?>/assets/img/tindak lanjut.jpg" class="card-img-top" alt="...">
+                              <img src="<?= BASEURL ?>/assets/img/tindak lanjut.png" class="card-img-top" alt="...">
                               <div class="card-body">
                               <h6 class="card-title">Data Tindak Lanjut</h6>
                               <p class="card-text">

@@ -74,7 +74,6 @@ class Pelanggaran extends Controller {
         ];
     
         if ($this->model('Pelanggaran_model')->tambah($data) > 0){
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             header('Location: '.BASEURL. '/Pelanggaran');
             exit;
         }
@@ -86,7 +85,6 @@ class Pelanggaran extends Controller {
         $data['asistenOptions'] = $this->model('Pelanggaran_model')->tampilAsisten();
         $data['jkOptions'] = $this->model('Pelanggaran_model')->tampilJK();
         if($this->model('Pelanggaran_model')->prosesUbah($_POST) > 0){
-            Flasher::setFlash('berhasil', 'diubah', 'success');
             header('Location: '.BASEURL. '/Pelanggaran');
             exit;
         }
@@ -94,7 +92,6 @@ class Pelanggaran extends Controller {
     public function hapus($id){
         $this->isAdminOrKorlab();
         if($this->model('Pelanggaran_model')->prosesHapus($id)){
-            Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: '.BASEURL. '/Pelanggaran');
             exit;
         }
