@@ -23,12 +23,6 @@
                   <h5>Laboratorium Computer Vision</h5>
                   </div>
             </div>
-            <div class="carousel-item">
-                  <img src="<?= BASEURL ?>/assets/img/jenis kelakuan.png" class="d-block w-100" alt="...">
-                  <div class="carousel-caption d-none d-md-block">
-                  <h5>Laboratorium Data Science</h5>
-                  </div>
-            </div>
             <div class="carousel-item" data-bs-interval="2000">
                   <img src="<?= BASEURL ?>/assets/img/asisten.png" class="d-block w-100" alt="...">
                   <div class="carousel-caption d-none d-md-block">
@@ -89,21 +83,6 @@
                   </div>
             </div>
             <?php endif;?>
-            <div class="col">
-                  <div class="card h-100">
-                        <a href="<?= BASEURL ?>/JK" style="text-decoration: none; color: inherit;">
-                              <img src="<?= BASEURL ?>/assets/img/jenis kelakuan.png" class="card-img-top" alt="...">
-                              <div class="card-body">
-                              <h6 class="card-title">Data Jenis Kelakuan</h6>
-                              <p class="card-text">
-                                    <?php
-                                          echo "Jumlah Data: " . $data['jumlahDataJenisKelakuan'];
-                                    ?>
-                              </p>
-                              </div>
-                        </a>
-                  </div>
-            </div>
             <div class="col">
                   <div class="card h-100">
                         <a href="<?= BASEURL ?>/TindakLanjut" style="text-decoration: none; color: inherit;">

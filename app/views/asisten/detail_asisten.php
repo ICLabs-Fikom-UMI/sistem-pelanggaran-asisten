@@ -7,6 +7,7 @@
             <tr>
                 <td width="20%">Stambuk</td>
                 <td>: <?= $data['detail_asisten']['stambuk']; ?></td>
+                <td rowspan="8" align="center"><img src="<?= BASEURL ?>/assets/img/profile.png" alt=""width="50%"></td>
             </tr>
             <tr>
                 <td>Nama</td>
@@ -35,27 +36,18 @@
             <tr>
                 <td>No Telphone</td>
                 <td>: <?= $data['detail_asisten']['no_telp']; ?></td>
-            </tr>
-            <tr>
-                <td>ID User</td>
-                <td>: <?= $data['detail_asisten']['ID_User']; ?> - 
-                    <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['nama'] : 'N/A'; ?>
-                </td>
+                <td></td>
             </tr>
             <tr>
                 <td>Username</td>
-                <td>: <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['username'] : 'N/A'; ?>
-                </td>
+                <td>: <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['username'] : 'N/A'; ?></td>
+                <td></td>
             </tr>
             <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
             <tr>
                 <td>Password</td>
-                <td>: <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['password'] : 'N/A'; ?>
-            </td>
-            </tr>
-            <tr>
-                <td>ID Asisten</td>
-                <td>: <?= $data['detail_asisten']['ID_Asisten']; ?></td>
+                <td>: <?= isset($data['detail_asisten']['ID_User']) ? str_repeat('*', strlen($this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['password'])) : 'N/A'; ?></td>
+                <td></td>
             </tr>
             <?php endif;?>
         </table>

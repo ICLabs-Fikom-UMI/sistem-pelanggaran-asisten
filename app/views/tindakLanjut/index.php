@@ -1,22 +1,17 @@
+
 <link rel="stylesheet" href="<?=BASEURL;?>/assets/css/style2.css">
 <!-- BAGIAN DATA TINDAK LANJUT -->
 <div class="container"><br>
     <!-- <a href="<?= BASEURL?>/TindakLanjut/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataTL()">Tambah Data</a>
-    <h4><?= $data['title'];?></h4>
-
-    <!-- BAGIAN CARI DATA -->
-    <div class="my-3">
-        <input type="text" class="form-control" id="searchInput" oninput="cari()" placeholder="Cari Data">
-    </div>
-
-    <div class="overflow-auto" style="max-height: 50vh;">
-    <table class="table table-hover">
+    <h5><?= $data['title'];?></h5>
+    <div class="overflow-x-hidden" style="max-height: 62vh;">
+    <table id="example" class="table" style="width:100%">
     <thead class="table-light">
-        <tr>
-        <th scope="col" style="width:5%;" class="text-center">No</th>
-        <th scope="col">Tindak Lanjut</th>
-        <th scope="col" colspan="3" style="width:10%" class="text-center">Menu</th>
+        <tr class="table-secondary">
+            <th scope="col" style="width:5%;" class="text-center">No</th>
+            <th scope="col">Tindak Lanjut</th>
+            <th scope="col"  style="width:10%" class="text-center">Menu</th>
         </tr>
     </thead>
     <tbody>
@@ -36,4 +31,3 @@
     </table>
 </div>
 </div>
-

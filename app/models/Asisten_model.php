@@ -151,7 +151,7 @@ class Asisten_model{
         return $this->db->resultSet();
     }
     public function tampilUser(){
-        $this->db->query("SELECT ID_User, nama FROM user");
+        $this->db->query("SELECT ID_User, username FROM user");
         return $this->db->resultSet();
     }
     public function jumlahDataAsisten() {

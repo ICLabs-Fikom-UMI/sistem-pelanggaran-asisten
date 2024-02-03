@@ -3,24 +3,18 @@
 <div class="container"><br>
 <!-- <a href="<?= BASEURL?>/asisten/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
 <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataAsisten()">Tambah Data</a>
-    <h4><?= $data['title'];?></h4>
-
-    <!-- BAGIAN CARI DATA -->
-    <div class="my-3">
-        <input type="text" class="form-control" id="searchInput" oninput="cari()" placeholder="Cari Data">
-    </div>
-
-    <div class="overflow-auto" style="max-height: 50vh;">
-    <table class="table table-hover">
+    <h5><?= $data['title'];?></h5>
+    <div class="overflow-x-hidden" style="max-height: 62vh;">
+    <table id="example" class="table" style="width:100%">
     <thead class="table-light">
-        <tr class="table-header" style="background: #EFEDED">
+        <tr class="table-secondary">
         <th scope="col" class="text-center" style="width:5%;">No</th>
         <th scope="col">Stambuk</th>
         <th scope="col">Nama</th>
         <th scope="col" class="text-center">Kelas</th>
         <th scope="col" class="text-center">Angkatan</th>
         <th scope="col" class="text-center">Status</th>
-        <th  colspan="3" class="text-center">Menu</th>
+        <th class="text-center">Menu</th>
         </tr>
     </thead>
     <tbody>

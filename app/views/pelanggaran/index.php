@@ -5,28 +5,23 @@
     <!-- <a href="<?= BASEURL?>/Pelanggaran/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataPelanggaran()">Tambah Data</a>
     <?php endif;?>
-    <h4><?= $data['title'];?></h4>
-
-    <!-- BAGIAN CARI DATA -->
-    <div class="my-3">
-        <input type="text" class="form-control" id="searchInput" oninput="cari()" placeholder="Cari Data">
-    </div>
-    <div class="overflow-auto" style="max-height: 50vh;">
+    <h5><?= $data['title'];?></h5>
+    <div class="overflow-x-hidden" style="max-height: 62vh;">
     <div class="col-12">
-        <table class="table table-hover">
+        <table id="example" class="table" style="width:100%">
         <thead class="table-light">
-            <tr class="table-header" style="background: #EFEDED">
-            <th scope="col" style="width:5%;" class="text-center">No</th>
-            <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
-            <th scope="col">Stambuk</th>
-            <th scope="col">Nama</th>
-            <?php endif;?>
-            <th scope="col">Detail Pelanggaran</th>
-            <th scope="col" class="text-center">Tanggal</th>
-            <th scope="col" class="text-center">Tindak Lanjut</th>
-            <?php  if($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
-                <th scope="col" colspan="3" class="text-center">Menu</th>
-            <?php endif;?>
+            <tr class="table-secondary">
+                <th scope="col" style="width:5%;" class="text-center">No</th>
+                <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
+                    <th scope="col">Stambuk</th>
+                    <th scope="col">Nama</th>
+                <?php endif;?>
+                <th scope="col">Deskripsi Pelanggaran</th>
+                <th scope="col" class="text-center">Tanggal</th>
+                <th scope="col" class="text-center">Tindak Lanjut</th>
+                <?php  if($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
+                    <th scope="col" class="text-center">Menu</th>
+                <?php endif;?>
             </tr>
         </thead>
         <tbody>
@@ -37,8 +32,9 @@
                 <td><?= $pelanggaran['stambuk'];?></td>
                 <td><?= $pelanggaran['nama'];?></td>
                 <?php endif;?>
-                <td><?= $pelanggaran['jenis_kelakuan'];?></td>
+                <td><?= $pelanggaran['pelanggaran'];?></td>
                 <td align="center"><?= $pelanggaran['tanggal'];?></td>
+                <!-- <td align="center"><?= date('d-m-Y H:i:s', strtotime($pelanggaran['tanggal'])); ?></td> -->
                 <td align="center"><?= $pelanggaran['tindak_lanjut'];?></td>
                 <?php if (!($_SESSION['role'] == 'asisten')) : ?>
                 <td align="center">

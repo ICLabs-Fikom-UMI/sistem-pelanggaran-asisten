@@ -28,10 +28,10 @@
                 <div class="form-group">
                     <label for="ID_Kelas">Kelas</label>
                     <select name="ID_Kelas" class="form-control">
-                        <option value="">Pilih ID Kelas</option>
+                        <option value="">Pilih Kelas</option>
                         <?php
                         foreach ($data['kelasOptions'] as $kelas) {
-                            echo "<option value='{$kelas['ID_Kelas']}'>ID {$kelas['ID_Kelas']} - {$kelas['kelas']}</option>";
+                            echo "<option value='{$kelas['ID_Kelas']}'>{$kelas['kelas']}</option>";
                         }
                         ?>
                     </select>
@@ -39,10 +39,10 @@
                 <div class="form-group">
                     <label for="ID_Angkatan">Angkatan</label>
                     <select name="ID_Angkatan" class="form-control">
-                        <option value="">Pilih ID Angkatan</option>
+                        <option value="">Pilih Angkatan</option>
                         <?php
                         foreach ($data['angkatanOptions'] as $angkatan) {
-                            echo "<option value='{$angkatan['ID_Angkatan']}'>ID {$angkatan['ID_Angkatan']} - {$angkatan['angkatan']}</option>";
+                            echo "<option value='{$angkatan['ID_Angkatan']}'>{$angkatan['angkatan']}</option>";
                         }
                         ?>
                     </select>
@@ -50,10 +50,10 @@
                 <div class="form-group">
                     <label for="ID_Jurusan">Jurusan</label>
                     <select name="ID_Jurusan" class="form-control">
-                        <option value="">Pilih ID Jurusan</option>
+                        <option value="">Pilih Jurusan</option>
                         <?php
                         foreach ($data['jurusanOptions'] as $jurusan) {
-                            echo "<option value='{$jurusan['ID_Jurusan']}'>ID {$jurusan['ID_Jurusan']} - {$jurusan['jurusan']}</option>";
+                            echo "<option value='{$jurusan['ID_Jurusan']}'>{$jurusan['jurusan']}</option>";
                         }
                         ?>
                     </select>
@@ -61,10 +61,10 @@
                 <div class="form-group">
                     <label for="ID_Status">Status</label>
                     <select name="ID_Status" class="form-control">
-                        <option value="">Pilih ID Status</option>
+                        <option value="">Pilih Status</option>
                         <?php
                         foreach ($data['statusOptions'] as $status) {
-                            echo "<option value='{$status['ID_Status']}'>ID {$status['ID_Status']} - {$status['status']}</option>";
+                            echo "<option value='{$status['ID_Status']}'>{$status['status']}</option>";
                         }
                         ?>
                     </select>
@@ -72,10 +72,10 @@
                 <div class="form-group">
                     <label for="ID_User">User</label>
                     <select name="ID_User" class="form-control">
-                        <option value="">Pilih ID User</option>
+                        <option value="">Pilih User</option>
                         <?php
                         foreach ($data['userOptions'] as $user) {
-                            echo "<option value='{$user['ID_User']}'>ID {$user['ID_User']} - {$user['nama']}</option>";
+                            echo "<option value='{$user['ID_User']}'>{$user['username']}</option>";
                         }
                         ?>
                     </select>
