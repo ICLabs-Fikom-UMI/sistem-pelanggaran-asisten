@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="<?=BASEURL;?>/assets/css/style2.css">
 <!-- BAGIAN DATA TINDAK LANJUT -->
 <div class="container"><br>

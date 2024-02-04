@@ -5,7 +5,7 @@
       <?php if ($_SESSION['role'] == 'asisten') : ?>
       <div class="overflow-auto" style="max-height: 75vh;">
       <div class="text-dasboard">
-            <p align="center">
+            <p align="justify">
             Laboratorium Terpadu Fakultas Ilmu Komputer adalah fasilitas yang disediakan oleh Fakultas Ilmu Komputer yang digunakan untuk melakukan kegiatan praktikum dan penelitian dalam bidang ilmu komputer. Fasilitas ini dilengkapi dengan perangkat keras dan perangkat lunak yang dibutuhkan untuk melakukan eksperimen dan simulasi dalam berbagai bidang ilmu komputer, seperti jaringan komputer, keamanan informasi, kecerdasan buatan, pemrograman, dan lain-lain. Laboratorium Terpadu Fakultas Ilmu Komputer menjadi pusat kegiatan untuk mahasiswa dan dosen untuk melakukan eksperimen, riset, pengembangan, serta inovasi dalam bidang teknologi informasi.
             </p>
       </div>
@@ -50,54 +50,31 @@
       <?php endif;?>
       <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
       <!-- BAGIAN ADMIN DAN KORLAB -->
-      <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                  <div class="card h-100">
-                        <a href="<?= BASEURL ?>/Pelanggaran" style="text-decoration: none; color: inherit;">
-                              <img src="<?= BASEURL ?>/assets/img/pelanggaran.png" class="card-img-top" alt="Pelanggaran">
-                              <div class="card-body">
-                              <h6 class="card-title">Data Pelanggaran</h6>
+      <div class="row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title">Data Pelanggaran</h5>
                               <p class="card-text">
-                                    <?php
-                                          echo "Jumlah Data: " . $data['jumlahDataPelanggaran'];
-                                    ?>
+                              <?php echo "Jumlah Data: " . $data['jumlahDataPelanggaran']; ?>
                               </p>
-                              </div>
-                        </a>
+                              <a href="<?= BASEURL ?>/Pelanggaran" class="btn" style="background-color: #06253A; color: #FFFFFF;">Lihat Detail</a>
+                        </div>
+                  </div>
+                  </div>
+                  <?php if ($_SESSION['role'] == 'admin') : ?>
+                  <div class="col-sm-6">
+                  <div class="card">
+                        <div class="card-body">
+                              <h5 class="card-title">Data Asisten</h5>
+                              <p class="card-text">
+                              <?php echo "Jumlah Data: " . $data['jumlahDataAsisten']; ?>
+                              </p>
+                              <a href="<?= BASEURL ?>/Asisten" class="btn" style="background-color: #06253A; color: #FFFFFF;">Lihat Detail</a>
+                        </div>
                   </div>
             </div>
-            <?php if ($_SESSION['role'] == 'admin') : ?>
-            <div class="col">
-                  <div class="card h-100">
-                        <a href="<?= BASEURL ?>/Asisten" style="text-decoration: none; color: inherit;">
-                              <img src="<?= BASEURL ?>/assets/img/asisten.png" class="card-img-top" alt="...">
-                              <div class="card-body">
-                              <h6 class="card-title">Data Asisten</h6>
-                              <p class="card-text">
-                                    <?php
-                                          echo "Jumlah Data: " . $data['jumlahDataAsisten'];
-                                    ?>
-                              </p>
-                              </div>
-                        </a>
-                  </div>
-            </div>
-            <?php endif;?>
-            <div class="col">
-                  <div class="card h-100">
-                        <a href="<?= BASEURL ?>/TindakLanjut" style="text-decoration: none; color: inherit;">
-                              <img src="<?= BASEURL ?>/assets/img/tindak lanjut.png" class="card-img-top" alt="...">
-                              <div class="card-body">
-                              <h6 class="card-title">Data Tindak Lanjut</h6>
-                              <p class="card-text">
-                                    <?php
-                                          echo "Jumlah Data: " . $data['jumlahDataTindakLanjut'];
-                                    ?>
-                              </p>
-                              </div>
-                        </a>
-                  </div>
-            </div>
+            <?php endif; ?>
       </div>
       <?php endif;?>    
 </div>

@@ -79,7 +79,10 @@
                         ?>
                     </select>
                 </div><br>                
-                <button type="submit" class="btn btn-primary">Ubah Data</button>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Ubah</button>
+                    <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </form>

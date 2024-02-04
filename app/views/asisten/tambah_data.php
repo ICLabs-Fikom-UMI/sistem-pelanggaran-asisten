@@ -1,7 +1,7 @@
 <!-- BAGIAN TAMBAH DATA ASISTEN -->
 <div class="container"><br>
 <!-- <h4><?= $data['title'];?></h4> -->
-<form action="<?= BASEURL?>/asisten/tambah" method="post" autocomplete="off">
+<form id="formTambahDataAsisten" action="<?= BASEURL?>/asisten/tambah" method="post" autocomplete="off">
     <div class="row">
             <div class="col-12">
                 <div class="form-group">
@@ -80,29 +80,6 @@
                         ?>
                     </select>
                 </div><br>
-
-                <!-- <div class="form-group">
-                    <label for="ID_Kelas">ID Kelas</label>
-                    <input type="number" name="ID_Kelas" class="form-control" placeholder="Masukkan ID Kelas">
-                </div>
-                <div class="form-group">
-                    <label for="ID_Angkatan">ID Angkatan</label>
-                    <input type="number" name="ID_Angkatan" class="form-control" placeholder="Masukkan ID Angkatan">
-                </div>
-                <div class="form-group">
-                    <label for="ID_Jurusan">ID Jurusan</label>
-                    <input type="number" name="ID_Jurusan" class="form-control" placeholder="Masukkan ID Jurusan">
-                </div>
-                <div class="form-group">
-                    <label for="ID_Status">ID Status</label>
-                    <input type="number" name="ID_Status" class="form-control" placeholder="Masukkan ID Status">
-                </div>
-                <div class="form-group">
-                    <label for="ID_User">ID User</label>
-                    <input type="number" name="ID_User" class="form-control" placeholder="Masukkan ID User">
-                </div><br> -->
-
-                <button type="submit" class="btn btn-primary btn-style" onclick="window.location.href='index.php';">Tambah</button>
             </div>
         </div>
     </form>

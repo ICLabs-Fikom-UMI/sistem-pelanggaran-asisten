@@ -105,6 +105,11 @@ class Asisten_model{
         $this->db->bind('stambuk', $stambuk);
         return $this->db->single();
     }
+    public function getAsistenIdByNama($nama) {
+        $this->db->query("SELECT ID_Asisten FROM asisten WHERE nama = :nama");
+        $this->db->bind('nama', $nama);
+        return $this->db->single();
+    }
     public function ubah($id){
         $this->db->query("SELECT * FROM asisten WHERE ID_Asisten = :id");
         $this->db->bind("id", $id);

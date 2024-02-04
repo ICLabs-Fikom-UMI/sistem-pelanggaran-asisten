@@ -13,7 +13,7 @@
       </div>
       <div class="modal-footer">
         <span class="tombol"></span>
-        <button id="close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <span class="batal"></span>
       </div>
     </div>
   </div>
@@ -37,152 +37,171 @@
       $('#example').DataTable();
   });
   // DATA ASISTEN
-    function ubahdata(x){
-        $('.modal-title').html('Ubah Data');
-        let url = '<?= BASEURL?>/Asisten/ubahModal';
-        $.post(url, {
-          id : x
-        }, function(data, success){
-          $('.modal-body').html(data);
-        });
-        $('.tombol').html('<a href="<?= BASEURL?>/Asisten/prosesUbah/'+ x +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Ubah Data</a>');
-    }
-    function hapus(a){
-      $('.modal-title').html('Hapus Data');
-      $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-      $('.tombol').html('<a href="<?= BASEURL?>/Asisten/hapus/'+ a +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-      $('#close').html('Batal');
-    }
-    // BAGIAN PELANGGARAN
-    function ubahdataPelanggaran(dp){
-        $('.modal-title').html('Ubah Data');
-        let url = '<?= BASEURL?>/Pelanggaran/ubahModal';
-        $.post(url, {
-          id : dp
-        }, function(data, success){
-          $('.modal-body').html(data);
-        });
-        $('.tombol').html('<a href="<?= BASEURL?>/Pelanggaran/prosesUbah/'+ dp +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Ubah Data</a>');
-    }
-    function hapusdataPelanggaran(hdp){
-      $('.modal-title').html('Hapus Data');
-      $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-      $('.tombol').html('<a href="<?= BASEURL?>/Pelanggaran/hapus/'+ hdp +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-      $('#close').html('Batal');
-    }    
-    // BAGIAN TINDAK LANJUT
-    function ubahdataTL(tl){
-        $('.modal-title').html('Ubah Data');
-        let url = '<?= BASEURL?>/TindakLanjut/ubahModal';
-        $.post(url, {
-          id : tl
-        }, function(data, success){
-          $('.modal-body').html(data);
-        });
-        $('.tombol').html('<a href="<?= BASEURL?>/TindakLanjut/prosesUbah/'+ tl +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Ubah Data</a>');
-    }
-    function hapusTL(htl){
-      $('.modal-title').html('Hapus Data');
-      $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-      $('.tombol').html('<a href="<?= BASEURL?>/TindakLanjut/hapus/'+ htl +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-      $('#close').html('Batal');
-    }
-    // BAGIAN LOGOUT
-    $('#logout').on('click', function() {
-      let keluar = '<a href="<?= BASEURL?>/LogIn/logout">Keluar</a>';
-      var confirmation = window.confirm('Anda Yakin Akan Keluar');
-      if (confirmation) {
-          window.alert('Keluar');
-          keluar;
-      } else {
-          window.alert('Batal');
-      }
+  function tambahDataAsisten() {
+    $('.modal-title').html('Tambah Data');
+    let url = '<?= BASEURL ?>/Asisten/modalTambah';
+    $.get(url, function (data, success) {
+        $('.modal-body').html(data);
+
+        let tombolHTML = `
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
+                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+            </div>
+        `;
+        $('#formTambahDataAsisten').append(tombolHTML);
     });
-    $('#logoutLink').on('click', function() {
+  }
+  function ubahdata(x){
+      $('.modal-title').html('Ubah Data');
+      let url = '<?= BASEURL?>/Asisten/ubahModal';
+      $.post(url, {
+        id : x
+      }, function(data, success){
+        $('.modal-body').html(data);
+      });
+  }
+  function hapus(a){
+    $('.modal-title').html('Hapus Data');
+    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+    $('.tombol').html('<a href="<?= BASEURL?>/Asisten/hapus/'+ a +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+  }
+  // BAGIAN PELANGGARAN
+  function tambahDataPelanggaran() {
+    $('.modal-title').html('Tambah Data');
+    let url = '<?= BASEURL ?>/Pelanggaran/modalTambah';
+    $.get(url, function (data, success) {
+        $('.modal-body').html(data);
+
+        let tombolHTML = `
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
+                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+            </div>
+        `;
+        $('#formTambahDataPelanggaran').append(tombolHTML);
+    });
+  }
+  function ubahdataPelanggaran(dp){
+      $('.modal-title').html('Ubah Data');
+      let url = '<?= BASEURL?>/Pelanggaran/ubahModal';
+      $.post(url, {
+        id : dp
+      }, function(data, success){
+        $('.modal-body').html(data);
+      });
+  }
+  function hapusdataPelanggaran(hdp){
+    $('.modal-title').html('Hapus Data');
+    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+    $('.tombol').html('<a href="<?= BASEURL?>/Pelanggaran/hapus/'+ hdp +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+  }    
+  // BAGIAN TINDAK LANJUT
+  function tambahDataTL() {
+    $('.modal-title').html('Tambah Data');
+    let url = '<?= BASEURL ?>/TindakLanjut/modalTambah';
+    $.get(url, function (data, success) {
+        $('.modal-body').html(data);
+        
+        let tombolHTML = `
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
+                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+            </div>
+        `;
+        $('#formTambahData').append(tombolHTML);
+    });
+  }
+  function ubahdataTL(tl){
+    $('.modal-title').html('Ubah Data');
+    let url = '<?= BASEURL?>/TindakLanjut/ubahModal';
+    $.post(url, {
+      id : tl
+    }, function(data, success){
+      $('.modal-body').html(data);
+    });
+  }
+  function hapusTL(htl){
+    $('.modal-title').html('Hapus Data');
+    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+    $('.tombol').html('<a href="<?= BASEURL?>/TindakLanjut/hapus/'+ htl +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+  }
+  // BAGIAN NOTIFIKASI
+  function tambahDataNotifikasi() {
+    $('.modal-title').html('Tambah Data');
+    let url = '<?= BASEURL ?>/Notifikasi/modalTambah';
+    $.get(url, function (data, success) {
+        $('.modal-body').html(data);
+
+        let tombolHTML = `
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
+                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+            </div>
+        `;
+        $('#formTambahDataNotifikasi').append(tombolHTML);
+    });
+  }
+  function ubahdataNotifikasi(nt){
+      $('.modal-title').html('Ubah Data');
+      let url = '<?= BASEURL?>/Notifikasi/ubahModal';
+      $.post(url, {
+        id : nt
+      }, function(data, success){
+        $('.modal-body').html(data);
+      });
+  }
+  function hapusNotifikasi(hnt){
+    $('.modal-title').html('Hapus Data');
+    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+    $('.tombol').html('<a href="<?= BASEURL?>/Notifikasi/hapus/'+ hnt +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+  }
+  // BAGIAN LOGOUT
+  $('#logout').on('click', function() {
+    let keluar = '<a href="<?= BASEURL?>/LogIn/logout">Keluar</a>';
     var confirmation = window.confirm('Anda Yakin Akan Keluar');
-
     if (confirmation) {
-        // Proses logout dengan AJAX
-        $.ajax({
-            url: '<?= BASEURL ?>/LogIn/logout',
-            type: 'GET',
-            success: function(response) {
-                window.alert('Keluar');
-                window.location.href = response.redirect;
-            },
-            error: function() {
-                window.alert('Gagal Keluar');
-              }
-          });
-      } else {
-          window.alert('Batal');
-      }
-    });
-    function tambahDataTL() {
-        $('.modal-title').html('Tambah Data');
-        let url = '<?= BASEURL ?>/TindakLanjut/modalTambah';
-        $.get(url, function (data, success) {
-            $('.modal-body').html(data);
-        });
-        $('.tombol').html('<button type="submit" class="btn btn-primary">Tambah Data</button>');
+        window.alert('Keluar');
+        keluar;
+    } else {
+        window.alert('Batal');
     }
-    function tambahDataPelanggaran() {
-        $('.modal-title').html('Tambah Data');
-        let url = '<?= BASEURL ?>/Pelanggaran/modalTambah';
-        $.get(url, function (data, success) {
-            $('.modal-body').html(data);
-        });
-        $('.tombol').html('<button type="submit" class="btn btn-primary">Tambah Data</button>');
-    }
-    function tambahDataAsisten() {
-        $('.modal-title').html('Tambah Data');
-        let url = '<?= BASEURL ?>/Asisten/modalTambah';
-        $.get(url, function (data, success) {
-            $('.modal-body').html(data);
-        });
-        $('.tombol').html('<button type="submit" class="btn btn-primary">Tambah Data</button>');
-    }
-    function cari() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        table = document.querySelector("table");
-        tr = table.getElementsByTagName("tr");
+  });
+  $('#logoutLink').on('click', function() {
+  var confirmation = window.confirm('Anda Yakin Akan Keluar');
 
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
+  if (confirmation) {
+      $.ajax({
+          url: '<?= BASEURL ?>/LogIn/logout',
+          type: 'GET',
+          success: function(response) {
+              window.alert('Keluar');
+              window.location.href = response.redirect;
+          },
+          error: function() {
+              window.alert('Gagal Keluar');
             }
-        }
+        });
+    } else {
+        window.alert('Batal');
     }
-    function cari2() {
-      var input, filter, table, tr, td1, td2, td3, td4, td5, i, txtValue;
+  });
+  function cari() {
+      var input, filter, table, tr, td, i, txtValue;
       input = document.getElementById("searchInput");
       filter = input.value.toUpperCase();
       table = document.querySelector("table");
       tr = table.getElementsByTagName("tr");
 
       for (i = 0; i < tr.length; i++) {
-          td1 = tr[i].getElementsByTagName("td")[1];
-          td2 = tr[i].getElementsByTagName("td")[2];
-          td3 = tr[i].getElementsByTagName("td")[3];
-          td4 = tr[i].getElementsByTagName("td")[4];
-          td5 = tr[i].getElementsByTagName("td")[5];
+          td = tr[i].getElementsByTagName("td")[1];
           
-          if (td1 && td2) {
-              txtValue = td1.textContent || td1.innerText;
-              txtValue += " " + (td2.textContent || td2.innerText); 
-              txtValue += " " + (td3.textContent || td3.innerText); 
-              txtValue += " " + (td4.textContent || td4.innerText); 
-              txtValue += " " + (td5.textContent || td5.innerText); 
-              
+          if (td) {
+              txtValue = td.textContent || td.innerText;
               if (txtValue.toUpperCase().indexOf(filter) > -1) {
                   tr[i].style.display = "";
               } else {
@@ -190,6 +209,35 @@
               }
           }
       }
+  }
+  function cari2() {
+    var input, filter, table, tr, td1, td2, td3, td4, td5, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.querySelector("table");
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 0; i < tr.length; i++) {
+        td1 = tr[i].getElementsByTagName("td")[1];
+        td2 = tr[i].getElementsByTagName("td")[2];
+        td3 = tr[i].getElementsByTagName("td")[3];
+        td4 = tr[i].getElementsByTagName("td")[4];
+        td5 = tr[i].getElementsByTagName("td")[5];
+        
+        if (td1 && td2) {
+            txtValue = td1.textContent || td1.innerText;
+            txtValue += " " + (td2.textContent || td2.innerText); 
+            txtValue += " " + (td3.textContent || td3.innerText); 
+            txtValue += " " + (td4.textContent || td4.innerText); 
+            txtValue += " " + (td5.textContent || td5.innerText); 
+            
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
   }
 </script>
 </body>

@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
-                    <label for="ID_Asisten">ID Asisten</label>
+                    <label for="ID_Asisten">Nama Asisten</label>
                     <input type="number" name="ID_Asisten" class="form-control" value="<?= $data['ubahdata']['ID_Asisten']?>">
                 </div>
                 <div class="form-group">
@@ -26,8 +26,11 @@
                         }
                         ?>
                     </select>
-                </div>                
-                <button type="submit" class="btn btn-primary">Ubah Data</button>
+                </div><br>                
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Ubah</button>
+                    <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </form>

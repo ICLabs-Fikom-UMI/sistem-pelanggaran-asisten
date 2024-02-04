@@ -49,5 +49,5 @@ class Controller{
             header('Location:' . BASEURL);
             exit;
         }
-    }   
+    } 
 }

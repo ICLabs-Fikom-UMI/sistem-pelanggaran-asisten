@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Jan 2024 pada 14.08
+-- Waktu pembuatan: 04 Feb 2024 pada 16.53
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `asisten_bermasalah`
+-- Database: `pelanggaran_asisten`
 --
 
 -- --------------------------------------------------------
@@ -37,10 +37,9 @@ CREATE TABLE `angkatan` (
 --
 
 INSERT INTO `angkatan` (`ID_Angkatan`, `angkatan`) VALUES
-(1, '2018'),
-(2, '2019'),
-(3, '2020'),
-(4, '2021');
+(1, '2019'),
+(2, '2020'),
+(3, '2021');
 
 -- --------------------------------------------------------
 
@@ -61,16 +60,12 @@ CREATE TABLE `asisten` (
   `ID_User` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Struktur dari tabel `jenis_kelakuan`
+-- Dumping data untuk tabel `asisten`
 --
 
-CREATE TABLE `jenis_kelakuan` (
-  `ID_JenisKelakuan` int(11) NOT NULL,
-  `jenis_kelakuan` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+INSERT INTO `asisten` (`ID_Asisten`, `stambuk`, `nama`, `ID_Kelas`, `ID_Angkatan`, `ID_Jurusan`, `ID_Status`, `jenis_kelamin`, `no_telp`, `ID_User`) VALUES
+(1, '13020210242', 'Nirmala', 13, 3, 1, 2, 'Wanita', '0895414025744', 3);
 
 -- --------------------------------------------------------
 
@@ -126,6 +121,19 @@ INSERT INTO `kelas` (`ID_Kelas`, `kelas`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `notifikasi`
+--
+
+CREATE TABLE `notifikasi` (
+  `ID_Notifikasi` int(11) NOT NULL,
+  `pesan` text DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `ID_Asisten` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `pelanggaran`
 --
 
@@ -134,9 +142,15 @@ CREATE TABLE `pelanggaran` (
   `pelanggaran` text DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
   `ID_Asisten` int(11) DEFAULT NULL,
-  `ID_JenisKelakuan` int(11) DEFAULT NULL,
   `ID_TindakLanjut` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data untuk tabel `pelanggaran`
+--
+
+INSERT INTO `pelanggaran` (`ID_Pelanggaran`, `pelanggaran`, `tanggal`, `ID_Asisten`, `ID_TindakLanjut`) VALUES
+(1, 'Terlambat masuk kelas', '2024-02-04', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -168,6 +182,17 @@ CREATE TABLE `tindak_lanjut` (
   `tindak_lanjut` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data untuk tabel `tindak_lanjut`
+--
+
+INSERT INTO `tindak_lanjut` (`ID_TindakLanjut`, `tindak_lanjut`) VALUES
+(1, 'Peringatan 1'),
+(2, 'Peringatan 2'),
+(3, 'Peringatan 3'),
+(4, 'Menghadap'),
+(5, 'Black List');
+
 -- --------------------------------------------------------
 
 --
@@ -187,10 +212,21 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID_User`, `nama`, `username`, `password`, `role`) VALUES
-(1, 'admin', 'admin@gmail.com', 'admin123', 'admin'),
-(2, 'Intje Irfan Ibrahim', 'intjeirfanibrahim@gmail.com', 'irfan', 'korlab'),
-(3, 'Nirmala', 'malaaaanir@gmail.com', 'Mala0404', 'asisten'),
-(4, 'Nurul Azmi ', 'nurulazmi@gmail.com', 'azmi', 'asisten');
+(1, 'Admin', 'admin@umi.ac.id', 'admin123', 'admin'),
+(2, 'Intje Irfan Ibrahim', '13120190001@umi.ac.id', 'irfan', 'admin'),
+(3, 'Nirmala', '13020210242@umi.ac.id', 'mala', 'asisten'),
+(4, 'Muhammad Akbar ', '13120210008@umi.ac.id', 'akbar', 'asisten'),
+(5, 'Athar Fathana Rakasyah ', '13020210287@umi.ac.id', 'athar', 'asisten'),
+(6, 'Annisa Pratama Putri ', '13020210023@umi.ac.id', 'nisa', 'asisten'),
+(7, 'Nurul Azmi ', '13020210066@umi.ac.id', 'ami', 'asisten'),
+(8, 'Naufal Abiyyu Supriadi ', '13020210205@umi.ac.id', 'nofal', 'asisten'),
+(9, 'Nasrullah', '13020210134@umi.ac.id', 'nass', 'asisten'),
+(10, 'Ahmad Rendi ', '13020210048@umi.ac.id', 'rendi', 'asisten'),
+(11, 'Furqon Fatahillah', '13120210005@umi.ac.id', 'moon', 'asisten'),
+(12, 'Adam Adnan ', '13020200103@umi.ac.id', 'adam', 'asisten'),
+(13, 'Muhammad Dani Arya Putra', '13120210004@umi.ac.id', 'koko', 'asisten'),
+(14, 'As\'syahrin Nanda', '13020200318@umi.ac.id', 'syahrin', 'asisten'),
+(15, 'Imran Afdillah Dahlan ', '13020210053@umi.ac.id', 'imran', 'asisten');
 
 --
 -- Indexes for dumped tables
@@ -215,12 +251,6 @@ ALTER TABLE `asisten`
   ADD KEY `FK_User_idx` (`ID_User`);
 
 --
--- Indeks untuk tabel `jenis_kelakuan`
---
-ALTER TABLE `jenis_kelakuan`
-  ADD PRIMARY KEY (`ID_JenisKelakuan`);
-
---
 -- Indeks untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
@@ -233,12 +263,18 @@ ALTER TABLE `kelas`
   ADD PRIMARY KEY (`ID_Kelas`);
 
 --
+-- Indeks untuk tabel `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD PRIMARY KEY (`ID_Notifikasi`),
+  ADD KEY `fk_idasisten_idx` (`ID_Asisten`);
+
+--
 -- Indeks untuk tabel `pelanggaran`
 --
 ALTER TABLE `pelanggaran`
   ADD PRIMARY KEY (`ID_Pelanggaran`),
   ADD KEY `FK__idx` (`ID_Asisten`),
-  ADD KEY `FK_JenisKelakuan_idx` (`ID_JenisKelakuan`),
   ADD KEY `FK_TindakLanjut_idx` (`ID_TindakLanjut`);
 
 --
@@ -268,19 +304,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `angkatan`
 --
 ALTER TABLE `angkatan`
-  MODIFY `ID_Angkatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_Angkatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `asisten`
 --
 ALTER TABLE `asisten`
-  MODIFY `ID_Asisten` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `jenis_kelakuan`
---
-ALTER TABLE `jenis_kelakuan`
-  MODIFY `ID_JenisKelakuan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Asisten` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `jurusan`
@@ -295,10 +325,16 @@ ALTER TABLE `kelas`
   MODIFY `ID_Kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT untuk tabel `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  MODIFY `ID_Notifikasi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `pelanggaran`
 --
 ALTER TABLE `pelanggaran`
-  MODIFY `ID_Pelanggaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Pelanggaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `status`
@@ -310,13 +346,13 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT untuk tabel `tindak_lanjut`
 --
 ALTER TABLE `tindak_lanjut`
-  MODIFY `ID_TindakLanjut` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_TindakLanjut` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID_User` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID_User` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -333,11 +369,16 @@ ALTER TABLE `asisten`
   ADD CONSTRAINT `FK_User` FOREIGN KEY (`ID_User`) REFERENCES `user` (`ID_User`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Ketidakleluasaan untuk tabel `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD CONSTRAINT `fk_idasisten` FOREIGN KEY (`ID_Asisten`) REFERENCES `asisten` (`ID_Asisten`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Ketidakleluasaan untuk tabel `pelanggaran`
 --
 ALTER TABLE `pelanggaran`
   ADD CONSTRAINT `FK_Asisten` FOREIGN KEY (`ID_Asisten`) REFERENCES `asisten` (`ID_Asisten`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_JenisKelakuan` FOREIGN KEY (`ID_JenisKelakuan`) REFERENCES `jenis_kelakuan` (`ID_JenisKelakuan`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_TindakLanjut` FOREIGN KEY (`ID_TindakLanjut`) REFERENCES `tindak_lanjut` (`ID_TindakLanjut`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
