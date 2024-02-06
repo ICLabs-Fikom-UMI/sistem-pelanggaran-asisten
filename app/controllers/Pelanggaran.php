@@ -72,9 +72,7 @@ class Pelanggaran extends Controller {
             header('Location: '.BASEURL. '/Pelanggaran');
             exit;
         }
-    }
-    
-    
+    }       
     public function prosesUbah(){
         $this->isAdminOrKorlab();
         $data['asistenOptions'] = $this->model('Pelanggaran_model')->tampilAsisten();

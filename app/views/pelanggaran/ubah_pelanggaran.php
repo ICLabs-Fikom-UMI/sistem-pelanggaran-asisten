@@ -10,7 +10,7 @@
                 </div>
                 <div class="form-group">
                     <label for="pelanggaran">Detail Pelanggaran</label>
-                    <input type="text" name="pelanggaran" class="form-control" value="<?= $data['ubahdata']['pelanggaran']?>">
+                    <textarea name="pelanggaran" class="form-control" rows="4"><?= $data['ubahdata']['pelanggaran']?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tanggal">Tanggal</label>

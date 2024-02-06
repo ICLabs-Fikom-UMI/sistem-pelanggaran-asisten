@@ -4,7 +4,8 @@ class Home extends Controller {
     public function index(){
         $data['title'] = 'Dasboard';
 
-        $data['jumlahDataPelanggaran'] = $this->model('Pelanggaran_model')->jumlahDataPelanggaran();
+        $data['jumlahDataPelanggaranPer6Bulan'] = $this->model('Pelanggaran_model')->jumlahDataPelanggaranPer6Bulan();
+        
         $data['jumlahDataAsisten'] = $this->model('Asisten_model')->jumlahDataAsisten();
         $data['jumlahDataTindakLanjut'] = $this->model('TindakLanjut_model')->jumlahDataTindakLanjut();
 

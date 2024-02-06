@@ -79,6 +79,15 @@ class Pelanggaran_model{
 
         return $this->db->rowCount(); 
     }
+    public function hapusPelanggaranPer6Bulan() {
+        $query = "DELETE FROM pelanggaran WHERE tanggal < DATE_SUB(NOW(), INTERVAL 6 MONTH)";
+        
+        $this->db->query($query);
+        $this->db->execute();
+        
+        return $this->db->rowCount();
+    }
+    // 0 0 1 * * /usr/bin/php /path/to/your/script.php
     public function detailPelanggaran($id){
         $this->db->query("SELECT * FROM pelanggaran WHERE ID_Pelanggaran = :id");
         $this->db->bind("id", $id);
@@ -103,8 +112,7 @@ class Pelanggaran_model{
         return $this->db->resultSet();
     }
     // SYNTAX 2 UNTUK ASISTEN
-    public function tampilDataPelanggaranAsisten()
-    {
+    public function tampilDataPelanggaranAsisten(){
         $idAsisten = $_SESSION['ID_Asisten'];
         $query = "SELECT 
                     pelanggaran.ID_Pelanggaran, 
@@ -124,39 +132,46 @@ class Pelanggaran_model{
 
         return $this->db->resultSet();
     }
-
     // UNTUK BAGIAN DASBOARD
-    public function jumlahDataPelanggaran() {
-        $this->db->query("SELECT COUNT(*) as jumlah FROM pelanggaran");
-        $result = $this->db->single();
-        return $result['jumlah'];
-    }
     public function getTindakLanjutDetailById($id) {
         $query = "SELECT * FROM tindak_lanjut WHERE ID_TindakLanjut = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
         return $this->db->single();
     }
-    public function tampilByAsisten($idAsisten){
+    // public function tampilByAsisten($idAsisten){
+    //     $query = "SELECT
+    //                 pelanggaran.ID_Pelanggaran,
+    //                 asisten.stambuk,
+    //                 asisten.nama,
+    //                 pelanggaran.pelanggaran,
+    //                 pelanggaran.tanggal,
+    //                 tindak_lanjut.tindak_lanjut
+    //             FROM
+    //                 pelanggaran
+    //             JOIN
+    //                 asisten ON pelanggaran.ID_Asisten = asisten.ID_Asisten
+    //             JOIN
+    //                 tindak_lanjut ON pelanggaran.ID_TindakLanjut = tindak_lanjut.ID_TindakLanjut
+    //             WHERE
+    //                 asisten.ID_Asisten = :idAsisten";
+
+    //     $this->db->query($query);
+    //     $this->db->bind('idAsisten', $idAsisten);
+
+    //     return $this->db->resultSet();
+    // }
+    public function jumlahDataPelanggaranPer6Bulan() {
         $query = "SELECT
-                    pelanggaran.ID_Pelanggaran,
-                    asisten.stambuk,
-                    asisten.nama,
-                    pelanggaran.pelanggaran,
-                    pelanggaran.tanggal,
-                    tindak_lanjut.tindak_lanjut
+                    CONCAT(YEAR(tanggal), '-', QUARTER(tanggal)) AS periode,
+                    COUNT(*) AS jumlah
                 FROM
                     pelanggaran
-                JOIN
-                    asisten ON pelanggaran.ID_Asisten = asisten.ID_Asisten
-                JOIN
-                    tindak_lanjut ON pelanggaran.ID_TindakLanjut = tindak_lanjut.ID_TindakLanjut
-                WHERE
-                    asisten.ID_Asisten = :idAsisten";
-
+                GROUP BY
+                    YEAR(tanggal), QUARTER(tanggal)";
+    
         $this->db->query($query);
-        $this->db->bind('idAsisten', $idAsisten);
-
         return $this->db->resultSet();
-    }    
+    }
+        
 }

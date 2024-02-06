@@ -57,8 +57,10 @@ $('.open-btn').on('click', function () {
 
 });
 
-
 $('.close-btn').on('click', function () {
     $('.sidebar').removeClass('active');
 
 })
+
+
+

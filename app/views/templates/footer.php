@@ -103,8 +103,7 @@
     $('.modal-title').html('Tambah Data');
     let url = '<?= BASEURL ?>/TindakLanjut/modalTambah';
     $.get(url, function (data, success) {
-        $('.modal-body').html(data);
-        
+        $('.modal-body').html(data);        
         let tombolHTML = `
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>

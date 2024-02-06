@@ -14,8 +14,9 @@
                 </div>
                 <div class="form-group">
                     <label for="text">Detail Pelanggaran</label>
-                    <input type="text" name="pelanggaran" class="form-control" placeholder="Masukkan Data Pelanggaran">
+                    <textarea name="pelanggaran" class="form-control" placeholder="Masukkan Detail Pelanggaran" rows="4"></textarea>
                 </div>
+
                 <div class="form-group">
                     <label for="text">Tanggal</label>
                     <?php
