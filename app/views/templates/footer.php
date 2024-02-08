@@ -128,6 +128,156 @@
     $('.tombol').html('<a href="<?= BASEURL?>/TindakLanjut/hapus/'+ htl +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
     $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
   }
+  // BAGIAN KELAS
+  function tambahDataKelas() {
+    $('.modal-title').html('Tambah Data');
+    let url = '<?= BASEURL ?>/Kelas/modalTambah';
+    $.get(url, function (data, success) {
+        $('.modal-body').html(data);        
+        let tombolHTML = `
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
+                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+            </div>
+        `;
+        $('#formTambahData').append(tombolHTML);
+    });
+  }
+  function ubahdataKelas(kelas){
+    $('.modal-title').html('Ubah Data');
+    let url = '<?= BASEURL?>/Kelas/ubahModal';
+    $.post(url, {
+      id : kelas
+    }, function(data, success){
+      $('.modal-body').html(data);
+    });
+  }
+  function hapusKelas(hkelas){
+    $('.modal-title').html('Hapus Data');
+    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+    $('.tombol').html('<a href="<?= BASEURL?>/Kelas/hapus/'+ hkelas +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+  }
+  // BAGIAN ANGKATAN
+  function tambahDataAngkatan() {
+    $('.modal-title').html('Tambah Data');
+    let url = '<?= BASEURL ?>/Angkatan/modalTambah';
+    $.get(url, function (data, success) {
+        $('.modal-body').html(data);        
+        let tombolHTML = `
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
+                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+            </div>
+        `;
+        $('#formTambahData').append(tombolHTML);
+    });
+  }
+  function ubahdataAngkatan(angkatan){
+    $('.modal-title').html('Ubah Data');
+    let url = '<?= BASEURL?>/Angkatan/ubahModal';
+    $.post(url, {
+      id : angkatan
+    }, function(data, success){
+      $('.modal-body').html(data);
+    });
+  }
+  function hapusAngkatan(hangkatan){
+    $('.modal-title').html('Hapus Data');
+    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+    $('.tombol').html('<a href="<?= BASEURL?>/Angkatan/hapus/'+ hangkatan +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+  }
+  // BAGIAN JURUSAN
+  function tambahDataJurusan() {
+    $('.modal-title').html('Tambah Data');
+    let url = '<?= BASEURL ?>/Jurusan/modalTambah';
+    $.get(url, function (data, success) {
+        $('.modal-body').html(data);        
+        let tombolHTML = `
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
+                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+            </div>
+        `;
+        $('#formTambahData').append(tombolHTML);
+    });
+  }
+  function ubahdataJurusan(jurusan){
+    $('.modal-title').html('Ubah Data');
+    let url = '<?= BASEURL?>/Jurusan/ubahModal';
+    $.post(url, {
+      id : jurusan
+    }, function(data, success){
+      $('.modal-body').html(data);
+    });
+  }
+  function hapusJurusan(hjurusan){
+    $('.modal-title').html('Hapus Data');
+    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+    $('.tombol').html('<a href="<?= BASEURL?>/Jurusan/hapus/'+ hjurusan +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+  }
+  // BAGIAN STATUS
+  function tambahDataStatus() {
+    $('.modal-title').html('Tambah Data');
+    let url = '<?= BASEURL ?>/Status/modalTambah';
+    $.get(url, function (data, success) {
+        $('.modal-body').html(data);        
+        let tombolHTML = `
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
+                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+            </div>
+        `;
+        $('#formTambahData').append(tombolHTML);
+    });
+  }
+  function ubahdataStatus(status){
+    $('.modal-title').html('Ubah Data');
+    let url = '<?= BASEURL?>/Status/ubahModal';
+    $.post(url, {
+      id : status
+    }, function(data, success){
+      $('.modal-body').html(data);
+    });
+  }
+  function hapusStatus(hstatus){
+    $('.modal-title').html('Hapus Data');
+    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+    $('.tombol').html('<a href="<?= BASEURL?>/Status/hapus/'+ hstatus +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+  }
+  // BAGIAN USER
+  function tambahDataUser() {
+    $('.modal-title').html('Tambah Data');
+    let url = '<?= BASEURL ?>/User/modalTambah';
+    $.get(url, function (data, success) {
+        $('.modal-body').html(data);        
+        let tombolHTML = `
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
+                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+            </div>
+        `;
+        $('#formTambahData').append(tombolHTML);
+    });
+  }
+  function ubahdataUser(user){
+    $('.modal-title').html('Ubah Data');
+    let url = '<?= BASEURL?>/User/ubahModal';
+    $.post(url, {
+      id : user
+    }, function(data, success){
+      $('.modal-body').html(data);
+    });
+  }
+  function hapusUser(huser){
+    $('.modal-title').html('Hapus Data');
+    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
+    $('.tombol').html('<a href="<?= BASEURL?>/User/hapus/'+ huser +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+  }
   // BAGIAN NOTIFIKASI
   function tambahDataNotifikasi() {
     $('.modal-title').html('Tambah Data');
@@ -189,55 +339,6 @@
         window.alert('Batal');
     }
   });
-  function cari() {
-      var input, filter, table, tr, td, i, txtValue;
-      input = document.getElementById("searchInput");
-      filter = input.value.toUpperCase();
-      table = document.querySelector("table");
-      tr = table.getElementsByTagName("tr");
-
-      for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[1];
-          
-          if (td) {
-              txtValue = td.textContent || td.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  tr[i].style.display = "";
-              } else {
-                  tr[i].style.display = "none";
-              }
-          }
-      }
-  }
-  function cari2() {
-    var input, filter, table, tr, td1, td2, td3, td4, td5, i, txtValue;
-    input = document.getElementById("searchInput");
-    filter = input.value.toUpperCase();
-    table = document.querySelector("table");
-    tr = table.getElementsByTagName("tr");
-
-    for (i = 0; i < tr.length; i++) {
-        td1 = tr[i].getElementsByTagName("td")[1];
-        td2 = tr[i].getElementsByTagName("td")[2];
-        td3 = tr[i].getElementsByTagName("td")[3];
-        td4 = tr[i].getElementsByTagName("td")[4];
-        td5 = tr[i].getElementsByTagName("td")[5];
-        
-        if (td1 && td2) {
-            txtValue = td1.textContent || td1.innerText;
-            txtValue += " " + (td2.textContent || td2.innerText); 
-            txtValue += " " + (td3.textContent || td3.innerText); 
-            txtValue += " " + (td4.textContent || td4.innerText); 
-            txtValue += " " + (td5.textContent || td5.innerText); 
-            
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-  }
 </script>
 </body>
 </html>

@@ -13,6 +13,43 @@ class LogIn extends Controller {
         
         $this->view('login/index', $data);
     }
+    // public function login(){
+    //     $username = $_POST['username'];
+    //     $password = $_POST['password'];    
+        
+    //     $role = $this->model("Login_model")->getRole($username);
+    //     $nama_user = $this->model("Login_model")->getNamaUser($username); 
+    
+    //     echo var_dump($_POST);
+    //     echo "<br></br>";
+        
+    //     $id_user = $this->model('Login_model')->validateLogin($username, $password);
+    
+    //     if ($id_user) {
+    //         echo "Anda Berhasil Login";
+    
+    //         $is_password_default = $this->model('Login_model')->isDefaultPassword($password);
+    //         if (!$is_password_default) {
+    //             session_start();
+    //             $_SESSION['ID_User'] = $id_user;
+    //             $_SESSION['role'] = $role['role'];
+    //             $_SESSION['nama'] = $nama_user; 
+    //             header('Location: ' . BASEURL);
+    //             exit();
+    //         }
+    //         else {
+    //             session_start();
+    //             $_SESSION['ID_User'] = $id_user;
+    //             $_SESSION['role'] = $role['role'];
+    //             $_SESSION['nama'] = $nama_user; 
+    //             header('Location: ' . BASEURL . '/home');
+    //             exit;
+    //         }
+    //     }
+    //     else {
+    //         header('Location: ' . BASEURL . '/login');
+    //     }
+    // } 
     public function login(){
         $username = $_POST['username'];
         $password = $_POST['password'];    
@@ -34,7 +71,13 @@ class LogIn extends Controller {
                 $_SESSION['ID_User'] = $id_user;
                 $_SESSION['role'] = $role['role'];
                 $_SESSION['nama'] = $nama_user; 
-                header('Location: ' . BASEURL);
+    
+                // Jika peran pengguna adalah "asisten", arahkan mereka langsung ke halaman notifikasi
+                if ($_SESSION['role'] === 'asisten') {
+                    header('Location: ' . BASEURL . '/pelanggaran');
+                } else {
+                    header('Location: ' . BASEURL);
+                }
                 exit();
             }
             else {
@@ -49,7 +92,8 @@ class LogIn extends Controller {
         else {
             header('Location: ' . BASEURL . '/login');
         }
-    }    
+    }
+       
     public function logout(){
         session_start();
         session_unset();

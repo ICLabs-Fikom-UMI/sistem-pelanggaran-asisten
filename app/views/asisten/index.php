@@ -4,7 +4,7 @@
 <!-- <a href="<?= BASEURL?>/asisten/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
 <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataAsisten()">Tambah Data</a>
     <h5><?= $data['title'];?></h5>
-    <div class="overflow-x-hidden" style="max-height: 62vh;">
+    <div class="overflow-auto" style="max-height: 62vh;">
     <table id="example" class="table" style="width:100%">
     <thead class="table-light">
         <tr class="table-secondary">

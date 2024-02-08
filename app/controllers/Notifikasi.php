@@ -1,9 +1,9 @@
 <?php
 
 class Notifikasi extends Controller {
-    public function index()
-    {
-        $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
+    public function index(){
+        // $this->isAdminOrKorlab();
+        // $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
 
         $data['title'] = 'Data Notifikasi';
         

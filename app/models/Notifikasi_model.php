@@ -118,6 +118,26 @@ class Notifikasi_model{
 
         return $this->db->resultSet();
     }  
+    // public function tampilDataNotifikasiAsisten(){
+    //     $idAsisten = $_SESSION['ID_Asisten'];
+    //     $query = "SELECT
+    //                 notifikasi.ID_Notifikasi,
+    //                 notifikasi.pesan,
+    //                 notifikasi.tanggal
+    //                 -- asisten.nama
+    //             FROM
+    //                 notifikasi
+    //             JOIN
+    //                 asisten ON notifikasi.ID_Asisten = asisten.ID_Asisten
+    //             WHERE
+    //                 asisten.ID_Asisten = :idAsisten
+    //             ";
+
+    //     $this->db->query($query);
+    //     $this->db->bind('idAsisten', $idAsisten);
+
+    //     return $this->db->resultSet();
+    // }
     public function tampilDataNotifikasiAsisten(){
         $idAsisten = $_SESSION['ID_Asisten'];
         $query = "SELECT

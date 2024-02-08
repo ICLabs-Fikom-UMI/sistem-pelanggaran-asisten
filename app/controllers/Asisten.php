@@ -1,5 +1,4 @@
 <?php
-
 class Asisten extends Controller {
     public function index(){
         $this->isAdmin();

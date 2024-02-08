@@ -48,12 +48,10 @@ body{
 hr.h-color{
     background: #eee;
 }
-
 .sidebar li.active{
     background: #eee;
     border-radius: 8px;
 }
-
 .sidebar li.active a, .sidebar li.active a:hover {
     color: #000;
 }
@@ -80,6 +78,10 @@ hr.h-color{
     flex-grow: 1; 
     overflow-y: auto; 
 }
+.sidebar li {
+    margin-bottom: 5px; /* Ubah margin bottom sesuai kebutuhan Anda */
+}
+
 
 /* BAGIAN NAVBAR */
 .main-header{
