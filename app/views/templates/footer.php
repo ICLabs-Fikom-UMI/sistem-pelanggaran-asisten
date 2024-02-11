@@ -36,277 +36,35 @@
   $(document).ready(function() {
       $('#example').DataTable();
   });
-  // DATA ASISTEN
-  function tambahDataAsisten() {
+  function change(jenis, id) {
+    $('.modal-title').html('Ubah Data');
+    let url = '<?= BASEURL?>/' + jenis + '/ubahModal';
+    $.post(url, {
+        id: id
+    }, function(data, success) {
+        $('.modal-body').html(data);
+    });
+  }
+  function add(jenis) {
     $('.modal-title').html('Tambah Data');
-    let url = '<?= BASEURL ?>/Asisten/modalTambah';
-    $.get(url, function (data, success) {
+    let url = '<?= BASEURL ?>/' + jenis + '/modalTambah';
+    $.get(url, function(data, success) {
         $('.modal-body').html(data);
 
+        let formID = '#formTambahData' + jenis;
         let tombolHTML = `
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
                 <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
             </div>
         `;
-        $('#formTambahDataAsisten').append(tombolHTML);
+        $(formID).append(tombolHTML);
     });
   }
-  function ubahdata(x){
-      $('.modal-title').html('Ubah Data');
-      let url = '<?= BASEURL?>/Asisten/ubahModal';
-      $.post(url, {
-        id : x
-      }, function(data, success){
-        $('.modal-body').html(data);
-      });
-  }
-  function hapus(a){
+  function deleteData(jenis, id) {
     $('.modal-title').html('Hapus Data');
     $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html('<a href="<?= BASEURL?>/Asisten/hapus/'+ a +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
-  }
-  // BAGIAN PELANGGARAN
-  function tambahDataPelanggaran() {
-    $('.modal-title').html('Tambah Data');
-    let url = '<?= BASEURL ?>/Pelanggaran/modalTambah';
-    $.get(url, function (data, success) {
-        $('.modal-body').html(data);
-
-        let tombolHTML = `
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
-                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
-            </div>
-        `;
-        $('#formTambahDataPelanggaran').append(tombolHTML);
-    });
-  }
-  function ubahdataPelanggaran(dp){
-      $('.modal-title').html('Ubah Data');
-      let url = '<?= BASEURL?>/Pelanggaran/ubahModal';
-      $.post(url, {
-        id : dp
-      }, function(data, success){
-        $('.modal-body').html(data);
-      });
-  }
-  function hapusdataPelanggaran(hdp){
-    $('.modal-title').html('Hapus Data');
-    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html('<a href="<?= BASEURL?>/Pelanggaran/hapus/'+ hdp +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
-  }    
-  // BAGIAN TINDAK LANJUT
-  function tambahDataTL() {
-    $('.modal-title').html('Tambah Data');
-    let url = '<?= BASEURL ?>/TindakLanjut/modalTambah';
-    $.get(url, function (data, success) {
-        $('.modal-body').html(data);        
-        let tombolHTML = `
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
-                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
-            </div>
-        `;
-        $('#formTambahData').append(tombolHTML);
-    });
-  }
-  function ubahdataTL(tl){
-    $('.modal-title').html('Ubah Data');
-    let url = '<?= BASEURL?>/TindakLanjut/ubahModal';
-    $.post(url, {
-      id : tl
-    }, function(data, success){
-      $('.modal-body').html(data);
-    });
-  }
-  function hapusTL(htl){
-    $('.modal-title').html('Hapus Data');
-    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html('<a href="<?= BASEURL?>/TindakLanjut/hapus/'+ htl +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
-  }
-  // BAGIAN KELAS
-  function tambahDataKelas() {
-    $('.modal-title').html('Tambah Data');
-    let url = '<?= BASEURL ?>/Kelas/modalTambah';
-    $.get(url, function (data, success) {
-        $('.modal-body').html(data);        
-        let tombolHTML = `
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
-                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
-            </div>
-        `;
-        $('#formTambahData').append(tombolHTML);
-    });
-  }
-  function ubahdataKelas(kelas){
-    $('.modal-title').html('Ubah Data');
-    let url = '<?= BASEURL?>/Kelas/ubahModal';
-    $.post(url, {
-      id : kelas
-    }, function(data, success){
-      $('.modal-body').html(data);
-    });
-  }
-  function hapusKelas(hkelas){
-    $('.modal-title').html('Hapus Data');
-    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html('<a href="<?= BASEURL?>/Kelas/hapus/'+ hkelas +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
-  }
-  // BAGIAN ANGKATAN
-  function tambahDataAngkatan() {
-    $('.modal-title').html('Tambah Data');
-    let url = '<?= BASEURL ?>/Angkatan/modalTambah';
-    $.get(url, function (data, success) {
-        $('.modal-body').html(data);        
-        let tombolHTML = `
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
-                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
-            </div>
-        `;
-        $('#formTambahData').append(tombolHTML);
-    });
-  }
-  function ubahdataAngkatan(angkatan){
-    $('.modal-title').html('Ubah Data');
-    let url = '<?= BASEURL?>/Angkatan/ubahModal';
-    $.post(url, {
-      id : angkatan
-    }, function(data, success){
-      $('.modal-body').html(data);
-    });
-  }
-  function hapusAngkatan(hangkatan){
-    $('.modal-title').html('Hapus Data');
-    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html('<a href="<?= BASEURL?>/Angkatan/hapus/'+ hangkatan +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
-  }
-  // BAGIAN JURUSAN
-  function tambahDataJurusan() {
-    $('.modal-title').html('Tambah Data');
-    let url = '<?= BASEURL ?>/Jurusan/modalTambah';
-    $.get(url, function (data, success) {
-        $('.modal-body').html(data);        
-        let tombolHTML = `
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
-                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
-            </div>
-        `;
-        $('#formTambahData').append(tombolHTML);
-    });
-  }
-  function ubahdataJurusan(jurusan){
-    $('.modal-title').html('Ubah Data');
-    let url = '<?= BASEURL?>/Jurusan/ubahModal';
-    $.post(url, {
-      id : jurusan
-    }, function(data, success){
-      $('.modal-body').html(data);
-    });
-  }
-  function hapusJurusan(hjurusan){
-    $('.modal-title').html('Hapus Data');
-    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html('<a href="<?= BASEURL?>/Jurusan/hapus/'+ hjurusan +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
-  }
-  // BAGIAN STATUS
-  function tambahDataStatus() {
-    $('.modal-title').html('Tambah Data');
-    let url = '<?= BASEURL ?>/Status/modalTambah';
-    $.get(url, function (data, success) {
-        $('.modal-body').html(data);        
-        let tombolHTML = `
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
-                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
-            </div>
-        `;
-        $('#formTambahData').append(tombolHTML);
-    });
-  }
-  function ubahdataStatus(status){
-    $('.modal-title').html('Ubah Data');
-    let url = '<?= BASEURL?>/Status/ubahModal';
-    $.post(url, {
-      id : status
-    }, function(data, success){
-      $('.modal-body').html(data);
-    });
-  }
-  function hapusStatus(hstatus){
-    $('.modal-title').html('Hapus Data');
-    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html('<a href="<?= BASEURL?>/Status/hapus/'+ hstatus +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
-  }
-  // BAGIAN USER
-  function tambahDataUser() {
-    $('.modal-title').html('Tambah Data');
-    let url = '<?= BASEURL ?>/User/modalTambah';
-    $.get(url, function (data, success) {
-        $('.modal-body').html(data);        
-        let tombolHTML = `
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
-                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
-            </div>
-        `;
-        $('#formTambahData').append(tombolHTML);
-    });
-  }
-  function ubahdataUser(user){
-    $('.modal-title').html('Ubah Data');
-    let url = '<?= BASEURL?>/User/ubahModal';
-    $.post(url, {
-      id : user
-    }, function(data, success){
-      $('.modal-body').html(data);
-    });
-  }
-  function hapusUser(huser){
-    $('.modal-title').html('Hapus Data');
-    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html('<a href="<?= BASEURL?>/User/hapus/'+ huser +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
-    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
-  }
-  // BAGIAN NOTIFIKASI
-  function tambahDataNotifikasi() {
-    $('.modal-title').html('Tambah Data');
-    let url = '<?= BASEURL ?>/Notifikasi/modalTambah';
-    $.get(url, function (data, success) {
-        $('.modal-body').html(data);
-
-        let tombolHTML = `
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Tambah</button>
-                <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
-            </div>
-        `;
-        $('#formTambahDataNotifikasi').append(tombolHTML);
-    });
-  }
-  function ubahdataNotifikasi(nt){
-      $('.modal-title').html('Ubah Data');
-      let url = '<?= BASEURL?>/Notifikasi/ubahModal';
-      $.post(url, {
-        id : nt
-      }, function(data, success){
-        $('.modal-body').html(data);
-      });
-  }
-  function hapusNotifikasi(hnt){
-    $('.modal-title').html('Hapus Data');
-    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html('<a href="<?= BASEURL?>/Notifikasi/hapus/'+ hnt +'" class="btn btn-primary" style="background: #06253A; color= #FFFFFF;">Hapus</a>');
+    $('.tombol').html(`<a href="<?= BASEURL ?>/${jenis}/hapus/${id}" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Hapus</a>`);
     $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
   }
   // BAGIAN LOGOUT

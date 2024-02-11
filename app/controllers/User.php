@@ -3,13 +3,15 @@
 class User extends Controller {
     public function index()
     {
-        // $this->isAdminOrKorlab();
         $data['title'] = 'Data User';
-        // $data['user'] = $this->model('User_model')->tampil();
-        if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') {
-            $data['user'] = $this->model('User_model')->tampil();
+        $idUser = $_SESSION['ID_User'];
+        // $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
+        if ($_SESSION['role'] == 'asisten' || $_SESSION['role'] == 'korlab') {
+            // $data['user'] = $this->model('User_model')->tampilDataUser();
+            $data['user'] = $this->model('User_model')->tampilDataUser($idUser);
+
         } else {
-            $data['user'] = $this->model('User_model')->tampilDataUser();
+            $data['user'] = $this->model('User_model')->tampil();
         }
 
         $this->view('templates/header', $data);

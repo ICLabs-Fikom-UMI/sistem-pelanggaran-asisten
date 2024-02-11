@@ -7,6 +7,7 @@
             <tr>
                 <td width="20%">Stambuk</td>
                 <td>: <?= $data['detail_asisten']['stambuk']; ?></td>
+                <td class="text-center" rowspan="8"><img src="<?= BASEURL; ?>/<?= $data['detail_asisten']['photo_path'] ?>" alt="Foto" style="max-width: 400px; max-height: 400px;"></td>
             </tr>
             <tr>
                 <td>Nama</td>
@@ -39,13 +40,8 @@
             <tr>
                 <td>Username</td>
                 <td>: <?= isset($data['detail_asisten']['ID_User']) ? $this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['username'] : 'N/A'; ?></td>
+                <td></td>
             </tr>
-            <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
-            <tr>
-                <td>Password</td>
-                <td>: <?= isset($data['detail_asisten']['ID_User']) ? str_repeat('*', strlen($this->model('Asisten_model')->getUserById($data['detail_asisten']['ID_User'])['password'])) : 'N/A'; ?></td>
-            </tr>
-            <?php endif;?>
         </table>
     </div>
     </div>

@@ -34,27 +34,7 @@
                     <span><i class="fa fa-bell"></i> Notifikasi</span>
                 </a>
             </li>
-            <?php if ($_SESSION['role'] == 'admin' || !$_SESSION['role'] == 'korlab') : ?>
-            <li class="">
-                <a href="<?= BASEURL?>/Kelas" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
-                    <span><i class="fa fa-chalkboard"></i> Data Kelas</span>
-                </a>
-            </li>            
-            <li class="">
-                <a href="<?= BASEURL?>/Angkatan" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
-                    <span><i class="fa fa-school"></i> Data Angkatan</span>
-                </a>
-            </li>            
-            <li class="">
-                <a href="<?= BASEURL?>/Jurusan" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
-                    <span><i class="fa fa-graduation-cap"></i> Data Jurusan</span>
-                </a>
-            </li>            
-            <li class="">
-                <a href="<?= BASEURL?>/Status" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
-                    <span><i class="fa fa-check-circle"></i> Data Status</span>
-                </a>
-            </li>            
+            <?php if ($_SESSION['role'] == 'admin') : ?>         
             <li class="">
                 <a href="<?= BASEURL?>/User" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
                     <span><i class="fa fa-list"></i> Data User</span>

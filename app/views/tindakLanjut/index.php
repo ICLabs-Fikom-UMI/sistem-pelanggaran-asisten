@@ -2,7 +2,9 @@
 <!-- BAGIAN DATA TINDAK LANJUT -->
 <div class="container"><br>
     <!-- <a href="<?= BASEURL?>/TindakLanjut/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
-    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataTL()">Tambah Data</a>
+    <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataTL()">Tambah Data</a> -->
+    <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('TindakLanjut')">Tambah Data</a> -->
+    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('TindakLanjut')">Tambah Data</a>
     <h5><?= $data['title'];?></h5>
     <div class="overflow-x-hidden" style="max-height: 62vh;">
         <table id="example" class="table" style="width:100%">
@@ -20,8 +22,9 @@
                     <td><?= $tindakLanjut['tindak_lanjut'];?></td>
                     <td align="center">
                         <div class="btn-group" role="group" aria-label="Basic outlined example">
-                            <a class="btn btn-dark button-style text-center" onclick="ubahdataTL('<?= $tindakLanjut['ID_TindakLanjut']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>
-                            <a class="btn btn-dark button-style text-center" onclick="hapusTL('<?= $tindakLanjut['ID_TindakLanjut']; ?>')" role="button"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a>
+                            <a class="btn btn-dark button-style text-center" onclick="change('TindakLanjut', '<?= $tindakLanjut['ID_TindakLanjut']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>
+                            <!-- <a class="btn btn-dark button-style text-center" onclick="hapusTL('<?= $tindakLanjut['ID_TindakLanjut']; ?>')" role="button"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a> -->
+                            <a class="btn btn-dark button-style text-center" onclick="deleteData('TindakLanjut', '<?= $tindakLanjut['ID_TindakLanjut']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a>
                         </div>
                     </td>
                 </tr>

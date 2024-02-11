@@ -1,6 +1,6 @@
 <!-- BAGIAN UBAH DATA USER -->
 <div class="container">
-    <form id="formUbahUser" action="<?= BASEURL?>/User/prosesUbah" method="post" autocomplete="off">
+    <form id="formUbahUser" action="<?= BASEURL?>/User/prosesUbah" method="post" autocomplete="off" enctype="multipart/form-data">
     <input type="hidden" value="<?= $data['ubahdata']['ID_User']?>" name="ID_User">
         <div class="row">
             <div class="col-12">
@@ -26,7 +26,11 @@
                     <label for="role">Role</label>
                     <input type="text" name="role" class="form-control" value="<?= $data['ubahdata']['role']?>">
                 </div>
-                <?php endif;?><br>
+                <?php endif;?>
+                <div class="form-group mb-3">
+                    <label for="formFile" class="form-label">Masukkan Foto</label>
+                    <input class="form-control" type="file" name="photo_path">
+                </div><br>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Ubah</button>
                     <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>

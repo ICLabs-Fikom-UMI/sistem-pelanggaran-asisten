@@ -1,7 +1,8 @@
 <!-- BAGIAN TAMBAH DATA ASISTEN -->
 <div class="container"><br>
 <!-- <h4><?= $data['title'];?></h4> -->
-    <form id="formTambahDataNotifikasi" action="<?= BASEURL?>/Notifikasi/tambah" method="post" autocomplete="off">
+    <!-- <form id="formTambahDataNotifikasi" action="<?= BASEURL?>/Notifikasi/tambah" method="post" autocomplete="off"> -->
+    <form id="formTambahDataNotifikasi" action="<?= BASEURL ?>/Notifikasi/tambah" method="post" autocomplete="off">
         <div class="row">
             <div class="col-12">
                 <div class="form-group">

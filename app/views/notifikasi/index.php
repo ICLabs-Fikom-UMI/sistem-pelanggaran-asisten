@@ -3,7 +3,8 @@
 <!-- BAGIAN DATA NOTIFIKASI -->
 <div class="container"><br>
     <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
-    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataNotifikasi()">Tambah Data</a>
+    <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataNotifikasi()">Tambah Data</a> -->
+    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('Notifikasi')">Tambah Data</a>
     <?php endif; ?>
     <h5><?= $data['title'];?></h5>
     <div class="overflow-auto" style="max-height: 62vh;">
@@ -33,8 +34,9 @@
                         <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
                         <td align="center">
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                <a class="btn btn-dark button-style text-center" onclick="ubahdataNotifikasi('<?= $notifikasi['ID_Notifikasi']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>
-                                <a class="btn btn-dark button-style text-center" onclick="hapusNotifikasi('<?= $notifikasi['ID_Notifikasi']; ?>')" role="button"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a>
+                                <a class="btn btn-dark button-style text-center" onclick="change('Notifikasi', '<?= $notifikasi['ID_Notifikasi']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>
+                                <!-- <a class="btn btn-dark button-style text-center" onclick="hapusNotifikasi('<?= $notifikasi['ID_Notifikasi']; ?>')" role="button"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a> -->
+                                <a class="btn btn-dark button-style text-center" onclick="deleteData('Notifikasi', '<?= $notifikasi['ID_Notifikasi']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a>
                             </div>
                         <?php endif; ?>
                     </td>

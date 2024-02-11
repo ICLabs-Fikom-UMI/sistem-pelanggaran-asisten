@@ -1,6 +1,7 @@
 <!-- BAGIAN TAMBAH DATA ASISTEN -->
 <div class="container">
-    <form id="formTambahData" action="<?= BASEURL ?>/TindakLanjut/tambah" method="post">
+    <!-- <form id="formTambahData" action="<?= BASEURL ?>/TindakLanjut/tambah" method="post"> -->
+    <form id="formTambahDataTindakLanjut" action="<?= BASEURL ?>/TindakLanjut/tambah" method="post" autocomplete="off">
         <div class="row">
             <div class="col-12">
                 <div class="form-group mb-3">

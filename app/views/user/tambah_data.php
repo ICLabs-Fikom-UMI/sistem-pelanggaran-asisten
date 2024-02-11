@@ -1,6 +1,7 @@
 <!-- BAGIAN TAMBAH DATA ASISTEN -->
 <div class="container">
-    <form id="formTambahData" action="<?= BASEURL ?>/User/tambah" method="post" autocomplete="off">
+    <!-- <form id="formTambahData" action="<?= BASEURL ?>/User/tambah" method="post" autocomplete="off" enctype="multipart/form-data"> -->
+    <form id="formTambahDataUser" action="<?= BASEURL ?>/User/tambah" method="post" autocomplete="off" enctype="multipart/form-data">
         <div class="row">
             <div class="col-12">
                 <div class="form-group mb-3">
@@ -20,10 +21,9 @@
                     <input type="text" name="role" class="form-control" placeholder="Masukkan Role">
                 </div>
                 <div class="form-group mb-3">
-                    <label for="photo_path">Foto</label>
-                    <input type="file" name="photo_path" class="form-control-file">
+                    <label for="formFile" class="form-label">Masukkan Foto</label>
+                    <input class="form-control" type="file" name="photo_path">
                 </div>
-
             </div>
         </div>
     </form>

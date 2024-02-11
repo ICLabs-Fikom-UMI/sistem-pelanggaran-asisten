@@ -3,7 +3,8 @@
 <div class="container"><br>
 <?php if (($_SESSION['role'] == 'admin')) : ?>
     <?php if (($_SESSION['role'] == 'admin')) : ?>
-    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataUser()">Tambah Data</a>
+    <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataUser()">Tambah Data</a> -->
+    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('User')">Tambah Data</a>
     <?php endif;?>
     <h5><?= $data['title'];?></h5>
     <div class="overflow-x-hidden" style="max-height: 62vh;">
@@ -15,6 +16,7 @@
             <th scope="col">Username</th>
             <th scope="col">Password</th>
             <th scope="col">Role</th>
+            <th scope="col" class="text-center">Foto</th>
             <th scope="col"  style="width:10%" class="text-center">Menu</th>
         </tr>
     </thead>
@@ -24,12 +26,20 @@
             <td align="center"><?= $no;?></td>
             <td><?= $user['nama'];?></td>
             <td><?= $user['username'];?></td>
-            <td><?= str_repeat('*', strlen($user['password'])); ?></td>
+            <td>********</td>
             <td><?= $user['role'];?></td>
+            <td class="text-center"><img src="<?= BASEURL; ?>/<?= $user['photo_path'] ?>" alt="Foto" style="max-width: 100px; max-height: 100px;"></td>
+            <!-- <td>
+                <img src="<?= BASEURL; ?>/<?= $user['photo_path'] ?>" 
+                    alt="User Photo" 
+                    onerror="this.onerror=null; this.src='<?= BASEURL; ?>/assets/img/Icon User.png';" 
+                    style="max-width: 100px;">
+            </td> -->
             <td align="center">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <a class="btn btn-dark button-style text-center" onclick="ubahdataUser('<?= $user['ID_User']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>
-                    <a class="btn btn-dark button-style text-center" onclick="hapusUser('<?= $user['ID_User']; ?>')" role="button"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a>
+                    <a class="btn btn-dark button-style text-center" onclick="change('User', '<?= $user['ID_User']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>
+                    <!-- <a class="btn btn-dark button-style text-center" onclick="hapusUser('<?= $user['ID_User']; ?>')" role="button"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a> -->
+                    <a class="btn btn-dark button-style text-center" onclick="deleteData('User', '<?= $user['ID_User']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a>
                 </div>
             </td>
         </tr>
@@ -39,15 +49,14 @@
 </div>
 <?php endif;?>
 <!-- BAGIAN DATA USER -->
-<?php if (($_SESSION['role'] == 'asisten')) : ?>
+<?php if ($_SESSION['role'] == 'asisten' || $_SESSION['role'] == 'korlab') : ?>
 <h5><?= $data['title'];?></h5>
     <?php foreach  ($data['user'] as $user) :?>
     <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="<?= BASEURL;?>/assets/img/profile.png" class="img-fluid rounded-start" alt="Foto Profile">
-            <!-- <img src="#" class="img-fluid rounded-start" alt="Foto Profile"> -->
-            </div>
+            <img src="<?= BASEURL; ?>/<?= $user['photo_path'] ?>" alt="Foto" class="img-fluid">
+        </div>
         <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title"><?= $user['nama'];?></h5>
@@ -57,7 +66,6 @@
         </div>
     </div>
     </div>
-    <!-- <a class="btn btn-dark button-style text-center" onclick="ubahdataUser('<?= $user['ID_User']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a> -->
     <?php endforeach; ?>
 <?php endif;?>
 </div>

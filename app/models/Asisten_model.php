@@ -126,12 +126,22 @@ class Asisten_model{
 
         return $this->db->rowCount(); 
     }
+    // public function detailAsisten($id){
+    //     $this->db->query("SELECT * FROM asisten WHERE ID_Asisten = :id");
+    //     $this->db->bind("id", $id);
+        
+    //     return $this->db->single(); 
+    // }
     public function detailAsisten($id){
-        $this->db->query("SELECT * FROM asisten WHERE ID_Asisten = :id");
+        $this->db->query("SELECT asisten.*, user.photo_path 
+                        FROM asisten 
+                        JOIN user ON user.ID_User = asisten.ID_User 
+                        WHERE asisten.ID_Asisten = :id");
         $this->db->bind("id", $id);
         
         return $this->db->single(); 
     }
+    
     // public function detailAsistenForAsisten($idAsisten){                
     //     $idAsisten = $_SESSION['ID_Asisten'];
     //     $this->db->query("SELECT * FROM asisten WHERE ID_Asisten = :idAsisten");

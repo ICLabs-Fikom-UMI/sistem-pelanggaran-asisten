@@ -47,6 +47,17 @@ class TindakLanjut_model{
 
         return $this->db->rowCount(); 
     }
+    
+    // public function prosesHapus($id){
+
+    //     $query = "DELETE FROM tindak_lanjut WHERE ID_TindakLanjut = :id";
+
+    //     $this->db->query($query);
+    //     $this->db->bind("id", $id);
+    //     $this->db->execute();
+
+    //     return $this->db->rowCount(); 
+    // }
     public function detailtindakLanjut($id){
         $this->db->query("SELECT * FROM tindak_lanjut WHERE ID_TindakLanjut = :id");
         $this->db->bind("id", $id);

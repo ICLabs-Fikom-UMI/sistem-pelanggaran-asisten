@@ -23,23 +23,6 @@ class Asisten extends Controller {
 
         $this->view('asisten/profile', $data);
     }
-    public function cari(){
-        $this->isAdmin();
-
-        if (isset($_POST['keyword'])) {
-            $keyword = $_POST['keyword'];
-            $data['asisten'] = $this->model('Asisten_model')->cariDataAsisten($keyword);
-
-            $this->view('templates/header', $data);
-            $this->view('templates/topbar');
-            $this->view('templates/sidebar', $data);
-            $this->view('asisten/index', $data);
-            $this->view('templates/footer');
-        } else {
-            // Tangani jika tidak ada kata kunci yang diberikan
-            // Redirect atau tampilkan pesan kesalahan
-        }
-    }
     public function modalTambah(){
         $this->isAdmin();
 

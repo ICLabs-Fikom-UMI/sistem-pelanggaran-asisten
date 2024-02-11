@@ -1,6 +1,7 @@
 <!-- BAGIAN TAMBAH DATA PELANGGARAN -->
 <div class="container"><br>
-    <form id="formTambahDataPelanggaran" action="<?= BASEURL?>/pelanggaran/tambah" method="post" autocomplete="off">
+    <!-- <form id="formTambahDataPelanggaran" action="<?= BASEURL?>/pelanggaran/tambah" method="post" autocomplete="off"> -->
+    <form id="formTambahDataPelanggaran" action="<?= BASEURL ?>/pelanggaran/tambah" method="post" autocomplete="off">
         <div class="row">
             <div class="col-12">
                 <div class="form-group">

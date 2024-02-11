@@ -3,11 +3,12 @@
 <div class="container"><br>
     <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
     <!-- <a href="<?= BASEURL?>/Pelanggaran/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
-    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataPelanggaran()">Tambah Data</a>
+    <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataPelanggaran()">Tambah Data</a> -->
+    <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('Pelanggaran')">Tambah Data</a> -->
+    <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('Pelanggaran')">Tambah Data</a>
     <?php endif;?>
     <h5><?= $data['title'];?></h5>
     <div class="overflow-auto" style="max-height: 62vh;">
-        <div class="col-12">
             <table id="example" class="table" style="width:100%">
                 <thead class="table-light">
                     <tr class="table-secondary">
@@ -36,11 +37,12 @@
                         <td align="center"><?= $pelanggaran['tanggal'];?></td>
                         <!-- <td align="center"><?= date('d-m-Y H:i:s', strtotime($pelanggaran['tanggal'])); ?></td> -->
                         <td align="center"><?= $pelanggaran['tindak_lanjut'];?></td>
-                        <?php if (!($_SESSION['role'] == 'asisten')) : ?>
+                        <?php if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') : ?>
                         <td align="center">
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                <a class="btn btn-dark button-style text-center" onclick="ubahdataPelanggaran('<?= $pelanggaran['ID_Pelanggaran']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>
-                                <a class="btn btn-dark button-style text-center" onclick="hapusdataPelanggaran('<?= $pelanggaran['ID_Pelanggaran']; ?>')" role="button"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a>
+                                <a class="btn btn-dark button-style text-center" onclick="change('Pelanggaran', '<?= $pelanggaran['ID_Pelanggaran']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-file"></i></a>
+                                <!-- <a class="btn btn-dark button-style text-center" onclick="hapusdataPelanggaran('<?= $pelanggaran['ID_Pelanggaran']; ?>')" role="button"  data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a> -->
+                                <a class="btn btn-dark button-style text-center" onclick="deleteData('Pelanggaran', '<?= $pelanggaran['ID_Pelanggaran']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa fa-trash"></i></a>
                             </div>
                         </td>
                         <?php endif;?>
@@ -48,6 +50,5 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-        </div>
     </div>
 </div>

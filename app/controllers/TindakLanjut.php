@@ -52,6 +52,21 @@ class TindakLanjut extends Controller {
             exit;
         }
     }
+    // public function hapus($id){
+    //     $this->isAdminOrKorlab();
+    //     $deleteLab = $this->model('TindakLanjut_model')->prosesHapus($id);
+
+        // if ($deleteLab > 0) {
+        //     Flasher::setFlash('berhasil', 'dihapus', 'success');
+        //     header('Location: '.BASEURL. '/tindakLanjut');
+        //     exit;
+        // }
+        // else {
+        //     Flasher::setFlash('gagal', 'dihapus', 'danger');
+        //     header('Location: '.BASEURL. '/tindakLanjut');
+        //     exit;
+        // }
+    // }    
     public function hapus($id){
         $this->isAdminOrKorlab();
         if($this->model('TindakLanjut_model')->prosesHapus($id)){
