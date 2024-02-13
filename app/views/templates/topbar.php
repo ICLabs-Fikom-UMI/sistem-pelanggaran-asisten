@@ -33,9 +33,9 @@
                 <a href="<?= BASEURL ?>/User" class="d-block" style="color: #ffffff; text-decoration:none;"><?= $nama_user ?></a>
               <?php endif;?>
             </div>
-          <div class="image mr-2" style="margin-right: 10px;"> 
+          <!-- <div class="image mr-2" style="margin-right: 10px;"> 
               <i class="far fa-user"></i> 
-          </div>
+          </div> -->
           <div>
               <li class="nav-item mr-2">
                 <a class="nav-link" href="<?= BASEURL?>" id="logoutLink">

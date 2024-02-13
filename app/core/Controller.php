@@ -23,20 +23,37 @@ class Controller{
         }
     }
     public function isAdmin() {
-        if (!($_SESSION['role'] == 'admin')) {  
-            header('Location:' . BASEURL);
+        if ($_SESSION['role'] != 'admin') {  
+            if ($_SESSION['role'] == 'korlab') {
+                header('Location:' . BASEURL);
+            } elseif ($_SESSION['role'] == 'asisten') {
+                header('Location:' . BASEURL . '/pelanggaran');
+            } else {
+            }
             exit;
         }
     }
-    public function isAsisten() {
-        if (!($_SESSION['role'] == 'asisten')) {  
-            header('Location:' . BASEURL);
+    
+    // public function isAdmin() {
+    //     if (!($_SESSION['role'] == 'admin')) {  
+    //         header('Location:' . BASEURL);
+    //         exit;
+    //     }
+    // }
+    // public function isAsisten() {
+    //     if (!($_SESSION['role'] == 'asisten')) {  
+    //         header('Location:' . BASEURL . '/pelanggaran');
+    //         exit;
+    //     }
+    // }
+    public function isNot() {
+        if (!($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab')) {  
+            header('Location:' . BASEURL . '/pelanggaran');
             exit;
         }
     }
     public function isAsistenOrKorlab() {
-        $allowedRoles = ['asisten', 'korlab'];
-    
+        $allowedRoles = ['asisten', 'korlab'];    
         if (!in_array($_SESSION['role'], $allowedRoles)) {  
             header('Location:' . BASEURL);
             exit;
@@ -46,7 +63,7 @@ class Controller{
         $allowedRoles = ['admin', 'korlab'];
     
         if (!in_array($_SESSION['role'], $allowedRoles)) {  
-            header('Location:' . BASEURL);
+            header('Location:' . BASEURL . '/pelanggaran');
             exit;
         }
     }

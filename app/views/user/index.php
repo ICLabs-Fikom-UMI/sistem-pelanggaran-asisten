@@ -61,7 +61,8 @@
             <div class="card-body">
                 <h5 class="card-title"><?= $user['nama'];?></h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary"><?= $user['username'];?></h6>
-                <a onclick="ubahdataUser('<?= $user['ID_User']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal" style="text-align: right;">UBAH DATA</a>
+                <!-- <a onclick="ubahdataUser('<?= $user['ID_User']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal" style="text-align: right;">UBAH DATA</a> -->
+                <a onclick="change('User', '<?= $user['ID_User']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal" style="text-align: right;">UBAH DATA</a>
             </div>
         </div>
     </div>

@@ -72,11 +72,10 @@ class LogIn extends Controller {
                 $_SESSION['role'] = $role['role'];
                 $_SESSION['nama'] = $nama_user; 
     
-                // Jika peran pengguna adalah "asisten", arahkan mereka langsung ke halaman notifikasi
                 if ($_SESSION['role'] === 'asisten') {
                     header('Location: ' . BASEURL . '/pelanggaran');
                 } else {
-                    header('Location: ' . BASEURL);
+                    header('Location: ' . BASEURL . '/login');
                 }
                 exit();
             }

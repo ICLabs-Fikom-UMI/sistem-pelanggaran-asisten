@@ -22,7 +22,7 @@ class User extends Controller {
     }
     public function modalTambah()
     {
-        $this->isAdminOrKorlab();
+        $this->isAdmin();
         $this->view('user/tambah_data');
     }
     
@@ -34,7 +34,7 @@ class User extends Controller {
         $this->view('user/ubah_user', $data);
     }    
     public function tambah(){
-        $this->isAdminOrKorlab();
+        $this->isAdmin();
         if($this->model('User_model')->tambah($_POST) > 0){
             header('Location: '.BASEURL. '/user');
             exit;
@@ -47,7 +47,7 @@ class User extends Controller {
         }
     }
     public function hapus($id){
-        $this->isAdminOrKorlab();
+        $this->isAdmin();
         if($this->model('User_model')->prosesHapus($id)){
             header('Location: '.BASEURL. '/user');
             exit;
