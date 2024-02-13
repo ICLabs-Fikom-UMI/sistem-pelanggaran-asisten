@@ -22,8 +22,7 @@ class User_model{
         $this->db->execute();
     
         return $this->db->rowCount();
-    }
-    
+    }    
     public function prosesUbah($data){
         $query = "UPDATE user 
                 SET 
@@ -50,7 +49,6 @@ class User_model{
     
         return $this->db->rowCount();
     }
-    
     private function uploadPhoto(){
         $file = $_FILES['photo_path'];
         $fileName = $file['name'];

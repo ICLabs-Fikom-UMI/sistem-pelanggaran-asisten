@@ -1,4 +1,4 @@
-<!-- BAGIAN UBAH DATA ASISTEN -->
+<!-- BAGIAN UBAH DATA PELANGGARAN -->
 <div class="container">
     <form action="<?= BASEURL?>/pelanggaran/prosesUbah" method="post">
     <input type="hidden" value="<?= $data['ubahdata']['ID_Pelanggaran']?>" name="ID_Pelanggaran">
@@ -6,7 +6,14 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="ID_Asisten">Nama Asisten</label>
-                    <input type="number" name="ID_Asisten" class="form-control form-control-sm" value="<?= $data['ubahdata']['ID_Asisten']?>">
+                    <select name="ID_Asisten" class="form-control form-control-sm">
+                        <?php
+                        foreach ($data['asistenIDOptions'] as $asisten) {
+                            $selected = ($asisten['ID_Asisten'] == $data['ubahdata']['ID_Asisten']) ? 'selected' : '';
+                            echo "<option value='{$asisten['ID_Asisten']}' {$selected}>{$asisten['nama']}</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="pelanggaran">Detail Pelanggaran</label>

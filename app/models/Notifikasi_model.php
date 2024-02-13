@@ -50,6 +50,10 @@ class Notifikasi_model{
         $this->db->query("SELECT nama FROM asisten ORDER BY ID_Asisten ASC");
         return $this->db->resultSet();
     }
+    public function tampilIDAsisten(){
+        $this->db->query("SELECT ID_Asisten, nama FROM asisten");
+        return $this->db->resultSet();
+    }
     public function ubah($id){
         $this->db->query("SELECT * FROM notifikasi WHERE ID_Notifikasi = :id");
         $this->db->bind("id", $id);

@@ -4,10 +4,33 @@
     <input type="hidden" value="<?= $data['ubahdata']['ID_Notifikasi']?>" name="ID_Notifikasi">
         <div class="row">
             <div class="col-12">
+                <!-- <div class="form-group">
+                    <label for="ID_Asisten">Pilih Asisten</label>
+                    <select name="ID_Asisten" class="form-control form-control-sm">
+                        <?php
+                        foreach ($data['asistenOptions'] as $asisten) {
+                            $selected = ($asisten['ID_Asisten'] == $data['ubahdata']['ID_Asisten']) ? 'selected' : '';
+                            echo "<option value='{$asisten['ID_Asisten']}' {$selected}>{$asisten['nama']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div> -->
                 <div class="form-group">
+                    <label for="ID_Asisten">Nama Asisten</label>
+                    <select name="ID_Asisten" class="form-control form-control-sm">
+                        <?php
+                        foreach ($data['asistenIDOptions'] as $asisten) {
+                            $selected = ($asisten['ID_Asisten'] == $data['ubahdata']['ID_Asisten']) ? 'selected' : '';
+                            echo "<option value='{$asisten['ID_Asisten']}' {$selected}>{$asisten['nama']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <!-- <div class="form-group">
                     <label for="ID_Asisten">ID Asisten</label>
                     <input type="number" name="ID_Asisten" class="form-control form-control-sm" value="<?= $data['ubahdata']['ID_Asisten']?>">
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="pesan">Pesan</label>
                     <textarea name="pesan" class="form-control form-control-sm" rows="4"><?= $data['ubahdata']['pesan']?></textarea>

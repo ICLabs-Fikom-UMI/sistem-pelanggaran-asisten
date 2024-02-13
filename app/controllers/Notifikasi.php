@@ -26,14 +26,14 @@ class Notifikasi extends Controller {
 
         $this->view('notifikasi/tambah_data', $data);
     }
-    public function ubahModal()
-    {
+    public function ubahModal(){
         $this->isAdminOrKorlab();
         $id = $_POST['id'];
         $data['ubahdata'] = $this->model('Notifikasi_model')->ubah($id);
         $data['asistenOptions'] = $this->model('Notifikasi_model')->tampilAsisten();
+        $data['asistenIDOptions'] = $this->model('Notifikasi_model')->tampilIDAsisten();
 
-        $data['asistenDetail'] = $this->model('Asisten_model')->getAsistenById($data['ubahdata']['ID_Asisten']);
+        $data['asistenDetailID'] = $this->model('Asisten_model')->getAsistenById($data['ubahdata']['ID_Asisten']);
 
         $this->view('notifikasi/ubah_notifikasi', $data);
     }

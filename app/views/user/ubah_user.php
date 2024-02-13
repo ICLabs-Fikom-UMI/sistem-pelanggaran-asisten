@@ -40,7 +40,7 @@
     </form>
 </div>
 <script>
-    // PNEGATURAN PASSWORD
+    // PENGATURAN PASSWORD
     document.getElementById('togglePassword').addEventListener('click', function () {
         var passwordInput = document.getElementById('passwordInput');
         if (passwordInput.type === 'password') {

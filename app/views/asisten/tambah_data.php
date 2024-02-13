@@ -8,11 +8,10 @@
                     <label for="stambuk">Stambuk</label>
                     <input type="number" name="stambuk" class="form-control form-control-sm" placeholder="Masukkan Stambuk">
                 </div>
-                <!-- <div class="form-group">
+                <div class="form-group">
                     <label for="nama">Nama</label>
                     <input type="text" name="nama" class="form-control form-control-sm" placeholder="Masukkan Nama">
-                </div> -->
-                
+                </div>                
                 <div class="form-group">
                     <label for="jenis_kelamin">Jenis Kelamin</label>
                     <select name="jenis_kelamin" class="form-control form-control-sm">

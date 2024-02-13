@@ -35,6 +35,7 @@ class Pelanggaran extends Controller {
         $id = $_POST['id'];
         $data['ubahdata'] = $this->model('Pelanggaran_model')->ubah($id);
         $data['asistenOptions'] = $this->model('Pelanggaran_model')->tampilAsisten();
+        $data['asistenIDOptions'] = $this->model('Pelanggaran_model')->tampilIDAsisten();
         $data['TindakLanjutOptions'] = $this->model('Pelanggaran_model')->tampilTindakLanjut();
 
         $data['asistenDetail'] = $this->model('Asisten_model')->getAsistenById($data['ubahdata']['ID_Asisten']);

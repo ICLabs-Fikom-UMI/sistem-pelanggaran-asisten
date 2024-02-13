@@ -1,6 +1,5 @@
 <!-- BAGIAN TAMBAH DATA PELANGGARAN -->
 <div class="container">
-    <!-- <form id="formTambahDataPelanggaran" action="<?= BASEURL?>/pelanggaran/tambah" method="post" autocomplete="off"> -->
     <form id="formTambahDataPelanggaran" action="<?= BASEURL ?>/pelanggaran/tambah" method="post" autocomplete="off">
         <div class="row">
             <div class="col-12">
@@ -9,7 +8,7 @@
                     <select name="selectAsisten" class="form-control form-control-sm">
                         <option>Pilih Asisten</option>
                             <?php foreach ($data['asistenOptions'] as $asisten) : ?>
-                                <option value="<?= $asisten['stambuk']; ?>"><?= $asisten['stambuk'] . ' - ' . $asisten['nama']; ?></option>
+                                <option value="<?= $asisten['stambuk']; ?>"><?= $asisten['nama']; ?></option>
                             <?php endforeach; ?>
                     </select>
                 </div>

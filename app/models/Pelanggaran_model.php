@@ -56,6 +56,10 @@ class Pelanggaran_model{
         $this->db->query("SELECT stambuk, nama FROM asisten ORDER BY ID_Asisten ASC");
         return $this->db->resultSet();
     }
+    public function tampilIDAsisten(){
+        $this->db->query("SELECT ID_Asisten, nama FROM asisten");
+        return $this->db->resultSet();
+    }
     public function tampilTindakLanjut(){
         $this->db->query("SELECT ID_TindakLanjut, tindak_lanjut FROM tindak_lanjut");
         return $this->db->resultSet();
