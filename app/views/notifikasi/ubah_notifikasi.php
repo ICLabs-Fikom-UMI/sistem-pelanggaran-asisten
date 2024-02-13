@@ -6,15 +6,15 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="ID_Asisten">ID Asisten</label>
-                    <input type="number" name="ID_Asisten" class="form-control" value="<?= $data['ubahdata']['ID_Asisten']?>">
+                    <input type="number" name="ID_Asisten" class="form-control form-control-sm" value="<?= $data['ubahdata']['ID_Asisten']?>">
                 </div>
                 <div class="form-group">
                     <label for="pesan">Pesan</label>
-                    <textarea name="pesan" class="form-control" rows="4"><?= $data['ubahdata']['pesan']?></textarea>
+                    <textarea name="pesan" class="form-control form-control-sm" rows="4"><?= $data['ubahdata']['pesan']?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tanggal">Tanggal</label>
-                    <input type="date" name="tanggal" class="form-control" value="<?= $data['ubahdata']['tanggal']?>">
+                    <input type="date" name="tanggal" class="form-control form-control-sm" value="<?= $data['ubahdata']['tanggal']?>">
                 </div><br>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Ubah</button>

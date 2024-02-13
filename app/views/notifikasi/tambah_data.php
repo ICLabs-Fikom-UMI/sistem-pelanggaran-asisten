@@ -1,5 +1,5 @@
 <!-- BAGIAN TAMBAH DATA ASISTEN -->
-<div class="container"><br>
+<div class="container">
 <!-- <h4><?= $data['title'];?></h4> -->
     <!-- <form id="formTambahDataNotifikasi" action="<?= BASEURL?>/Notifikasi/tambah" method="post" autocomplete="off"> -->
     <form id="formTambahDataNotifikasi" action="<?= BASEURL ?>/Notifikasi/tambah" method="post" autocomplete="off">
@@ -7,7 +7,7 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="selectAsisten">Pilih Asisten</label>
-                    <select name="selectAsisten" class="form-control">
+                    <select name="selectAsisten" class="form-control form-control-sm">
                         <option>Pilih Asisten</option>
                             <?php foreach ($data['asistenOptions'] as $asisten) : ?>
                                 <option value="<?= $asisten['nama']; ?>"><?= $asisten['nama']; ?></option>
@@ -16,12 +16,12 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="pesan">Pesan</label>
-                    <textarea name="pesan" class="form-control" rows="4"></textarea>
+                    <textarea name="pesan" class="form-control form-control-sm" rows="4"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="text">Tanggal</label>
                     <?php $tanggalHariIni = date("Y-m-d"); ?>
-                    <input type="date" name="tanggal" class="form-control" value="<?= $tanggalHariIni ?>" required>
+                    <input type="date" name="tanggal" class="form-control form-control-sm" value="<?= $tanggalHariIni ?>" required>
                 </div><br>
             </div>
         </div>

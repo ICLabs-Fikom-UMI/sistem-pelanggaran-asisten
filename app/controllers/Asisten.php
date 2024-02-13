@@ -52,8 +52,33 @@ class Asisten extends Controller {
 
         $this->view('asisten/ubah_asisten', $data);
     }
-    public function detailAsisten($id){
+    // public function detailAsisten($id){
+    //     $this->isAdmin();
+    //     $data['detail_asisten'] = $this->model('Asisten_model')->detailAsisten($id);
+    //     $data['title'] = 'Detail Data Asisten';
+        
+    //     $data['kelasOptions'] = $this->model('Asisten_model')->tampilKelas();
+    //     $data['angkatanOptions'] = $this->model('Asisten_model')->tampilAngkatan();
+    //     $data['jurusanOptions'] = $this->model('Asisten_model')->tampilJurusan();
+    //     $data['statusOptions'] = $this->model('Asisten_model')->tampilStatus();
+    //     $data['userOptions'] = $this->model('Asisten_model')->tampilUser();
+    
+    //     $this->view('templates/header', $data);
+    //     $this->view('templates/topbar');
+    //     $this->view('templates/sidebar', $data);
+    //     $this->view('asisten/detail_asisten', $data);
+    //     $this->view('templates/footer');
+    // }
+    public function detailAsisten(){
         $this->isAdmin();
+    
+        // Mendapatkan URL saat ini
+        $current_url = $_SERVER['REQUEST_URI'];
+    
+        // Pemrosesan URL untuk mendapatkan ID
+        $url_parts = explode('/', $current_url);
+        $id = end($url_parts); // Mengambil bagian terakhir dari URL sebagai ID
+    
         $data['detail_asisten'] = $this->model('Asisten_model')->detailAsisten($id);
         $data['title'] = 'Detail Data Asisten';
         
@@ -69,6 +94,7 @@ class Asisten extends Controller {
         $this->view('asisten/detail_asisten', $data);
         $this->view('templates/footer');
     }
+    
     public function tambah(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->isAdmin();

@@ -1,7 +1,7 @@
 <!-- BAGIAN DETAIL DATA ASISTEN -->
 <div class="container"><br>
 <div class="col-12">
-    <h4><?= $data['title'];?></h4>
+    <h5><?= $data['title'];?></h5>
     <div class="overflow-auto" style="max-height: 75vh;">
         <table class="table">
             <tr>

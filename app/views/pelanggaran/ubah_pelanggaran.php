@@ -6,19 +6,19 @@
             <div class="col-12">
                 <div class="form-group">
                     <label for="ID_Asisten">Nama Asisten</label>
-                    <input type="number" name="ID_Asisten" class="form-control" value="<?= $data['ubahdata']['ID_Asisten']?>">
+                    <input type="number" name="ID_Asisten" class="form-control form-control-sm" value="<?= $data['ubahdata']['ID_Asisten']?>">
                 </div>
                 <div class="form-group">
                     <label for="pelanggaran">Detail Pelanggaran</label>
-                    <textarea name="pelanggaran" class="form-control" rows="4"><?= $data['ubahdata']['pelanggaran']?></textarea>
+                    <textarea name="pelanggaran" class="form-control form-control-sm" rows="4"><?= $data['ubahdata']['pelanggaran']?></textarea>
                 </div>
                 <div class="form-group">
                     <label for="tanggal">Tanggal</label>
-                    <input type="date" name="tanggal" class="form-control" value="<?= $data['ubahdata']['tanggal']?>">
+                    <input type="date" name="tanggal" class="form-control form-control-sm" value="<?= $data['ubahdata']['tanggal']?>">
                 </div>
                 <div class="form-group">
                     <label for="ID_TindakLanjut">Tindak Lanjut</label>
-                    <select name="ID_TindakLanjut" class="form-control">
+                    <select name="ID_TindakLanjut" class="form-control form-control-sm">
                         <?php
                         foreach ($data['TindakLanjutOptions'] as $tindaklanjut) {
                             $selected = ($tindaklanjut['ID_TindakLanjut'] == $data['ubahdata']['ID_TindakLanjut']) ? 'selected' : '';

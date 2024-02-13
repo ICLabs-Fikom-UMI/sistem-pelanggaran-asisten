@@ -41,7 +41,7 @@
                 </a>
             </li>            
             <?php endif; ?>
-        </ul>
+        </ul><br>
         <!-- <div class="ml-auto text-center">
             <a class="nav-link" href="<?= BASEURL?>" id="logoutLink">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
