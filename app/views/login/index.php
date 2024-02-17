@@ -22,19 +22,13 @@
                         <h5><b>LOGIN</b></h5>
                         <div class="mb-3">
                             <label for="username" class="form-label">Username</label>
-                            <input type="email" class="form-control form-login shadow-sm" id="username" name="username" placeholder="Masukkan Username Anda" required>
+                            <input type="email" class="form-control" id="username" name="username" placeholder="Masukkan Username" required>
                         </div>
-                        <!-- <div class="mb-3">
-                            <label for="password" class="form-label">Password:</label>
-                            <input type="password" class="form-control form-login shadow-sm" id="password" name="password" placeholder="Masukkan Password Anda" required>
-                        </div> -->
-                        <div class="form-group mb-3">
-                            <label for="password" class="form-label">Password</label>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Password</label>
                             <div class="input-group">
-                                <input id="passwordInput" type="password" name="password" class="form-control" placeholder="Masukkan Password">
-                                <div class="input-group-append">
-                                    <button id="togglePassword" type="button" class="btn btn-outline-secondary"><i class="fa fa-eye"></i></button>
-                                </div>
+                                <input type="password" name="password" class="form-control" placeholder="Masukkan Password" id="passwordInput" required>
+                                <button id="togglePassword" type="button" class="btn btn-outline-light" style="border-color: #06253A; color: #06253A;"><i class="fa fa-eye"></i></button>
                             </div>
                         </div>
                         <div class="text-center">

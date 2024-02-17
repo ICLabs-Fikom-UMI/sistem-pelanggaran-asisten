@@ -4,15 +4,15 @@
     <div class="row">
             <div class="col-12 ">
                 <div class="form-group mb-1">
-                    <label for="stambuk" class="form-label">Masukkan Stambuk</label>
+                    <label for="stambuk" class="form-label">Stambuk</label>
                     <input type="number" name="stambuk" class="form-control " placeholder="Masukkan Stambuk">
                 </div>
                 <div class="form-group mb-1">
-                    <label for="nama" class="form-label">Masukkan Nama</label>
+                    <label for="nama" class="form-label">Nama</label>
                     <input type="text" name="nama" class="form-control " placeholder="Masukkan Nama">
                 </div>                
                 <div class="form-group mb-1">
-                    <label for="jenis_kelamin" class="form-label">Pilih Jenis Kelamin</label>
+                    <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                     <select name="jenis_kelamin" class="form-control ">
                         <option value="">Pilih Jenis Kelamin</option>
                         <option value="Pria">Pria</option>

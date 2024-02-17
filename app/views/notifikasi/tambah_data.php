@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="form-group mb-1">
-                    <label for="selectAsisten" class="form-label">Pilih Asisten</label>
+                    <label for="selectAsisten" class="form-label">Asisten</label>
                     <select name="selectAsisten" class="form-select ">
                         <option>Pilih Asisten</option>
                             <?php foreach ($data['asistenOptions'] as $asisten) : ?>

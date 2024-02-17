@@ -75,34 +75,68 @@
     `);
   }
   // BAGIAN LOGOUT
-  $('#logout').on('click', function() {
-    let keluar = '<a href="<?= BASEURL?>/LogIn/logout">Keluar</a>';
-    var confirmation = window.confirm('Anda Yakin Akan Keluar');
-    if (confirmation) {
-        window.alert('Keluar');
-        keluar;
-    } else {
-        window.alert('Batal');
-    }
-  });
-  $('#logoutLink').on('click', function() {
-  var confirmation = window.confirm('Anda Yakin Akan Keluar');
-  if (confirmation) {
-      $.ajax({
-          url: '<?= BASEURL ?>/LogIn/logout',
-          type: 'GET',
-          success: function(response) {
-              window.alert('Keluar');
-              window.location.href = response.redirect;
-          },
-          error: function() {
-              window.alert('Gagal Keluar');
-            }
-        });
-    } else {
-        window.alert('Batal');
-    }
-  });
+  // $('#logout').on('click', function() {
+  //   let keluar = '<a href="<?= BASEURL?>/LogIn/logout">Keluar</a>';
+  //   var confirmation = window.confirm('Anda Yakin Akan Keluar');
+  //   if (confirmation) {
+  //       window.alert('Keluar');
+  //       keluar;
+  //   } else {
+  //       window.alert('Batal');
+  //   }
+  // });
+  // $('#logoutLink').on('click', function() {
+  // var confirmation = window.confirm('Anda Yakin Akan Keluar');
+  // if (confirmation) {
+  //     $.ajax({
+  //         url: '<?= BASEURL ?>/LogIn/logout',
+  //         type: 'GET',
+  //         success: function(response) {
+  //             window.alert('Keluar');
+  //             window.location.href = response.redirect;
+  //         },
+  //         error: function() {
+  //             window.alert('Gagal Keluar');
+  //           }
+  //       });
+  //   } else {
+  //       window.alert('Batal');
+  //   }
+  // });
+  
+  // Event handler untuk klik pada tombol logout dengan link langsung
+// $('#logoutLink').on('click', function(event) {
+//     event.preventDefault(); 
+    
+//     $('.modal-title').html('Konfirmasi Keluar');
+//     $('.modal-body').html(`
+//         <div class="text-center mb-3">
+//             Anda yakin akan keluar?
+//         </div>
+//         <div class="text-center">
+//             <a href="<?= BASEURL ?>/LogIn/logout" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Keluar</a>
+//             <button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Batal</button>
+//         </div>
+//     `);
+// });
+$('#logoutLink').on('click', function(event) {
+    event.preventDefault(); // Menghentikan tindakan default dari link
+
+    // Menampilkan modal konfirmasi keluar
+    $('.modal-title').html('Konfirmasi Keluar');
+    $('.modal-body').html(`
+        <div class="text-center mb-3">
+            Anda yakin akan keluar?
+        </div>
+        <div class="text-center">
+            <a href="<?= BASEURL ?>/LogIn/logout" class="btn btn-primary" style="background-color: #06253A;">Keluar</a>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+        </div>
+    `);
+
+    // Memunculkan modal
+    $('#myModal').modal('show');
+});
 </script>
 </body>
 </html>
