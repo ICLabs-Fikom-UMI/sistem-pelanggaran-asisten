@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="form-group mb-1">
                     <label for="tindak_lanjut" class="form-label">Tindak Lanjut</label>
-                    <input type="text" name="tindak_lanjut" class="form-control form-control-sm" value="<?= $data['ubahdata']['tindak_lanjut']?>">
+                    <input type="text" name="tindak_lanjut" class="form-control " value="<?= $data['ubahdata']['tindak_lanjut']?>">
                 </div><br>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Ubah</button>

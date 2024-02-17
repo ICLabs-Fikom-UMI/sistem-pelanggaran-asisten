@@ -106,7 +106,7 @@ footer {
 .button-style {
     background-color: #06253A; 
     color: #fff; 
-    font-size: 20px;
+    /* font-size: 20px; */
     margin-right: 5px;
 }
 .button-style:hover {

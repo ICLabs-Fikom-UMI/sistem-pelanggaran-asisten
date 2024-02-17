@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="form-group mb-3">
                     <label for="tindak_lanjut" class="form-label">Tindak Lanjut</label>
-                    <input type="text" name="tindak_lanjut" class="form-control form-control-sm" placeholder="Masukkan Tindak Lanjut">
+                    <input type="text" name="tindak_lanjut" class="form-control " placeholder="Masukkan Tindak Lanjut">
                 </div>
             </div>
         </div>

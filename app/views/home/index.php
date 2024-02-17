@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="<?= BASEURL?>/assets/css/style.css">
 <div class="container"><br>
-      <h5><?= $data['title'];?></h5> 
+      <h3><?= $data['title'];?></h3> 
       <!-- BAGIAN ASISTEN -->
       <!-- <?php if ($_SESSION['role'] == 'asisten') : ?>
       <div class="overflow-x-hidden" style="max-height: 62vh;">

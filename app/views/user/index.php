@@ -6,7 +6,7 @@
     <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataUser()">Tambah Data</a> -->
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('User')">Tambah Data</a>
     <?php endif;?>
-    <h5><?= $data['title'];?></h5>
+    <h3><?= $data['title'];?></h3>
     <div class="overflow-x-hidden" style="max-height: 62vh;">
     <table id="example" class="table" style="width:100%">
     <thead class="table-light">
@@ -50,7 +50,7 @@
 <?php endif;?>
 <!-- BAGIAN DATA USER -->
 <?php if ($_SESSION['role'] == 'asisten' || $_SESSION['role'] == 'korlab') : ?>
-<h5><?= $data['title'];?></h5>
+<h3><?= $data['title'];?></h3>
     <?php foreach  ($data['user'] as $user) :?>
     <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
@@ -59,7 +59,7 @@
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title"><?= $user['nama'];?></h5>
+                <h3 class="card-title"><?= $user['nama'];?></h3>
                 <h6 class="card-subtitle mb-2 text-body-secondary"><?= $user['username'];?></h6>
                 <!-- <a onclick="ubahdataUser('<?= $user['ID_User']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal" style="text-align: right;">UBAH DATA</a> -->
                 <a onclick="change('User', '<?= $user['ID_User']; ?>')" role="button" data-bs-toggle="modal" data-bs-target="#myModal" style="text-align: right;">UBAH DATA</a>

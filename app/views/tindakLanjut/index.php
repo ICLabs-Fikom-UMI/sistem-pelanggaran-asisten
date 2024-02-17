@@ -2,7 +2,7 @@
 <!-- BAGIAN DATA TINDAK LANJUT -->
 <div class="container"><br>
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('TindakLanjut')">Tambah Data</a>
-    <h5><?= $data['title'];?></h5>
+    <h3><?= $data['title'];?></h3>
     <div class="overflow-x-hidden" style="max-height: 62vh;">
         <table id="example" class="table" style="width:100%">
             <thead class="table-light">

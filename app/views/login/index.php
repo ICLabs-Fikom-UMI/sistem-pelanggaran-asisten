@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= BASEURL;?>/assets/css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login</title>
     <!-- <title><?php $data['title'];?></title> -->
 </head>
@@ -20,12 +21,21 @@
                     <form class="login-form" action="<?= BASEURL?>/LogIn/login" method="post" autocomplete="off">
                         <h5><b>LOGIN</b></h5>
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username:</label>
+                            <label for="username" class="form-label">Username</label>
                             <input type="email" class="form-control form-login shadow-sm" id="username" name="username" placeholder="Masukkan Username Anda" required>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="password" class="form-label">Password:</label>
                             <input type="password" class="form-control form-login shadow-sm" id="password" name="password" placeholder="Masukkan Password Anda" required>
+                        </div> -->
+                        <div class="form-group mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <div class="input-group">
+                                <input id="passwordInput" type="password" name="password" class="form-control" placeholder="Masukkan Password">
+                                <div class="input-group-append">
+                                    <button id="togglePassword" type="button" class="btn btn-outline-secondary"><i class="fa fa-eye"></i></button>
+                                </div>
+                            </div>
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-dark button-style" style="width: 35%;">Login</button>
@@ -37,5 +47,16 @@
     </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // PENGATURAN PASSWORD
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            var passwordInput = document.getElementById('passwordInput');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    </script>
 </body>
 </html>
