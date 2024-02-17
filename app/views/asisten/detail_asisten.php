@@ -6,7 +6,9 @@
         <table class="table">
             <tr>
                 <td width="20%">Stambuk</td>
-                <td>: <?= $data['detail_asisten']['stambuk']; ?></td>
+                <td>: <?= $data['detail_asisten']['stambuk']; ?>
+                <?php var_dump('')?>
+                </td>
                 <td class="text-center" rowspan="8"><img src="<?= BASEURL; ?>/<?= $data['detail_asisten']['photo_path'] ?>" alt="Foto" style="max-width: 400px; max-height: 400px;"></td>
             </tr>
             <tr>
