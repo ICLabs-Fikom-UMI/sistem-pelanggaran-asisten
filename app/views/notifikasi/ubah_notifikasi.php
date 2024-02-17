@@ -1,22 +1,11 @@
 <!-- BAGIAN UBAH DATA ASISTEN -->
 <div class="container">
-    <form action="<?= BASEURL?>/Notifikasi/prosesUbah" method="post">
+    <form action="<?= BASEURL?>/Notifikasi/prosesUbah" method="post" autocomplete="off">
     <input type="hidden" value="<?= $data['ubahdata']['ID_Notifikasi']?>" name="ID_Notifikasi">
         <div class="row">
             <div class="col-12">
-                <!-- <div class="form-group">
-                    <label for="ID_Asisten">Pilih Asisten</label>
-                    <select name="ID_Asisten" class="form-control form-control-sm">
-                        <?php
-                        foreach ($data['asistenOptions'] as $asisten) {
-                            $selected = ($asisten['ID_Asisten'] == $data['ubahdata']['ID_Asisten']) ? 'selected' : '';
-                            echo "<option value='{$asisten['ID_Asisten']}' {$selected}>{$asisten['nama']}</option>";
-                        }
-                        ?>
-                    </select>
-                </div> -->
-                <div class="form-group">
-                    <label for="ID_Asisten">Nama Asisten</label>
+                <div class="form-group mb-1">
+                    <label for="ID_Asisten" class="form-label">Nama Asisten</label>
                     <select name="ID_Asisten" class="form-control form-control-sm">
                         <?php
                         foreach ($data['asistenIDOptions'] as $asisten) {
@@ -26,17 +15,12 @@
                         ?>
                     </select>
                 </div>
-
-                <!-- <div class="form-group">
-                    <label for="ID_Asisten">ID Asisten</label>
-                    <input type="number" name="ID_Asisten" class="form-control form-control-sm" value="<?= $data['ubahdata']['ID_Asisten']?>">
-                </div> -->
-                <div class="form-group">
-                    <label for="pesan">Pesan</label>
+                <div class="form-group mb-1">
+                    <label for="pesan" class="form-label">Pesan</label>
                     <textarea name="pesan" class="form-control form-control-sm" rows="4"><?= $data['ubahdata']['pesan']?></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="tanggal">Tanggal</label>
+                <div class="form-group mb-1">
+                    <label for="tanggal" class="form-label">Tanggal</label>
                     <input type="date" name="tanggal" class="form-control form-control-sm" value="<?= $data['ubahdata']['tanggal']?>">
                 </div><br>
                 <div class="text-center">

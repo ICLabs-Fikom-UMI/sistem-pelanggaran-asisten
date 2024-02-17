@@ -4,16 +4,16 @@
     <input type="hidden" value="<?= $data['ubahdata']['ID_User']?>" name="ID_User">
         <div class="row">
             <div class="col-12">
-                <div class="form-group">
-                    <label for="nama">Nama</label>
+                <div class="form-group mb-1">
+                    <label for="nama" class="form-label">Nama</label>
                     <input type="text" name="nama" class="form-control form-control-sm" value="<?= $data['ubahdata']['nama']?>">
                 </div>
-                <div class="form-group">
-                    <label for="username">Username</label>
+                <div class="form-group mb-1">
+                    <label for="username" class="form-label">Username</label>
                     <input type="text" name="username" class="form-control form-control-sm" value="<?= $data['ubahdata']['username']?>">
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
+                <div class="form-group mb-1">
+                    <label for="password" class="form-label">Password</label>
                     <div class="input-group">
                         <input id="passwordInput" type="password" name="password" class="form-control form-control-sm" value="<?= $data['ubahdata']['password']?>">
                         <div class="input-group-append">
@@ -22,8 +22,8 @@
                     </div>
                 </div>
                 <?php if (($_SESSION['role'] == 'admin')) : ?>
-                <div class="form-group">
-                    <label for="role">Role</label>
+                <div class="form-group mb-1">
+                    <label for="role" class="form-label">Role</label>
                     <input type="text" name="role" class="form-control form-control-sm" value="<?= $data['ubahdata']['role']?>">
                 </div>
                 <?php endif;?>

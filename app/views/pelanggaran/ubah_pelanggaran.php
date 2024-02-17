@@ -1,12 +1,12 @@
 <!-- BAGIAN UBAH DATA PELANGGARAN -->
 <div class="container">
-    <form action="<?= BASEURL?>/pelanggaran/prosesUbah" method="post">
+    <form action="<?= BASEURL?>/pelanggaran/prosesUbah" method="post" autocomplete="off">
     <input type="hidden" value="<?= $data['ubahdata']['ID_Pelanggaran']?>" name="ID_Pelanggaran">
         <div class="row">
             <div class="col-12">
-                <div class="form-group">
-                    <label for="ID_Asisten">Nama Asisten</label>
-                    <select name="ID_Asisten" class="form-control form-control-sm">
+                <div class="form-group mb-1">
+                    <label for="ID_Asisten" class="form-label">Nama Asisten</label>
+                    <select name="ID_Asisten" class="form-select form-select-sm">
                         <?php
                         foreach ($data['asistenIDOptions'] as $asisten) {
                             $selected = ($asisten['ID_Asisten'] == $data['ubahdata']['ID_Asisten']) ? 'selected' : '';
@@ -15,17 +15,17 @@
                         ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="pelanggaran">Detail Pelanggaran</label>
+                <div class="form-group mb-1">
+                    <label for="pelanggaran" class="form-label">Detail Pelanggaran</label>
                     <textarea name="pelanggaran" class="form-control form-control-sm" rows="4"><?= $data['ubahdata']['pelanggaran']?></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="tanggal">Tanggal</label>
+                <div class="form-group mb-1">
+                    <label for="tanggal" class="form-label">Tanggal</label>
                     <input type="date" name="tanggal" class="form-control form-control-sm" value="<?= $data['ubahdata']['tanggal']?>">
                 </div>
-                <div class="form-group">
-                    <label for="ID_TindakLanjut">Tindak Lanjut</label>
-                    <select name="ID_TindakLanjut" class="form-control form-control-sm">
+                <div class="form-group mb-1">
+                    <label for="ID_TindakLanjut" class="form-label">Tindak Lanjut</label>
+                    <select name="ID_TindakLanjut" class="form-select form-select-sm">
                         <?php
                         foreach ($data['TindakLanjutOptions'] as $tindaklanjut) {
                             $selected = ($tindaklanjut['ID_TindakLanjut'] == $data['ubahdata']['ID_TindakLanjut']) ? 'selected' : '';

@@ -1,19 +1,19 @@
 <!-- BAGIAN UBAH DATA ASISTEN -->
 <div class="container">
-    <form action="<?= BASEURL?>/asisten/prosesUbah" method="post">
+    <form action="<?= BASEURL?>/asisten/prosesUbah" method="post" autocomplete="off">
     <input type="hidden" value="<?= $data['ubahdata']['ID_Asisten']?>" name="ID_Asisten">
         <div class="row">
             <div class="col-12">
-                <div class="form-group">
-                    <label for="number">Stambuk</label>
+                <div class="form-group mb-1">
+                    <label for="number" class="form-label">Stambuk</label>
                     <input type="number" name="stambuk" class="form-control form-control-sm" value="<?= $data['ubahdata']['stambuk']?>">
                 </div>
-                <div class="form-group">
-                    <label for="number">Nama</label>
+                <div class="form-group mb-1">
+                    <label for="number" class="form-label">Nama</label>
                     <input type="text" name="nama" class="form-control form-control-sm" value="<?= $data['ubahdata']['nama']?>">
                 </div>
-                <div class="form-group">
-                    <label for="ID_Kelas">Kelas</label>
+                <div class="form-group mb-1">
+                    <label for="ID_Kelas" class="form-label">Kelas</label>
                     <select name="ID_Kelas" class="form-control form-control-sm">
                         <?php
                         foreach ($data['kelasOptions'] as $kelas) {
@@ -23,8 +23,8 @@
                         ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="ID_Angkatan">Angkatan</label>
+                <div class="form-group mb-1">
+                    <label for="ID_Angkatan" class="form-label">Angkatan</label>
                     <select name="ID_Angkatan" class="form-control form-control-sm">
                         <?php
                         foreach ($data['angkatanOptions'] as $angkatan) {
@@ -34,8 +34,8 @@
                         ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="ID_Jurusan">Jurusan</label>
+                <div class="form-group mb-1">
+                    <label for="ID_Jurusan" class="form-label">Jurusan</label>
                     <select name="ID_Jurusan" class="form-control form-control-sm">
                         <?php
                         foreach ($data['jurusanOptions'] as $jurusan) {
@@ -45,8 +45,8 @@
                         ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="ID_Status">Status</label>
+                <div class="form-group mb-1">
+                    <label for="ID_Status" class="form-label">Status</label>
                     <select name="ID_Status" class="form-control form-control-sm">
                         <?php
                         foreach ($data['statusOptions'] as $status) {
@@ -56,20 +56,20 @@
                         ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="jenis_kelamin">Jenis Kelamin</label>
+                <div class="form-group mb-1">
+                    <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                     <select name="jenis_kelamin" class="form-control form-control-sm">
                         <option value="Pria" <?= ($data['ubahdata']['jenis_kelamin'] == 'Pria') ? 'selected' : '' ?>>Pria</option>
                         <option value="Wanita" <?= ($data['ubahdata']['jenis_kelamin'] == 'Wanita') ? 'selected' : '' ?>>Wanita</option>
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="number">No Telphone</label>
+                <div class="form-group mb-1">
+                    <label for="number" class="form-label">No Telphone</label>
                     <input type="number" name="no_telp" class="form-control form-control-sm" value="<?= $data['ubahdata']['no_telp']?>">
                 </div>
-                <div class="form-group">
-                    <label for="ID_User">User</label>
+                <div class="form-group mb-1">
+                    <label for="ID_User" class="form-label">User</label>
                     <select name="ID_User" class="form-control form-control-sm">
                         <?php
                         foreach ($data['userOptions'] as $user) {

@@ -1,9 +1,6 @@
 <link rel="stylesheet" href="<?=BASEURL;?>/assets/css/style2.css">
 <!-- BAGIAN DATA TINDAK LANJUT -->
 <div class="container"><br>
-    <!-- <a href="<?= BASEURL?>/TindakLanjut/modalTambah" class="btn btn-dark mb-3 button-style">Tambah Data</a> -->
-    <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataTL()">Tambah Data</a> -->
-    <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('TindakLanjut')">Tambah Data</a> -->
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('TindakLanjut')">Tambah Data</a>
     <h5><?= $data['title'];?></h5>
     <div class="overflow-x-hidden" style="max-height: 62vh;">

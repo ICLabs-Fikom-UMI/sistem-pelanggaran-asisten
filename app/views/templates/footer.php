@@ -64,9 +64,15 @@
   }
   function deleteData(jenis, id) {
     $('.modal-title').html('Hapus Data');
-    $('.modal-body').html('Yakin Untuk Manghapus Data Tersebut?');       
-    $('.tombol').html(`<a href="<?= BASEURL ?>/${jenis}/hapus/${id}" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Hapus</a>`);
-    $('.batal').html('<button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>');
+    $('.modal-body').html(`
+      <div class="text-center mb-3">
+        Yakin Untuk Manghapus Data Tersebut?
+      </div>
+      <div class="text-center">
+        <a href="<?= BASEURL ?>/${jenis}/hapus/${id}" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Hapus</a>
+        <button type="button" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>
+      </div>
+    `);
   }
   // BAGIAN LOGOUT
   $('#logout').on('click', function() {
@@ -81,7 +87,6 @@
   });
   $('#logoutLink').on('click', function() {
   var confirmation = window.confirm('Anda Yakin Akan Keluar');
-
   if (confirmation) {
       $.ajax({
           url: '<?= BASEURL ?>/LogIn/logout',

@@ -3,30 +3,30 @@
     <form id="formTambahDataPelanggaran" action="<?= BASEURL ?>/pelanggaran/tambah" method="post" autocomplete="off">
         <div class="row">
             <div class="col-12">
-                <div class="form-group">
-                    <label for="selectAsisten">Pilih Asisten</label>
-                    <select name="selectAsisten" class="form-control form-control-sm">
+                <div class="form-group mb-1">
+                    <label for="selectAsisten" class="form-label">Pilih Asisten</label>
+                    <select name="selectAsisten" class="form-select form-select-sm">
                         <option>Pilih Asisten</option>
                             <?php foreach ($data['asistenOptions'] as $asisten) : ?>
                                 <option value="<?= $asisten['stambuk']; ?>"><?= $asisten['nama']; ?></option>
                             <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="text">Detail Pelanggaran</label>
+                <div class="form-group mb-1">
+                    <label for="text" class="form-label">Detail Pelanggaran</label>
                     <textarea name="pelanggaran" class="form-control form-control-sm" placeholder="Masukkan Detail Pelanggaran" rows="4"></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="text">Tanggal</label>
+                <div class="form-group mb-1">
+                    <label for="text" class="form-label">Tanggal</label>
                     <?php
                         $tanggalHariIni = date("Y-m-d");
                     ?>
                     <input type="date" name="tanggal" class="form-control form-control-sm" value="<?= $tanggalHariIni ?>" required>
                 </div>
-                <div class="form-group">
-                    <label for="ID_TindakLanjut">Tindak Lanjut</label>
-                    <select name="ID_TindakLanjut" class="form-control form-control-sm">
+                <div class="form-group mb-1">
+                    <label for="ID_TindakLanjut" class="form-label">Tindak Lanjut</label>
+                    <select name="ID_TindakLanjut" class="form-select form-select-sm">
                         <option>Pilih Tindak Lanjut</option>
                         <?php
                         foreach ($data['TindakLanjutOptions'] as $tindakLanjut) {
