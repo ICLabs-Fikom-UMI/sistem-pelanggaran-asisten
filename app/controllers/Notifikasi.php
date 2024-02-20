@@ -1,24 +1,39 @@
 <?php
 
 class Notifikasi extends Controller {
-    public function index(){
+    // public function index(){
         // $this->isAdminOrKorlab();
         // $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
 
-        $data['title'] = 'Data Notifikasi';
+    //     $data['title'] = 'Data Notifikasi';
         
-        if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') {
+    //     if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') {
+    //         $data['notifikasi'] = $this->model('Notifikasi_model')->tampilDataNotifikasiAdminKorlab();
+    //     } else {
+    //         $data['notifikasi'] = $this->model('Notifikasi_model')->tampilDataNotifikasiAsisten();
+    //     }
+
+    //     $this->view('templates/header', $data);
+    //     $this->view('templates/topbar');
+    //     $this->view('templates/sidebar', $data);
+    //     $this->view('notifikasi/index', $data);
+    //     $this->view('templates/footer');
+    // }
+    public function index(){
+        $data['title'] = 'Data Notifikasi';
+        if (isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab')) {
             $data['notifikasi'] = $this->model('Notifikasi_model')->tampilDataNotifikasiAdminKorlab();
         } else {
             $data['notifikasi'] = $this->model('Notifikasi_model')->tampilDataNotifikasiAsisten();
         }
-
+    
         $this->view('templates/header', $data);
         $this->view('templates/topbar');
         $this->view('templates/sidebar', $data);
         $this->view('notifikasi/index', $data);
         $this->view('templates/footer');
     }
+    
     public function modalTambah()
     {
         $this->isAdminOrKorlab();

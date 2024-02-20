@@ -100,4 +100,17 @@ class User_model{
     
         return $this->db->resultSet();
     }
+    public function getIDAsistenByUserID($id)
+    {
+        $this->db->query("SELECT ID_User FROM asisten WHERE ID_User = :id");
+        $this->db->bind('id', $id);
+
+        $result = $this->db->single();
+
+        if ($result) {
+            return $result['ID_User'];
+        } else {
+            return null;
+        }
+    }
 }

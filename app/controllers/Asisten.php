@@ -71,15 +71,19 @@ class Asisten extends Controller {
     // }
     public function detailAsisten(){
         $this->isAdmin();
-    
-        // Mendapatkan URL saat ini
         $current_url = $_SERVER['REQUEST_URI'];
     
-        // Pemrosesan URL untuk mendapatkan ID
         $url_parts = explode('/', $current_url);
-        $id = end($url_parts); // Mengambil bagian terakhir dari URL sebagai ID
+        $id = end($url_parts); 
+
+        if (isset($_SESSION['role']) && ($_SESSION['role'] == 'admin')) {
+            $data['detail_asisten'] = $this->model('Asisten_model')->detailAsisten($id);
+        } else {
+            
+        }
     
-        $data['detail_asisten'] = $this->model('Asisten_model')->detailAsisten($id);
+    
+        // $data['detail_asisten'] = $this->model('Asisten_model')->detailAsisten($id);
         $data['title'] = 'Detail Data Asisten';
         
         $data['kelasOptions'] = $this->model('Asisten_model')->tampilKelas();
@@ -94,6 +98,29 @@ class Asisten extends Controller {
         $this->view('asisten/detail_asisten', $data);
         $this->view('templates/footer');
     }
+    // public function detailAsisten(){
+    //     $this->isAdmin();
+        
+    //     $current_url = $_SERVER['REQUEST_URI'];
+    
+    //     $url_parts = explode('/', $current_url);
+    //     $id = end($url_parts); 
+    
+    //     $data['detail_asisten'] = $this->model('Asisten_model')->detailAsisten($id);
+    //     $data['title'] = 'Detail Data Asisten';
+        
+    //     $data['kelasOptions'] = $this->model('Asisten_model')->tampilKelas();
+    //     $data['angkatanOptions'] = $this->model('Asisten_model')->tampilAngkatan();
+    //     $data['jurusanOptions'] = $this->model('Asisten_model')->tampilJurusan();
+    //     $data['statusOptions'] = $this->model('Asisten_model')->tampilStatus();
+    //     $data['userOptions'] = $this->model('Asisten_model')->tampilUser();
+    
+    //     $this->view('templates/header', $data);
+    //     $this->view('templates/topbar');
+    //     $this->view('templates/sidebar', $data);
+    //     $this->view('asisten/detail_asisten', $data);
+    //     $this->view('templates/footer');
+    // }
     
     public function tambah(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

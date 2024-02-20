@@ -19,10 +19,11 @@
                     <label for="pesan" class="form-label">Pesan</label>
                     <textarea name="pesan" class="form-control " rows="4"><?= $data['ubahdata']['pesan']?></textarea>
                 </div>
-                <div class="form-group mb-1">
+                <div class="form-group mb-3">
                     <label for="tanggal" class="form-label">Tanggal</label>
-                    <input type="date" name="tanggal" class="form-control " value="<?= $data['ubahdata']['tanggal']?>">
-                </div><br>
+                    <?php $tanggalSekarang = date("Y-m-d"); ?>
+                    <input type="date" name="tanggal" class="form-control" value="<?= $tanggalSekarang ?>">
+                </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary" style="background: #06253A; color: #FFFFFF;">Ubah</button>
                     <button type="button" class="btn btn-primary ml-2" style="background: #06253A; color: #FFFFFF;" data-bs-dismiss="modal">Close</button>

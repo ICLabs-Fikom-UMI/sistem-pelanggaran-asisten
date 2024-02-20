@@ -18,11 +18,11 @@
                     <label for="pesan" class="form-label">Pesan</label>
                     <textarea name="pesan" class="form-control " rows="4"></textarea>
                 </div>
-                <div class="form-group mb-1">
+                <div class="form-group mb-3">
                     <label for="text" class="form-label">Tanggal</label>
-                    <?php $tanggalHariIni = date("Y-m-d"); ?>
-                    <input type="date" name="tanggal" class="form-control " value="<?= $tanggalHariIni ?>" required>
-                </div><br>
+                    <?php $tanggalSekarang = date("Y-m-d"); ?>
+                    <input type="date" name="tanggal" class="form-control" value="<?= $tanggalSekarang ?>" required>
+                </div>
             </div>
         </div>
     </form>

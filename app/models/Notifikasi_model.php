@@ -20,7 +20,12 @@ class Notifikasi_model{
     }
     public function prosesUbah($data){
         
-        $query = "UPDATE notifikasi SET pesan = :pesan, tanggal = :tanggal, ID_Asisten = :ID_Asisten WHERE ID_Notifikasi = :ID_Notifikasi";
+        $query = "UPDATE notifikasi 
+                SET 
+                    pesan = :pesan, tanggal = :tanggal, ID_Asisten = :ID_Asisten 
+                WHERE 
+                    ID_Notifikasi = :ID_Notifikasi
+                ";
         
         $this->db->query($query);
         $this->db->bind('pesan', $data['pesan']);
@@ -54,6 +59,24 @@ class Notifikasi_model{
         $this->db->query("SELECT ID_Asisten, nama FROM asisten");
         return $this->db->resultSet();
     }
+    // public function ubah($id){
+    //     $this->db->query("SELECT 
+    //     notifikasi.ID_Notifikasi,
+    //     asisten.ID_Asisten,
+    //     asisten.nama,
+    //     notifikasi.pesan,
+    //     notifikasi.tanggal
+    //     from
+    //         notifikasi
+    //     join
+    //         asisten on notifikasi.ID_Asisten = asisten.ID_Asisten
+    //     WHERE 
+    //         ID_Notifikasi = :id");
+
+    //     $this->db->bind("id", $id);
+
+    //     return $this->db->single(); 
+    // }
     public function ubah($id){
         $this->db->query("SELECT * FROM notifikasi WHERE ID_Notifikasi = :id");
         $this->db->bind("id", $id);
@@ -122,26 +145,6 @@ class Notifikasi_model{
 
         return $this->db->resultSet();
     }  
-    // public function tampilDataNotifikasiAsisten(){
-    //     $idAsisten = $_SESSION['ID_Asisten'];
-    //     $query = "SELECT
-    //                 notifikasi.ID_Notifikasi,
-    //                 notifikasi.pesan,
-    //                 notifikasi.tanggal
-    //                 -- asisten.nama
-    //             FROM
-    //                 notifikasi
-    //             JOIN
-    //                 asisten ON notifikasi.ID_Asisten = asisten.ID_Asisten
-    //             WHERE
-    //                 asisten.ID_Asisten = :idAsisten
-    //             ";
-
-    //     $this->db->query($query);
-    //     $this->db->bind('idAsisten', $idAsisten);
-
-    //     return $this->db->resultSet();
-    // }
     public function tampilDataNotifikasiAsisten(){
         $idAsisten = $_SESSION['ID_Asisten'];
         $query = "SELECT

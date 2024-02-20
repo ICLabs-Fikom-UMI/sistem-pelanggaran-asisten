@@ -194,6 +194,17 @@ class Asisten_model{
             return null;
         }
     }
-    
+    public function getIDAsistenByAsistenID($id)
+    {
+        $this->db->query("SELECT ID_Asisten FROM asisten WHERE ID_Asisten = :id");
+        $this->db->bind('id', $id);
 
+        $result = $this->db->single();
+
+        if ($result) {
+            return $result['ID_Asisten'];
+        } else {
+            return null;
+        }
+    }   
 }

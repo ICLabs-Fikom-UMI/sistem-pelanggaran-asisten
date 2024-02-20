@@ -4,6 +4,7 @@ class Pelanggaran extends Controller {
     public function index()
     {
         $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
+        // $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByAsistenID($_SESSION['ID_Asisten']);
 
         $data['title'] = 'Data Pelanggaran';
         
@@ -21,6 +22,21 @@ class Pelanggaran extends Controller {
         $this->view('pelanggaran/index', $data);
         $this->view('templates/footer');
     }
+    // public function index(){
+    //     $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
+    //     $data['title'] = 'Data Pelanggaran';
+    //     if (isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab')) {
+    //         $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAdminKorlab();
+    //     } else {
+    //         $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAsisten();
+    //     }
+    
+    //     $this->view('templates/header', $data);
+    //     $this->view('templates/topbar');
+    //     $this->view('templates/sidebar', $data);
+    //     $this->view('pelanggaran/index', $data);
+    //     $this->view('templates/footer');
+    // }
     public function modalTambah()
     {
         $this->isAdminOrKorlab();
