@@ -26,8 +26,7 @@ class User extends Controller {
         $this->view('user/tambah_data');
     }
     
-    public function ubahModal()
-    {
+    public function ubahModal(){
         $id = $_POST['id'];
         $data['ubahdata'] = $this->model('User_model')->ubah($id);
 
@@ -48,6 +47,7 @@ class User extends Controller {
     }
     public function hapus($id){
         $this->isAdmin();
+
         if($this->model('User_model')->prosesHapus($id)){
             header('Location: '.BASEURL. '/user');
             exit;

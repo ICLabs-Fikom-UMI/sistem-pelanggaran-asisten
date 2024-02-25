@@ -24,6 +24,12 @@ class User_model{
         return $this->db->rowCount();
     }    
     public function prosesUbah($data){
+        if ($_FILES['photo_path']['error'] === UPLOAD_ERR_NO_FILE) {
+            $photo_path = $this->getPhotoPathByID($data['ID_User']);
+        } else {
+            $photo_path = $this->uploadPhoto();
+        }
+        
         $query = "UPDATE user 
                 SET 
                     nama = :nama, 
@@ -34,8 +40,6 @@ class User_model{
                 WHERE 
                     ID_User = :ID_User;
                 ";
-        
-        $photo_path = $this->uploadPhoto();
         
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
@@ -49,6 +53,14 @@ class User_model{
     
         return $this->db->rowCount();
     }
+    
+    private function getPhotoPathByID($userID) {
+        $this->db->query("SELECT photo_path FROM user WHERE ID_User = :ID_User");
+        $this->db->bind(':ID_User', $userID);
+        $result = $this->db->single();
+        return $result['photo_path'];
+    }
+    
     private function uploadPhoto(){
         $file = $_FILES['photo_path'];
         $fileName = $file['name'];
