@@ -9,12 +9,12 @@ class Login_model {
     }
 
     public function getRole($username) {
-        $this->db->query("SELECT role FROM ' . $this->table . ' WHERE username = :username");
+        $this->db->query('SELECT role FROM ' . $this->table . ' WHERE username = :username');
         $this->db->bind('username', $username);        
         return $this->db->single();
     }
     public function getNamaUser($username) {
-        $this->db->query("SELECT nama FROM ' . $this->table . ' WHERE username = :username");
+        $this->db->query('SELECT nama FROM ' . $this->table . ' WHERE username = :username');
         $this->db->bind('username', $username);    
         $result = $this->db->single();
     
