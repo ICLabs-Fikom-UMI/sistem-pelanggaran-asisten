@@ -9,19 +9,13 @@ class Login_model {
     }
 
     public function getRole($username) {
-        $query = 'SELECT role FROM ' . $this->table . ' WHERE username = :username';
-        
-        $this->db->query($query);
-        $this->db->bind('username', $username);
-        
+        $this->db->query("SELECT role FROM ' . $this->table . ' WHERE username = :username");
+        $this->db->bind('username', $username);        
         return $this->db->single();
     }
     public function getNamaUser($username) {
-        $query = 'SELECT nama FROM ' . $this->table . ' WHERE username = :username';
-    
-        $this->db->query($query);
-        $this->db->bind('username', $username);
-    
+        $this->db->query("SELECT nama FROM ' . $this->table . ' WHERE username = :username");
+        $this->db->bind('username', $username);    
         $result = $this->db->single();
     
         if ($result) {
@@ -37,9 +31,11 @@ class Login_model {
     }
 
     public function validateLogin($username, $password) {
-        $query = 'SELECT ID_User, password FROM user WHERE username = :username and password = :password';
-
-        $this->db->query($query);
+        $this->db->query("SELECT ID_User, password 
+                        FROM 
+                            user 
+                        WHERE 
+                            username = :username and password = :password");
         $this->db->bind('username', $username);
         $this->db->bind('password', $password);
 

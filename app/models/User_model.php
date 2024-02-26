@@ -6,13 +6,11 @@ class User_model{
         $this->db = new Database;
     }
     public function tambah($data){
-        $query = "INSERT INTO user (nama, username, password, role, photo_path) 
-                VALUES (:nama, :username, :password, :role, :photo_path);
-                ";
+        $this->db->query("INSERT INTO user (nama, username, password, role, photo_path) 
+                        VALUES (:nama, :username, :password, :role, :photo_path);");
         
         $photo_path = $this->uploadPhoto();
-        
-        $this->db->query($query);
+
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('username', $data['username']);
         $this->db->bind('password', $data['password']);
@@ -30,18 +28,16 @@ class User_model{
             $photo_path = $this->uploadPhoto();
         }
         
-        $query = "UPDATE user 
-                SET 
-                    nama = :nama, 
-                    username = :username, 
-                    password = :password, 
-                    role = :role, 
-                    photo_path = :photo_path 
-                WHERE 
-                    ID_User = :ID_User;
-                ";
-        
-        $this->db->query($query);
+        $this->db->query("UPDATE user 
+                        SET 
+                            nama = :nama, 
+                            username = :username, 
+                            password = :password, 
+                            role = :role, 
+                            photo_path = :photo_path 
+                        WHERE 
+                            ID_User = :ID_User;");
+
         $this->db->bind('nama', $data['nama']);
         $this->db->bind('username', $data['username']);
         $this->db->bind('password', $data['password']);
@@ -86,34 +82,22 @@ class User_model{
         return $this->db->single(); 
     }
     public function prosesHapus($id){
-
-        $query = "DELETE FROM user WHERE ID_User = :id";
-
-        $this->db->query($query);
+        $this->db->query("DELETE FROM user WHERE ID_User = :id");
         $this->db->bind("id", $id);
         $this->db->execute();
 
         return $this->db->rowCount(); 
     } 
-    public function tampilDataUser($idUser){
-        $query = "SELECT
-                    user.ID_User,
-                    user.nama,
-                    user.username,
-                    user.password,
-                    user.photo_path
-                FROM
-                    user
-                WHERE
-                    user.ID_User = :idUser";
+    public function tampilDataUser($idUser) {
+        $this->db->query("CALL TampilDataProfile(:idUser)");
+        $this->db->bind(':idUser', $idUser);
+        
+        $result = $this->db->resultSet();
     
-        $this->db->query($query);
-        $this->db->bind('idUser', $idUser);
-    
-        return $this->db->resultSet();
+        return $result;
     }
-    public function getIDAsistenByUserID($id)
-    {
+    
+    public function getIDAsistenByUserID($id) {
         $this->db->query("SELECT ID_User FROM asisten WHERE ID_User = :id");
         $this->db->bind('id', $id);
 

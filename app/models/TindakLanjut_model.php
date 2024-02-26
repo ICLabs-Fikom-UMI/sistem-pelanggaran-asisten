@@ -6,10 +6,8 @@ class TindakLanjut_model{
         $this->db = new Database;
     }
     public function tambah($data){
-        $query = "INSERT INTO tindak_lanjut (tindak_lanjut) 
-                VALUES (:tindak_lanjut)";
- 
-        $this->db->query($query);
+        $this->db->query("INSERT INTO tindak_lanjut (tindak_lanjut) 
+                        VALUES (:tindak_lanjut)");
         $this->db->bind('tindak_lanjut', $data['tindak_lanjut']);
 
         $this->db->execute();
@@ -17,15 +15,12 @@ class TindakLanjut_model{
         return $this->db->rowCount();
     }
     public function prosesUbah($data){
-        
-        $query = "UPDATE tindak_lanjut 
-                SET 
-                    tindak_lanjut = :tindak_lanjut 
-                WHERE 
-                    ID_TindakLanjut = :ID_TindakLanjut;
-                ";
-        
-        $this->db->query($query);
+        $this->db->query("UPDATE tindak_lanjut 
+                        SET 
+                            tindak_lanjut = :tindak_lanjut 
+                        WHERE 
+                            ID_TindakLanjut = :ID_TindakLanjut;");
+
         $this->db->bind('tindak_lanjut', $data['tindak_lanjut']);
         $this->db->bind('ID_TindakLanjut', $data['ID_TindakLanjut']);
     
@@ -44,10 +39,7 @@ class TindakLanjut_model{
         return $this->db->single(); 
     }
     public function prosesHapus($id){
-
-        $query = "DELETE FROM tindak_lanjut WHERE ID_TindakLanjut = :id";
-
-        $this->db->query($query);
+        $this->db->query("DELETE FROM tindak_lanjut WHERE ID_TindakLanjut = :id");
         $this->db->bind("id", $id);
         $this->db->execute();
 
