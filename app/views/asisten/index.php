@@ -5,6 +5,7 @@
     <!-- <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="tambahDataAsisten()">Tambah Data</a> -->
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('Asisten')">Tambah Data</a>
     <h3><?= $data['title'];?></h3>
+    <?php Flasher::flash(); ?>
     <div class="overflow-auto" style="height: 68vh;">
         <table id="example" class="table" style="width:100%">
             <thead class="table-light">

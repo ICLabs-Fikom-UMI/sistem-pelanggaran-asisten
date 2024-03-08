@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group mb-1">
                     <label for="pesan" class="form-label">Pesan</label>
-                    <textarea name="pesan" class="form-control " rows="4"><?= $data['ubahdata']['pesan']?></textarea>
+                    <textarea name="pesan" class="form-control " rows="4" required><?= $data['ubahdata']['pesan']?></textarea>
                 </div>
                 <div class="form-group mb-3">
                     <label for="tanggal" class="form-label">Tanggal</label>

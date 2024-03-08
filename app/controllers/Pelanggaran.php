@@ -1,36 +1,79 @@
 <?php
 
 class Pelanggaran extends Controller {
-    public function index()
-    {
-        $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
-        // $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByAsistenID($_SESSION['ID_Asisten']);
+    // public function index()
+    // {
+    //     $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
+    //     // $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByAsistenID($_SESSION['ID_Asisten']);
 
+    //     $data['title'] = 'Data Pelanggaran';
+        
+    //     if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') {
+    //         $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAdminKorlab();
+    //     } else {
+    //         $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAsisten();
+    //     }
+
+    //     $data['TindakLanjutOptions'] = $this->model('Pelanggaran_model')->tampilTindakLanjut();
+
+    //     $this->view('templates/header', $data);
+    //     $this->view('templates/topbar');
+    //     $this->view('templates/sidebar', $data);
+    //     $this->view('pelanggaran/index', $data);
+    //     $this->view('templates/footer');
+    // }
+    public function index(){
+        // Penanganan $_SESSION['ID_User']
+        $ID_User = isset($_SESSION['ID_User']) ? $_SESSION['ID_User'] : null;
+        $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($ID_User);
+        
+        // Penanganan $_SESSION['role']
+        $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
+        
+        // Inisialisasi variabel $data dengan title
         $data['title'] = 'Data Pelanggaran';
         
-        if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab') {
+        // Inisialisasi variabel $data['pelanggaran']
+        $data['pelanggaran'] = array();
+    
+        // Pemeriksaan $_SESSION['role'] dan pengisian $data['pelanggaran']
+        if ($role && ($role == 'admin' || $role == 'korlab')) {
             $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAdminKorlab();
         } else {
-            $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAsisten();
+            // Penanganan $idUser
+            $idUser = isset($_SESSION['ID_User']) ? $_SESSION['ID_User'] : null;
+            $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAsisten($idUser);
         }
-
+    
+        // Pengisian $data['TindakLanjutOptions']
         $data['TindakLanjutOptions'] = $this->model('Pelanggaran_model')->tampilTindakLanjut();
-
+    
+        // Memuat tampilan
         $this->view('templates/header', $data);
         $this->view('templates/topbar');
         $this->view('templates/sidebar', $data);
         $this->view('pelanggaran/index', $data);
         $this->view('templates/footer');
     }
+    
     // public function index(){
+        
     //     $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
     //     $data['title'] = 'Data Pelanggaran';
+        
+    //     $idUser = isset($_SESSION['ID_User']) ? $_SESSION['ID_User'] : null;
+        
+    //     $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
+        
     //     if (isset($_SESSION['role']) && ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab')) {
     //         $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAdminKorlab();
     //     } else {
-    //         $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAsisten();
+    //         $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAsisten($idUser);
     //     }
-    
+
+        
+    //     $data['TindakLanjutOptions'] = $this->model('Pelanggaran_model')->tampilTindakLanjut();
+
     //     $this->view('templates/header', $data);
     //     $this->view('templates/topbar');
     //     $this->view('templates/sidebar', $data);

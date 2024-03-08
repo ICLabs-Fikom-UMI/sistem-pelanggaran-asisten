@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="form-group mb-1">
                     <label for="selectAsisten" class="form-label">Asisten</label>
-                    <select name="selectAsisten" class="form-select ">
+                    <select name="selectAsisten" class="form-select " required >
                         <option>Pilih Asisten</option>
                             <?php foreach ($data['asistenOptions'] as $asisten) : ?>
                                 <option value="<?= $asisten['stambuk']; ?>"><?= $asisten['nama']; ?></option>
@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group mb-1">
                     <label for="text" class="form-label">Detail Pelanggaran</label>
-                    <textarea name="pelanggaran" class="form-control " placeholder="Masukkan Detail Pelanggaran" rows="4"></textarea>
+                    <textarea name="pelanggaran" class="form-control " placeholder="Masukkan Detail Pelanggaran" rows="4" required ></textarea>
                 </div>
 
                 <div class="form-group mb-1">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group mb-1">
                     <label for="ID_TindakLanjut" class="form-label">Tindak Lanjut</label>
-                    <select name="ID_TindakLanjut" class="form-select ">
+                    <select name="ID_TindakLanjut" class="form-select " required >
                         <option>Pilih Tindak Lanjut</option>
                         <?php
                         foreach ($data['TindakLanjutOptions'] as $tindakLanjut) {

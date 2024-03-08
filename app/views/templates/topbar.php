@@ -23,19 +23,15 @@
       </a>
       <?php endif; ?>
       <ul class="navbar-nav ml-auto"> 
-        <div style="display: flex; align-items: center;">           
+        <div style="display: flex; align-items: center;"> 
           <div class="info" style="margin-right: 30px;"  data-bs-toggle="modal" data-bs-target="myModal">
-              <!-- <a href="<?= BASEURL ?>" class="d-block" style="color: #ffffff; text-decoration:none;"><?= $id ?></a> -->
-              <?php if ($_SESSION['role'] == 'admin') : ?>
-              <a href="<?= BASEURL ?>" class="d-block" style="color: #ffffff; text-decoration:none;"><?= $nama_user ?></a>
-              <?php endif;?>
-              <?php if ($_SESSION['role'] == 'asisten' || $_SESSION['role'] == 'korlab') : ?>
-                <a href="<?= BASEURL ?>/User" class="d-block" style="color: #ffffff; text-decoration:none;"><?= $nama_user ?></a>
-              <?php endif;?>
-            </div>
-          <!-- <div class="image mr-2" style="margin-right: 10px;"> 
-              <i class="far fa-user"></i> 
-          </div> -->
+            <?php if ($_SESSION['role'] == 'admin') : ?>
+            <a href="<?= BASEURL ?>" class="d-block" style="color: #ffffff; text-decoration:none;"> <?= $nama_user ?></a>
+            <?php endif;?>
+            <?php if ($_SESSION['role'] == 'asisten' || $_SESSION['role'] == 'korlab') : ?>
+            <a href="<?= BASEURL ?>/User" class="d-block" style="color: #ffffff; text-decoration:none;"> <?= $nama_user ?></a>
+            <?php endif;?>
+          </div>
           <div>
               <li class="nav-item mr-2">
                 <a class="nav-link" href="<?= BASEURL?>" id="logoutLink">

@@ -52,7 +52,7 @@ class Pelanggaran_model{
     }
     public function tampilAsisten(){
         $this->db->query("SELECT stambuk, nama FROM asisten ORDER BY ID_Asisten ASC");
-        
+
         return $this->db->resultSet();
     }
     public function tampilIDAsisten(){
@@ -117,7 +117,8 @@ class Pelanggaran_model{
     }
     // SYNTAX 2 UNTUK ASISTEN
     public function tampilDataPelanggaranAsisten(){
-        $idAsisten = $_SESSION['ID_Asisten'];
+        $idAsisten = $_SESSION['ID_Asisten'] ?? null;
+        // $idAsisten = $_SESSION['ID_Asisten'];
         $this->db->query("SELECT 
                             pelanggaran.ID_Pelanggaran, 
                             pelanggaran.pelanggaran, 

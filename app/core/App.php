@@ -1,5 +1,5 @@
 <?php
-
+require_once 'app/core/Flasher.php';
 class App {
 
     protected $controller = 'Home';

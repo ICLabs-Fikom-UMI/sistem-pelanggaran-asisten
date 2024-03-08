@@ -6,6 +6,7 @@
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('Notifikasi')">Tambah Data</a>
     <?php endif; ?>
     <h3><?= $data['title'];?></h3>
+    <?php Flasher::flash(); ?>
     <div class="overflow-auto" style="height: 68vh;">
         <table id="example" class="table" style="width:100%">
             <thead class="table-light">

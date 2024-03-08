@@ -4,12 +4,11 @@ class User extends Controller {
     public function index()
     {
         $data['title'] = 'Data User';
-        $idUser = $_SESSION['ID_User'];
-        // $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
-        if ($_SESSION['role'] == 'asisten' || $_SESSION['role'] == 'korlab') {
-            // $data['user'] = $this->model('User_model')->tampilDataUser();
+        $idUser = isset($_SESSION['ID_User']) ? $_SESSION['ID_User'] : null;
+        $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
+        
+        if ($role == 'asisten' || $role == 'korlab') {
             $data['user'] = $this->model('User_model')->tampilDataUser($idUser);
-
         } else {
             $data['user'] = $this->model('User_model')->tampil();
         }
@@ -20,6 +19,27 @@ class User extends Controller {
         $this->view('user/index', $data);
         $this->view('templates/footer');
     }
+
+    // public function index()
+    // {
+    //     $data['title'] = 'Data User';
+    //     $idUser = $_SESSION['ID_User'];
+    //     // $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($_SESSION['ID_User']);
+    //     if ($_SESSION['role'] == 'asisten' || $_SESSION['role'] == 'korlab') {
+    //         // $data['user'] = $this->model('User_model')->tampilDataUser();
+    //         $data['user'] = $this->model('User_model')->tampilDataUser($idUser);
+
+    //     } else {
+    //         $data['user'] = $this->model('User_model')->tampil();
+    //     }
+
+    //     $this->view('templates/header', $data);
+    //     $this->view('templates/topbar');
+    //     $this->view('templates/sidebar', $data);
+    //     $this->view('user/index', $data);
+    //     $this->view('templates/footer');
+    // }
+    
     public function modalTambah()
     {
         $this->isAdmin();

@@ -124,7 +124,8 @@ class Notifikasi_model{
         return $this->db->resultSet();
     }  
     public function tampilDataNotifikasiAsisten(){
-        $idAsisten = $_SESSION['ID_Asisten'];
+        $idAsisten = $_SESSION['ID_Asisten'] ?? null;
+        // $idAsisten = $_SESSION['ID_Asisten'];
         $this->db->query("SELECT
                             notifikasi.ID_Notifikasi,
                             notifikasi.pesan,

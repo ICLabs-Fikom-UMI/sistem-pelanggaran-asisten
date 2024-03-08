@@ -2,8 +2,14 @@
 
 class Controller{
     public function __construct(){
+        session_start(); 
+        if (isset($_SESSION['role'])) {
+            $this->ID_Asisten = isset($_SESSION['ID_Asisten']) ? $_SESSION['ID_Asisten'] : null;
+        } else {
+            $this->ID_Asisten = null;
+        }
+
         $this->db = new Database();
-        session_start();
     }
     public function view($view, $data = []){
         if(!isset($_SESSION['ID_User'])){
@@ -23,7 +29,7 @@ class Controller{
         }
     }
     public function isAdmin() {
-        if ($_SESSION['role'] != 'admin') {  
+        if (isset($_SESSION['role']) && $_SESSION['role'] != 'admin') {  
             if ($_SESSION['role'] == 'korlab') {
                 header('Location:' . BASEURL);
             } elseif ($_SESSION['role'] == 'asisten') {
@@ -32,20 +38,7 @@ class Controller{
             }
             exit;
         }
-    }
-    
-    // public function isAdmin() {
-    //     if (!($_SESSION['role'] == 'admin')) {  
-    //         header('Location:' . BASEURL);
-    //         exit;
-    //     }
-    // }
-    // public function isAsisten() {
-    //     if (!($_SESSION['role'] == 'asisten')) {  
-    //         header('Location:' . BASEURL . '/pelanggaran');
-    //         exit;
-    //     }
-    // }
+    }   
     public function isNot() {
         if (!($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'korlab')) {  
             header('Location:' . BASEURL . '/pelanggaran');
@@ -68,3 +61,4 @@ class Controller{
         }
     }
 }
+?>
