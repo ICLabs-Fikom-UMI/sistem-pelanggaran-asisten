@@ -3,6 +3,7 @@
 <div class="container"><br>
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('TindakLanjut')">Tambah Data</a>
     <h3><?= $data['title'];?></h3>
+    <?php Flasher::flash();?>
     <div class="overflow-x-hidden" style="height: 68vh;">
         <table id="example" class="table" style="width:100%">
             <thead class="table-light">

@@ -125,8 +125,7 @@ class Notifikasi extends Controller {
             Flasher::setFlash(' berhasil ditambahkan', '', 'success');
         } else {
             Flasher::setFlash(' tidak berhasil ditambahkan', '', 'danger');
-        }
-    
+        }    
         header('Location: ' . BASEURL . '/Notifikasi');
         exit;
     }

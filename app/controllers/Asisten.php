@@ -93,17 +93,23 @@ class Asisten extends Controller {
             $this->view('asisten/index', $data);
     
             if($this->model('Asisten_model')->tambah($_POST) > 0){
-                header('Location: '.BASEURL. '/Asisten');
-                exit;
+                Flasher::setFlash(' berhasil ditambahkan', '', 'success');
+            }else{
+                Flasher::setFlash(' gagal ditambahkan ', '', 'danger');
             }
+            header('Location: '.BASEURL. '/Asisten');
+            exit;
         }
     }
     public function prosesUbah(){
         $this->isAdmin();
         if($this->model('Asisten_model')->prosesUbah($_POST) > 0){
-            header('Location: '.BASEURL. '/Asisten');
-            exit;
+            Flasher::setFlash(' berhasil diubah', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal diubah', '', 'danger');
         }
+        header('Location: '.BASEURL. '/Asisten');
+        exit;
     }
     // public function hapus($id){
     //     $this->isAdmin();
@@ -112,25 +118,43 @@ class Asisten extends Controller {
     //         exit;
     //     }
     // }
-    public function hapus($id) {
-        $this->isAdmin();
-        if ($this->model('Asisten_model')->prosesHapus($id)) {
-            Flasher::setFlash(' berhasil dihapus', '', 'success');
-        } else {
-            Flasher::setFlash(' gagal dihapus', '', 'danger');
-        }
-        header('Location: ' . BASEURL . '/Asisten');
-        exit;
-    }
     // public function hapus($id) {
-    //     $this->isAdminOrKorlab();
-    //     if ($this->model('Notifikasi_model')->prosesHapus($id)) {
+    //     $this->isAdmin();
+    //     if ($this->model('Asisten_model')->prosesHapus($id)) {
     //         Flasher::setFlash(' berhasil dihapus', '', 'success');
     //     } else {
     //         Flasher::setFlash(' gagal dihapus', '', 'danger');
     //     }
-    //     header('Location: ' . BASEURL . '/Notifikasi');
+    //     header('Location: ' . BASEURL . '/Asisten');
     //     exit;
     // }
+    public function hapus($id) {
+        $this->isAdminOrKorlab();
+        if($this->model('Asisten_model')->prosesHapus($id)){
+            Flasher::setFlash(' berhasil dihapus', '', 'success');
+            header('Location: ' . BASEURL . '/Asisten');
+            exit;
+        } else {
+            Flasher::setFlash(' gagal dihapus', '', 'danger');
+            header('Location: ' . BASEURL . '/Asisten');
+            exit;
+        }
+    }
+    // public function hapus($id) {
+    //     $this->isAdminOrKorlab();
+    //     $model = $this->model('Asisten_model');
+    //     $result = $model->prosesHapus($id);
+        
+    //     if($result === false) {
+    //         Flasher::setFlash(' gagal dihapus karena ada keterkaitan', '', 'danger');
+    //     } else {
+    //         Flasher::setFlash(' berhasil dihapus', '', 'success');
+    //     }
+        
+    //     $this->view('Asisten/index');
+    // }
+    
+    
+    
        
 }

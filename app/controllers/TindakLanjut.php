@@ -41,16 +41,22 @@ class TindakLanjut extends Controller {
     public function tambah(){
         $this->isAdminOrKorlab();
         if($this->model('TindakLanjut_model')->tambah($_POST) > 0){
-            header('Location: '.BASEURL. '/tindakLanjut');
-            exit;
+            Flasher::setFlash(' berhasil ditambahkan', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal ditambahkan', '', 'danger');
         }
+        header('Location: '.BASEURL. '/tindakLanjut');
+        exit;
     }
     public function prosesUbah(){
         $this->isAdminOrKorlab();
         if($this->model('TindakLanjut_model')->prosesUbah($_POST) > 0){
-            header('Location: '.BASEURL. '/tindakLanjut');
-            exit;
+            Flasher::setFlash(' berhasil diubah', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal diubah', '', 'danger');
         }
+        header('Location: '.BASEURL. '/tindakLanjut');
+        exit;
     }
     // public function hapus($id){
     //     $this->isAdminOrKorlab();
@@ -70,8 +76,11 @@ class TindakLanjut extends Controller {
     public function hapus($id){
         $this->isAdminOrKorlab();
         if($this->model('TindakLanjut_model')->prosesHapus($id)){
-            header('Location: '.BASEURL. '/tindakLanjut');
-            exit;
+            Flasher::setFlash(' berhasil dihapus', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal dihapus', '', 'danger');
         }
+        header('Location: '.BASEURL. '/tindakLanjut');
+        exit;
     }    
 }

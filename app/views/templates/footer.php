@@ -37,6 +37,7 @@
   $(document).ready(function() {
       $('#example').DataTable();
   });
+  // UBAH DATA
   function change(jenis, id) {
     $('.modal-title').html('Ubah Data');
     let url = '<?= BASEURL?>/' + jenis + '/ubahModal';
@@ -46,6 +47,7 @@
         $('.modal-body').html(data);
     });
   }
+  // TAMBAH DATA
   function add(jenis) {
     $('.modal-title').html('Tambah Data');
     let url = '<?= BASEURL ?>/' + jenis + '/modalTambah';
@@ -62,6 +64,7 @@
         $(formID).append(tombolHTML);
     });
   }
+  // HAPUS DATA
   function deleteData(jenis, id) {
     $('.modal-title').html('Hapus Data');
     $('.modal-body').html(`
@@ -133,8 +136,6 @@ $('#logoutLink').on('click', function(event) {
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
         </div>
     `);
-
-    // Memunculkan modal
     $('#myModal').modal('show');
 });
 </script>

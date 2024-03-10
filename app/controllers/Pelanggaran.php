@@ -23,32 +23,24 @@ class Pelanggaran extends Controller {
     //     $this->view('templates/footer');
     // }
     public function index(){
-        // Penanganan $_SESSION['ID_User']
         $ID_User = isset($_SESSION['ID_User']) ? $_SESSION['ID_User'] : null;
         $_SESSION['ID_Asisten'] = $this->model('Asisten_model')->getIDAsistenByUserID($ID_User);
         
-        // Penanganan $_SESSION['role']
         $role = isset($_SESSION['role']) ? $_SESSION['role'] : null;
         
-        // Inisialisasi variabel $data dengan title
         $data['title'] = 'Data Pelanggaran';
         
-        // Inisialisasi variabel $data['pelanggaran']
         $data['pelanggaran'] = array();
     
-        // Pemeriksaan $_SESSION['role'] dan pengisian $data['pelanggaran']
         if ($role && ($role == 'admin' || $role == 'korlab')) {
             $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAdminKorlab();
         } else {
-            // Penanganan $idUser
             $idUser = isset($_SESSION['ID_User']) ? $_SESSION['ID_User'] : null;
             $data['pelanggaran'] = $this->model('Pelanggaran_model')->tampilDataPelanggaranAsisten($idUser);
         }
     
-        // Pengisian $data['TindakLanjutOptions']
         $data['TindakLanjutOptions'] = $this->model('Pelanggaran_model')->tampilTindakLanjut();
     
-        // Memuat tampilan
         $this->view('templates/header', $data);
         $this->view('templates/topbar');
         $this->view('templates/sidebar', $data);
@@ -129,23 +121,32 @@ class Pelanggaran extends Controller {
         ];
     
         if ($this->model('Pelanggaran_model')->tambah($data) > 0){
-            header('Location: '.BASEURL. '/Pelanggaran');
-            exit;
+            Flasher::setFlash(' berhasil ditambahkan', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal ditambahkan', '', 'danger');
         }
+        header('Location: '.BASEURL. '/Pelanggaran');
+        exit;
     }       
     public function prosesUbah(){
         $this->isAdminOrKorlab();
         $data['asistenOptions'] = $this->model('Pelanggaran_model')->tampilAsisten();
         if($this->model('Pelanggaran_model')->prosesUbah($_POST) > 0){
-            header('Location: '.BASEURL. '/Pelanggaran');
-            exit;
+            Flasher::setFlash(' berhasil diubah', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal diubah', '', 'danger');
         }
+        header('Location: '.BASEURL. '/Pelanggaran');
+        exit;
     }
     public function hapus($id){
         $this->isAdminOrKorlab();
         if($this->model('Pelanggaran_model')->prosesHapus($id)){
-            header('Location: '.BASEURL. '/Pelanggaran');
-            exit;
+            Flasher::setFlash(' berhasil dihapus', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal dihapus', '', 'danger');
         }
+        header('Location: '.BASEURL. '/Pelanggaran');
+        exit;
     }
 }

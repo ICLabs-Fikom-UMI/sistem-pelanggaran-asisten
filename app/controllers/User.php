@@ -55,22 +55,31 @@ class User extends Controller {
     public function tambah(){
         $this->isAdmin();
         if($this->model('User_model')->tambah($_POST) > 0){
-            header('Location: '.BASEURL. '/user');
-            exit;
+            Flasher::setFlash(' berhasil ditambahkan', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal ditambah', '', 'danger');
         }
+        header('Location: '.BASEURL. '/user');
+        exit;
     }
     public function prosesUbah(){
         if($this->model('User_model')->prosesUbah($_POST) > 0){
-            header('Location: '.BASEURL. '/user');
-            exit;
+            Flasher::setFlash(' berhasil diubah', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal diubah', '', 'danger');
         }
+        header('Location: '.BASEURL. '/user');
+        exit;
     }
     public function hapus($id){
         $this->isAdmin();
 
         if($this->model('User_model')->prosesHapus($id)){
-            header('Location: '.BASEURL. '/user');
-            exit;
+            Flasher::setFlash(' berhasil dihapus', '', 'success');
+        }else{
+            Flasher::setFlash(' gagal dihapus', '', 'danger');
         }
+        header('Location: '.BASEURL. '/user');
+        exit;
     }    
 }
