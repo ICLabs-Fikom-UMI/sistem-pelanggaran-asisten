@@ -57,7 +57,7 @@ class User extends Controller {
         if($this->model('User_model')->tambah($_POST) > 0){
             Flasher::setFlash(' berhasil ditambahkan', '', 'success');
         }else{
-            Flasher::setFlash(' gagal ditambah', '', 'danger');
+            Flasher::setFlash(' tidak berhasil ditambahkan', '', 'danger');
         }
         header('Location: '.BASEURL. '/user');
         exit;
@@ -66,7 +66,7 @@ class User extends Controller {
         if($this->model('User_model')->prosesUbah($_POST) > 0){
             Flasher::setFlash(' berhasil diubah', '', 'success');
         }else{
-            Flasher::setFlash(' gagal diubah', '', 'danger');
+            Flasher::setFlash(' tidak berhasil diubah', '', 'danger');
         }
         header('Location: '.BASEURL. '/user');
         exit;
@@ -77,7 +77,7 @@ class User extends Controller {
         if($this->model('User_model')->prosesHapus($id)){
             Flasher::setFlash(' berhasil dihapus', '', 'success');
         }else{
-            Flasher::setFlash(' gagal dihapus', '', 'danger');
+            Flasher::setFlash(' tidak berhasil dihapus', '', 'danger');
         }
         header('Location: '.BASEURL. '/user');
         exit;

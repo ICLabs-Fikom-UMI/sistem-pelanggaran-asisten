@@ -138,6 +138,7 @@ $('#logoutLink').on('click', function(event) {
     `);
     $('#myModal').modal('show');
 });
+
 </script>
 </body>
 </html>

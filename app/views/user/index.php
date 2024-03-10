@@ -7,6 +7,7 @@
     <a data-bs-toggle="modal" data-bs-target="#myModal" class="btn btn-dark mb-3 button-style" onclick="add('User')">Tambah Data</a>
     <?php endif;?>
     <h3><?= $data['title'];?></h3>
+    <?php Flasher::flash();?>
     <div class="overflow-x-hidden" style="height: 68vh;">
     <table id="example" class="table" style="width:100%">
     <thead class="table-light">
@@ -51,6 +52,9 @@
 <!-- BAGIAN DATA USER -->
 <?php if ($_SESSION['role'] == 'asisten' || $_SESSION['role'] == 'korlab') : ?>
 <h3><?= $data['title'];?></h3>
+    <div class="col-6">
+        <?php Flasher::flash();?>
+    </div>
     <?php foreach  ($data['user'] as $user) :?>
     <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">

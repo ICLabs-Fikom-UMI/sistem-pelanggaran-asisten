@@ -135,7 +135,7 @@ class Notifikasi extends Controller {
         if($this->model('Notifikasi_model')->prosesUbah($_POST) > 0){
             Flasher::setFlash(' berhasil diubah', '', 'success');
         }else{
-            Flasher::setFlash(' gagal diubah', '', 'danger');            
+            Flasher::setFlash(' tidak berhasil diubah', '', 'danger');            
         }
         header('Location: '.BASEURL. '/Notifikasi');
         exit;
@@ -152,7 +152,7 @@ class Notifikasi extends Controller {
         if ($this->model('Notifikasi_model')->prosesHapus($id)) {
             Flasher::setFlash(' berhasil dihapus', '', 'success');
         } else {
-            Flasher::setFlash(' gagal dihapus', '', 'danger');
+            Flasher::setFlash(' tidak berhasil dihapus', '', 'danger');
         }
         header('Location: ' . BASEURL . '/Notifikasi');
         exit;

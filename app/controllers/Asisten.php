@@ -95,7 +95,7 @@ class Asisten extends Controller {
             if($this->model('Asisten_model')->tambah($_POST) > 0){
                 Flasher::setFlash(' berhasil ditambahkan', '', 'success');
             }else{
-                Flasher::setFlash(' gagal ditambahkan ', '', 'danger');
+                Flasher::setFlash(' tidak berhasil ditambahkan ', '', 'danger');
             }
             header('Location: '.BASEURL. '/Asisten');
             exit;
@@ -106,7 +106,7 @@ class Asisten extends Controller {
         if($this->model('Asisten_model')->prosesUbah($_POST) > 0){
             Flasher::setFlash(' berhasil diubah', '', 'success');
         }else{
-            Flasher::setFlash(' gagal diubah', '', 'danger');
+            Flasher::setFlash(' tidak berhasil diubah', '', 'danger');
         }
         header('Location: '.BASEURL. '/Asisten');
         exit;
@@ -135,7 +135,7 @@ class Asisten extends Controller {
             header('Location: ' . BASEURL . '/Asisten');
             exit;
         } else {
-            Flasher::setFlash(' gagal dihapus', '', 'danger');
+            Flasher::setFlash(' tidak berhasil dihapus', '', 'danger');
             header('Location: ' . BASEURL . '/Asisten');
             exit;
         }
