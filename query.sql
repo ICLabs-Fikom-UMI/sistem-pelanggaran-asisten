@@ -23,7 +23,7 @@ CREATE PROCEDURE TampilDetailAsisten(IN id INT)
 BEGIN
 	SELECT
 		asisten.*, 
-        user.photo_path 
+        user.photo_path 
 	FROM asisten 
 	JOIN user ON user.ID_User = asisten.ID_User 
 	WHERE asisten.ID_Asisten = id;
